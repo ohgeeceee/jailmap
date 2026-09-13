@@ -1,0 +1,126 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model State {
+  id        String   @id @default(cuid())
+  name      String
+  abbrev    String   @unique
+  fipsCode  String   @unique
+  counties  County[]
+  jails     Jail[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([abbrev])
+}
+
+model County {
+  id        String   @id @default(cuid())
+  name      String
+  fipsCode  String   @unique
+  stateId   String
+  state     State    @relation(fields: [stateId], references: [id])
+  jails     Jail[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([stateId])
+  @@index([fipsCode])
+}
+
+model Jail {
+  id          String   @id @default(cuid())
+  name        String
+  address     String?
+  city        String?
+  zipCode     String?
+  phone       String?
+  website     String?
+  latitude    Float?
+  longitude   Float?
+  countyId    String
+  county      County   @relation(fields: [countyId], references: [id])
+  stateId     String
+  state       State    @relation(fields: [stateId], references: [id])
+  rosters     Roster[]
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([countyId])
+  @@index([stateId])
+  @@index([isActive])
+}
+
+model Roster {
+  id            String   @id @default(cuid())
+  jailId        String
+  jail          Jail     @relation(fields: [jailId], references: [id])
+  inmateName    String
+  bookingNumber String?
+  bookingDate   DateTime?
+  releaseDate   DateTime?
+  charges       String[]
+  bondAmount    Float?
+  mugshotUrl    String?
+  age           Int?
+  gender        String?
+  race          String?
+  scrapeDate    DateTime @default(now())
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@index([jailId])
+  @@index([scrapeDate])
+  @@index([inmateName])
+}
+
+model User {
+  id            String    @id @default(cuid())
+  email         String    @unique
+  name          String?
+  passwordHash  String?
+  role          Role      @default(FREE)
+  subscription  Subscription?
+  apiKeys       ApiKey[]
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}
+
+model Subscription {
+  id              String   @id @default(cuid())
+  userId          String   @unique
+  user            User     @relation(fields: [userId], references: [id])
+  stripeCustomerId String?
+  stripePriceId   String?
+  stripeSubscriptionId String?
+  status          String
+  currentPeriodEnd DateTime?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+model ApiKey {
+  id        String   @id @default(cuid())
+  key       String   @unique
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  name      String
+  isActive  Boolean  @default(true)
+  lastUsed  DateTime?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([userId])
+}
+
+enum Role {
+  FREE
+  PREMIUM
+  ADMIN
+}

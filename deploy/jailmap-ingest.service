@@ -1,0 +1,9 @@
+[Unit]
+Description=Ingest JailMap authorized sources
+After=docker.service network-online.target
+[Service]
+Type=oneshot
+WorkingDirectory=/root/jailmap
+ExecStart=/usr/bin/docker compose run --rm --no-deps -T --volume /root/jailmap/backend:/app/backend:ro api python -m backend.ingest
+TimeoutStartSec=3600
+Nice=10

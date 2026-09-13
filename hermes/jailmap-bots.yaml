@@ -1,0 +1,144 @@
+version: 1
+project:
+  name: jailmap
+  website: https://jailmap.com
+  workspace: /root/jailmap
+  safety_model: discovery_first_no_publication
+
+rules:
+  - Do not enable an ingestion source from discovery alone.
+  - Do not scrape around captchas, paywalls, login walls, robots blocks, or rate limits.
+  - Use official agency, county, city, court, or open-data endpoints before third-party mirrors.
+  - Keep newly found sources disabled and unverified until a human approves legal basis, adapter behavior, retention, and publication eligibility.
+  - Never log raw rosters, DOBs, residential addresses, SSNs, driver-license numbers, sealed records, juvenile records, or credentials.
+  - Prefer staging_only feeds until the source proves adult eligibility, stable booking identity, source freshness, and complete charge/bond semantics.
+  - Record source URL, source owner, retrieval date, access notes, adapter strategy, and why a source is or is not publishable.
+
+checkpoint_contract:
+  required_fields:
+    - status
+    - state
+    - county
+    - files_changed
+    - verification
+    - source_evidence
+    - publication_risk
+    - next_action
+  statuses:
+    - NEEDS_REVIEW
+    - BLOCKED
+    - READY_FOR_DRY_RUN
+    - READY_FOR_ADAPTER
+    - DONE
+
+bots:
+  - id: jailmap-ops-captain
+    role: orchestrator
+    standing_mission: Keep Jailmap work moving without crossing production gates.
+    owns:
+      - triage incoming requests
+      - route source discovery to state scouts
+      - route adapter work to feed builders
+      - require review before deploys, source enablement, cron changes, or publication
+    default_commands:
+      - python3 state_manager.py --status
+      - git diff --stat
+
+  - id: source-scout-west
+    role: source_discovery
+    scope:
+      states: [AK, AZ, CA, CO, HI, ID, MT, NV, NM, OR, UT, WA, WY]
+    standing_mission: Find official jail roster and custody-data sources, then write disabled leads.
+    writes:
+      - data/official-jail-source-leads.csv
+      - docs/source-discovery-log.md
+    must_not_write:
+      - records.inmates
+      - records.jurisdictions.enabled=true
+
+  - id: source-scout-south
+    role: source_discovery
+    scope:
+      states: [AL, AR, FL, GA, KY, LA, MS, NC, OK, SC, TN, TX, VA, WV]
+    standing_mission: Find official jail roster and custody-data sources, then write disabled leads.
+    writes:
+      - data/official-jail-source-leads.csv
+      - docs/source-discovery-log.md
+    must_not_write:
+      - records.inmates
+      - records.jurisdictions.enabled=true
+
+  - id: source-scout-north
+    role: source_discovery
+    scope:
+      states: [CT, DE, IA, IL, IN, KS, MA, MD, ME, MI, MN, MO, ND, NE, NH, NJ, NY, OH, PA, RI, SD, VT, WI]
+    standing_mission: Find official jail roster and custody-data sources, then write disabled leads.
+    writes:
+      - data/official-jail-source-leads.csv
+      - docs/source-discovery-log.md
+    must_not_write:
+      - records.inmates
+      - records.jurisdictions.enabled=true
+
+  - id: feed-builder
+    role: adapter_engineer
+    standing_mission: Turn human-reviewed leads into staging-only adapters with bounded fetches and tests.
+    owns:
+      - adapter implementation under backend/adapters/
+      - backend.ingest adapter registration
+      - dry-run validation
+      - duplicate-key and malformed-snapshot tests
+    publication_default: staging_only
+
+  - id: privacy-reviewer
+    role: compliance_review
+    standing_mission: Block unsafe publication paths and verify retention, correction, and redaction behavior.
+    owns:
+      - adult eligibility review
+      - sensitive field exclusion
+      - source terms and access notes
+      - suppression preservation
+      - correction/removal workflow risks
+
+  - id: search-indexer
+    role: search_ops
+    standing_mission: Maintain outbox/index health after approved staging or public feed changes.
+    owns:
+      - Meilisearch schema checks
+      - outbox lag checks
+      - stale index removal checks
+      - public API hydration checks
+
+  - id: site-operator
+    role: production_ops
+    standing_mission: Keep jailmap.com healthy, backed up, and observable.
+    owns:
+      - service health checks
+      - backup freshness checks
+      - TLS expiry checks
+      - deploy runbook updates
+    requires_approval_for:
+      - systemctl restart
+      - docker compose up/down
+      - nginx changes
+      - cron/timer changes
+      - source enablement
+      - public data publication
+
+lanes:
+  discovery:
+    input: state or county target
+    output: official source lead
+    handoff_to: privacy-reviewer
+  review:
+    input: official source lead
+    output: approved staging plan or blocked note
+    handoff_to: feed-builder
+  staging_feed:
+    input: reviewed source
+    output: adapter plus dry-run proof
+    handoff_to: privacy-reviewer
+  production_feed:
+    input: approved staging feed
+    output: enabled source plan
+    handoff_to: site-operator

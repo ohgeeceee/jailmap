@@ -1,0 +1,7 @@
+[Unit]
+Description=Update JailMap search index
+[Timer]
+OnBootSec=3min
+OnUnitInactiveSec=60s
+[Install]
+WantedBy=timers.target

@@ -1,0 +1,16 @@
+node_modules
+.next
+.git
+.data
+.env*
+.agents
+.claude
+.cursor
+.devin
+**/__pycache__
+**/*.pyc
+*.tsbuildinfo
+data
+backups
+secrets
+releases

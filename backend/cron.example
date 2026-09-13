@@ -1,0 +1,5 @@
+# UTC. Configure host cron/systemd secret injection; do not put secrets in crontab.
+# /opt/jailmap/.venv/bin/python must have backend/requirements.txt installed.
+# Retry ingestion transient failures on the next scheduled run; alert on failure.
+15 3 * * * cd /opt/jailmap && .venv/bin/python -m backend.ingest
+* * * * * cd /opt/jailmap && .venv/bin/python -m backend.search

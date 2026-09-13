@@ -1,0 +1,16 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": { "incremental": false },
+  "include": [
+    "src/components/records/**/*.tsx",
+    "src/components/records/**/*.ts",
+    "src/lib/records-gateway.ts",
+    "src/app/search/**/*.tsx",
+    "src/app/inmate/**/*.tsx",
+    "src/app/api/search/**/*.ts",
+    "src/app/api/inmate/**/*.ts",
+    "src/app/api/jurisdictions/**/*.ts",
+    "src/app/api/corrections/**/*.ts"
+  ],
+  "exclude": ["node_modules"]
+}

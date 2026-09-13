@@ -1,0 +1,36 @@
+# --- secrets / env ---
+.env
+.env.*
+secrets/
+*.pem
+*.key
+
+# --- runtime data ---
+data/
+backups/
+log/
+logs/
+*.db
+*.sqlite
+
+# --- node / next ---
+node_modules/
+.next/
+out/
+*.tsbuildinfo
+.eslintcache
+
+# --- python ---
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# --- docker build context noise ---
+*.tar.gz
+source-initial.tar.gz
+
+# --- misc ---
+.DS_Store
+states/
+__pycache__/

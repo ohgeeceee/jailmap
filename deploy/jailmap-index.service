@@ -1,0 +1,9 @@
+[Unit]
+Description=Dispatch JailMap search outbox
+After=docker.service
+[Service]
+Type=oneshot
+WorkingDirectory=/root/jailmap
+ExecStart=/usr/bin/docker compose exec -T api python -m backend.search
+TimeoutStartSec=6600
+Nice=10

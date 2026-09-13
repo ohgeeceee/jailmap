@@ -1,0 +1,119 @@
+name: jailmap
+x-logging: &logging
+  driver: json-file
+  options: { max-size: '10m', max-file: '3' }
+x-api-environment: &api-environment
+  DATABASE_URL: postgresql://jailmap_app:${PG_APP_PASSWORD}@postgres:5432/jailmap
+  REDIS_URL: redis://redis:6379/0
+  MEILI_URL: http://meili:7700
+  MEILI_KEY: ${MEILI_MASTER_KEY}
+  RECORDS_API_TOKEN: ${RECORDS_API_TOKEN}
+  SOURCE_ALLOWED_HOSTS: ${SOURCE_ALLOWED_HOSTS:-}
+services:
+  postgres:
+    image: ${POSTGRES_IMAGE:-postgres:16-alpine}
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: jailmap
+      POSTGRES_USER: jailmap_owner
+      POSTGRES_PASSWORD: ${PG_OWNER_PASSWORD}
+      PG_APP_PASSWORD: ${PG_APP_PASSWORD}
+    volumes:
+      - ./data/postgres:/var/lib/postgresql/data
+      - ./backend/schema.sql:/bootstrap/records.sql:ro
+      - ./deploy/map-schema.sql:/bootstrap/map.sql:ro
+      - ./deploy/init-db.sh:/docker-entrypoint-initdb.d/10-jailmap.sh:ro
+    networks: [private]
+    mem_limit: 512m
+    cpus: 0.75
+    logging: *logging
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U jailmap_owner -d jailmap']
+      interval: 10s
+      timeout: 5s
+      retries: 10
+  redis:
+    image: ${REDIS_IMAGE:-redis:7-alpine}
+    command: ['redis-server', '--appendonly', 'yes', '--maxmemory', '96mb', '--maxmemory-policy', 'noeviction']
+    restart: unless-stopped
+    volumes: ['./data/redis:/data']
+    networks: [private]
+    mem_limit: 160m
+    cpus: 0.25
+    logging: *logging
+    healthcheck:
+      test: ['CMD', 'redis-cli', 'ping']
+      interval: 10s
+      retries: 5
+  meili:
+    image: ${MEILI_IMAGE:-getmeili/meilisearch:v1.37}
+    restart: unless-stopped
+    environment:
+      MEILI_ENV: production
+      MEILI_MASTER_KEY: ${MEILI_MASTER_KEY}
+      MEILI_NO_ANALYTICS: 'true'
+      MEILI_MAX_INDEXING_MEMORY: 256Mb
+      MEILI_MAX_INDEXING_THREADS: '1'
+    volumes: ['./data/meili:/meili_data']
+    networks: [private]
+    mem_limit: 512m
+    cpus: 0.75
+    logging: *logging
+  api:
+    image: jailmap-api:${RELEASE_TAG:-initial}
+    build:
+      context: .
+      dockerfile: deploy/Dockerfile.api
+      args: { PYTHON_IMAGE: '${PYTHON_IMAGE:-python:3.12-slim-bookworm}' }
+    restart: unless-stopped
+    environment: *api-environment
+    networks: [private, egress]
+    depends_on:
+      postgres: { condition: service_healthy }
+      redis: { condition: service_healthy }
+    mem_limit: 320m
+    cpus: 0.75
+    cap_drop: [ALL]
+    security_opt: ['no-new-privileges:true']
+    logging: *logging
+    healthcheck:
+      test: ['CMD', 'python', '-c', "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/healthz',timeout=4)"]
+      interval: 30s
+      timeout: 8s
+      retries: 5
+  web:
+    image: jailmap-web:${RELEASE_TAG:-initial}
+    build:
+      context: .
+      dockerfile: deploy/Dockerfile.web
+      args: { NODE_IMAGE: '${NODE_IMAGE:-node:24-bookworm-slim}' }
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
+      AUTH_DATABASE_PATH: /app/account-data/accounts.sqlite
+      AUTH_SINGLE_INSTANCE: 'true'
+      APP_ORIGIN: https://jailmap.com
+      AUTH_TRUSTED_CLIENT_HEADER: x-jailmap-client-ip
+      RECORDS_TRUSTED_CLIENT_HEADER: x-jailmap-client-ip
+      RECORDS_API_URL: http://api:8000
+      RECORDS_API_TOKEN: ${RECORDS_API_TOKEN}
+      DATABASE_URL: postgresql://jailmap_app:${PG_APP_PASSWORD}@postgres:5432/jailmap
+      NODE_OPTIONS: --max-old-space-size=512
+    ports: ['127.0.0.1:3109:3000']
+    volumes: ['./data/accounts:/app/account-data']
+    networks: [private, egress]
+    depends_on:
+      api: { condition: service_healthy }
+    mem_limit: 768m
+    cpus: 1.0
+    cap_drop: [ALL]
+    security_opt: ['no-new-privileges:true']
+    logging: *logging
+    healthcheck:
+      test: ['CMD', 'node', '-e', "fetch('http://127.0.0.1:3000/api/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+networks:
+  private: { internal: true }
+  egress: {}

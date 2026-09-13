@@ -1,0 +1,8 @@
+[Unit]
+Description=Check JailMap domain readiness for HTTPS
+[Timer]
+OnBootSec=2min
+OnUnitActiveSec=15min
+Persistent=true
+[Install]
+WantedBy=timers.target

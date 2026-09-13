@@ -1,0 +1,6 @@
+
+Inmate Name
+Booking #ABC123
+DOB 01/01/1980 Age 46 M W
+Charge: Possession
+Bond: $5000

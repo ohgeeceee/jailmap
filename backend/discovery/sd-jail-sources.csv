@@ -1,0 +1,13 @@
+state,county,source_url,source_type,access_status,facility,notes
+SD,minnehaha,https://web.minnehahacounty.gov/dept/so/jailInmateInfo/browseJailInmate.php,custom_html,active,Minnehaha County Jail,"Inmate roster updated every 15 minutes. Table format with name, charges, bond, facility."
+SD,pennington,https://incustodysearch.penningtonsheriff.org/,custom_html,active,Pennington County Jail,"ASP.NET search page with photo links. Inmates housed in Rapid City."
+SD,brown,https://www.brownso.org/agency-data/jail-roster/,custom_html,no_public_access,Brown County Jail,"Page uses collapsible JS blocks. Alternative: SD SAVIN statewide portal (https://savin.sd.gov/)."
+SD,custer,https://www.pennco.org/law_public_safety/jail/current_inmates.php,custom_html,active,Pennington County Jail,"Custer County inmates housed at Pennington County Jail per mutual aid agreement."
+SD,yankton,https://www.yanktonsheriffsoffice.com/current-inmates,custom_html,partial,Yankton County Jail,"Daily PDF roster via CloudFront link. Needs PDF parser."
+SD,codington,https://codington.sdcounty.gov/sheriff/information/inmates/Current_Inmates.pdf.pdf,custom_html,active,Codington County Jail,"PDF roster updated daily. Source URL redirects to PDF generation."
+SD,fall-river,https://fallriverjailroster.org/,custom_html,active,Fall River County Jail,"Takes over county jail operations in Hot Springs. Uses VINElink integration."
+SD,lincoln,http://inmateroster.lincolncountysheriff.us/,custom_html,active,Lincoln County Jail,"HTML roster with booking dates, bond, charges. Image links included."
+SD,brookings,http://bereadybrookings.com/zuercher/Current_Inmates.pdf,custom_html,active,Brookings County Jail,"PDF roster available for download. Zuercher platform backend."
+SD,davison,https://davisoncountyjailsd.org/,custom_html,no_public_access,Davison County Jail,"No public roster on site. Contact (605) 995-8639 or use SD DOC locator."
+SD,meade,https://meade-so-sd.zuercherportal.com/,custom_html,gated,Meade County Jail,"Zuercher Portal requires manual verification at start of day."
+SD,todd,https://www.toddcountymn.gov/uploads/daily_inmate_roster.pdf,custom_html,active,Todd County Jail,"Minnesota county by mistake. South Dakota Todd County rosters are manual phone check. (605) 856-4411"

@@ -1,0 +1,55 @@
+import { test, after } from 'node:test'
+import assert from 'node:assert/strict'
+import { mkdtempSync, rmSync } from 'node:fs'
+import { tmpdir } from 'node:os'
+import { join, resolve, sep } from 'node:path'
+const directory = mkdtempSync(join(tmpdir(), 'jailmap-accounts-test-'))
+process.env.AUTH_DATABASE_PATH = join(directory, 'accounts.sqlite')
+const store = await import('../src/lib/accounts/store.ts')
+const password = 'synthetic-test-passphrase-123'
+after(() => { store.database().close(); assert.ok(resolve(directory).startsWith(resolve(tmpdir()) + sep + 'jailmap-accounts-test-')); rmSync(directory, { recursive: true, force: true }) })
+test('account lifecycle, role isolation and immediate session revocation', async () => {
+  const id = await store.register({ name: 'Test Member', email: 'MEMBER@example.test', password, accepted: true, role: 'admin' })
+  const token = store.createSession(id)
+  assert.equal(store.getSession(token)?.role, 'member')
+  assert.equal(store.getSession(token)?.email, 'member@example.test')
+  assert.equal(store.getSession('forged'), null)
+  assert.notEqual(store.database().prepare('SELECT token_hash FROM sessions WHERE account_id=?').get(id)?.token_hash, token)
+  assert.ok(!JSON.stringify(store.getSession(token)).includes('password'))
+  await assert.rejects(store.register({ name: 'Duplicate', email: 'member@example.test', password, accepted: true }))
+  await assert.rejects(store.login({ email: 'member@example.test', password: 'incorrect' }))
+  assert.equal(await store.login({ email: 'member@example.test', password }), id)
+  const second = await store.register({ name: 'Other Member', email: 'other@example.test', password, accepted: true })
+  store.saveSearch(id, { label: 'My search', name: 'Example', state: 'MT', county: '' })
+  const saved = store.getDashboard(id).searches[0]
+  assert.throws(() => store.deleteSearch(second, saved.id))
+  assert.equal(store.getDashboard(id).searches.length, 1)
+  store.deleteSearch(id, saved.id)
+  assert.equal(store.getDashboard(id).searches.length, 0)
+  assert.throws(() => store.updateAccount(second, id, { role: 'admin', status: 'active' }))
+  store.promoteAdmin('other@example.test')
+  store.updateAccount(second, id, { role: 'member', status: 'suspended' })
+  assert.equal(store.getSession(token), null)
+  await assert.rejects(store.login({ email: 'member@example.test', password }))
+  store.updateAccount(second, id, { role: 'member', status: 'active' })
+  const fresh = store.createSession(id), otherSession = store.createSession(id)
+  store.revokeOtherSessions(id, fresh)
+  assert.equal(store.getSession(otherSession), null)
+  assert.ok(store.getSession(fresh))
+  await store.changePassword(id, { currentPassword: password, password: password + '-new' })
+  assert.equal(store.getSession(fresh), null)
+  await assert.rejects(store.login({ email: 'member@example.test', password }))
+  assert.equal(await store.login({ email: 'member@example.test', password: password + '-new' }), id)
+  const expiring = store.createSession(id)
+  store.database().prepare('UPDATE sessions SET expires_at=0 WHERE account_id=?').run(id)
+  assert.equal(store.getSession(expiring), null)
+  assert.throws(() => store.updateAccount(second, second, { role: 'member', status: 'active' }))
+})
+test('persistent rate limiter rejects excess attempts', () => {
+  store.rateLimit('test-bucket', 2); store.rateLimit('test-bucket', 2)
+  assert.throws(() => store.rateLimit('test-bucket', 2), (error: unknown) => error instanceof store.AccountError && error.status === 429)
+})
+test('registration rejects weak passwords and missing acceptance', async () => {
+  await assert.rejects(store.register({ name: 'Test', email: 'new@example.test', password: 'short', accepted: true }))
+  await assert.rejects(store.register({ name: 'Test', email: 'new@example.test', password, accepted: false }))
+})

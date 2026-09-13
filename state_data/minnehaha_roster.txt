@@ -1,0 +1,15 @@
+Who's Behind Bars
+
+**SCAM ALERT:** Please be advised that scammers are targeting people and families of those in custody, or who have been recently released.
+
+Inmate information is updated every 15 minutes.
+
+|| Middle Name | Intake Time | Charges |
+|| --- | --- | --- |
+|| SALAMA | ADAM | ABDALLA | 2510032 | 2026-03-01 | 07:07 AM | Jail | 3000.00 | WARRANT original charge 22-30-6(F4) Robbery in the Second Degree |
+|| HABEEB | DAVID | ABDULKADIR | 2515992 | 2026-06-22 | 04:40 AM | Jail | 50000.00 | WARRANT original charge 22-18-1.1 Aggravated Assault |
+|| AWEL | MICHEL | ABOT | 2519873 | 2026-05-03 | 01:54 AM | Jail | 100500.00 | STATE CHARGES 22-11-4 Resisting Arrest |
+|| ISAIAH | ANDREW | ACKERMAN | 2525839 | 2026-04-09 | 08:08 PM | Jail | 50000.00 | WARRANT original charge 22-18-1.1 Aggravated Assault |
+|| HAMZA | ABDULAH | ADEM | 2509890 | 2026-08-31 | 10:32 AM | Jail | 2000.00 | OTHER COUNTY 22-18-1 Simple Assault |
+|| AMY | ROSE | ADEMA | 2418936 | 2026-05-17 | 09:54 PM | Jail | No Bond | PAROLE HOLD - NO BOND |
+|| TASHEENA | LOUISE | AFRAIDOFHAWK | 2519484 | 2026-07-26 | 06:57 AM | Jail | 15000.00 | PROBATION HOLD |

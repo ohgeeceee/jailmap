@@ -1,0 +1,25 @@
+{
+  "reviewed_at": "2026-09-07",
+  "scope": "Non-personal population statistics only. Candidates are not enabled adapters.",
+  "sources": [
+    {
+      "state": "FL",
+      "publisher": "Florida Department of Corrections",
+      "url": "https://www.fdc.myflorida.com/content/download/42639/file/2025_10%20October%20FCDF.pdf",
+      "report_period": "2025-10",
+      "scope": "County detention facilities",
+      "metrics": ["average_daily_population", "incarceration_rate", "pretrial_population"],
+      "status": "historical_report_candidate",
+      "limitations": "Historical monthly report, not live custody data. Some counties may contain approximated or prior-period figures. Preserve each row's reporting period and footnotes."
+    },
+    {
+      "state": "KS",
+      "publisher": "Kansas Department of Corrections",
+      "url": "https://www.doc.ks.gov/publications",
+      "scope": "State correctional system; does not represent all county jails",
+      "metrics": ["end_of_month_population", "average_daily_population"],
+      "status": "report_discovery",
+      "limitations": "Select and validate dated reports. The current_population_totals page showed an Updated 9-18-2025 label when reviewed; do not use its page modification date as the data date."
+    }
+  ]
+}

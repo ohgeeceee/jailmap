@@ -1,0 +1,46 @@
+state,county,tier,facility,source_type,source_url,access_status,update_frequency,notes,adapter
+ID,Ada,1,Ada County Jail,custom_html,https://apps.adacounty.id.gov/sheriff/reports/inmates.aspx,active,daily,Official county roster/arrest report pages; updated every 24 hours,none
+ID,Canyon,1,Canyon County Jail,custom_html,https://jailroster.canyoncounty.id.gov/,active,hourly,Public jail roster with search and current arrests pages,none
+ID,Kootenai,1,Kootenai County Jail,pdf,https://map.kcgov.us/app/Misc/SO_PDF/CurrentInmateList.pdf,active,daily,PDF current inmate list with pending bonds; official mapping domain,none
+ID,Bonneville,1,Bonneville County Jail,custom_html,http://bonnevillesheriff.com/bonneville-county-jail/inmate-list/,active,hourly,Official jail inmate list page,bonneville_html
+ID,Twin Falls,1,Twin Falls County Jail,none,https://twinfallscoso.com/resources/inmate-information/,unknown,unknown,No direct public inmate roster found; inmate information is present but not a roster,none
+ID,Bannock,1,Bannock County Detention Center,custom_html,https://www.bannockcounty.gov/jail-roster/,blocked/daily,Roster is now embedded in sheriff app; public page still links roster,none
+ID,Bingham,1,Bingham County Jail,none,https://www.binghamid.gov/sheriff,unknown,unknown,No public roster page found; only sheriff app/department listings,none
+ID,Blaine,1,Blaine County Detention Center,custom_html,https://www.blainecountyid.gov/318/Detention-Roster,active,daily,Official detention roster page on CivicPlus-style site,none
+ID,Nez Perce,1,Nez Perce County Jail,none,https://nezpercecountyjailid.org/,unknown,unknown,Third-party lookup pages appear but no confirmed direct official roster URL,none
+ID,Latah,1,Latah County Jail,none,https://latahcountyid.gov/sheriff/,unknown,unknown,Sheriff site mentions detention/jail roster but no direct roster URL confirmed,none
+ID,Bonner,2,Bonner County Jail,pdf,https://bonnerso.org/detention/,active,daily,Official sheriff site offers current inmate PDF roster,none
+ID,Jefferson,2,Jefferson County Jail,custom_html,https://www.jeffcoso.org/roster.php,active,daily,Inmate roster page with booking-date descending view,jefferson_html
+ID,Cassia,2,Cassia County Jail,custom_html,https://www.cassia.gov/jail-roster,active,daily,Official jail roster and recent bookings pages,none
+ID,Elmore,2,Elmore County Jail,none,https://elmorecounty.org/elmore-county-sheriff/elmore-county-jail/,unknown,unknown,Roster moved to sheriff app and may be under maintenance,none
+ID,Jerome,2,Jerome County Detention Center,custom_html,http://www.jeromecountyid.us/367/Jail-Reports-Warrants,active,daily,Official jail reports and warrants page likely includes roster/reports,none
+ID,Payette,2,Payette County Jail,none,https://www.payettecounty.org/sheriff-s-department-contacts/22-jail-inmate-records,unknown,unknown,No public roster; jail/inmate records contact info only,none
+ID,Gem,2,Gem County Jail,none,https://www.gemcounty.org/departments_offices/county_sheriff/jail_service_information.php,unknown,unknown,Sheriff site has jail info but no confirmed online roster,none
+ID,Valley,2,Valley County Jail,custom_html,https://www.valleycounty.org/departments/Jail,unknown,unknown,Official detention facility page exists but roster not confirmed in search results,none
+ID,Idaho,2,Idaho County Jail,custom_html,https://idahocounty.org/planb/sheriffs-office/jail-division/current-inmate-list/,active,daily,Official current inmate list page,none
+ID,Custer,2,Custer County Jail,none,https://custercountyidaho.org/departments/sheriff/,unknown,unknown,Sheriff contact info present; no confirmed public roster endpoint found,none
+ID,Adams,3,Adams County Jail,none,https://www.co.adams.id.us/departments/sheriff,unknown,unknown,No public roster found; visitor info only,none
+ID,Bear Lake,3,Bear Lake County Jail,none,https://www.bearlakecounty.info/sheriff.html,unknown,unknown,Sheriff page suggests VINELink/offender watch usage rather than roster,none
+ID,Benewah,3,Benewah County Jail,none,https://www.benewahcountyid.gov/departments/sheriff,unknown,unknown,No confirmed public roster URL from search results,none
+ID,Boise,3,Boise County Jail,none,https://www.boisecounty.us/sheriffs-office/,unknown,unknown,No public roster found; Boise County inmates are often housed in Ada County Jail,none
+ID,Boundary,3,Boundary County Jail,custom_html,https://www.boundarysheriff.org/pages/jail,unknown,unknown,Sheriff site has jail page but roster/data not confirmed from search,none
+ID,Butte,3,Butte County Jail,none,https://buttecountyid.us/butte-county-contacts/,unknown,unknown,Only contact directory found; no public roster confirmed,none
+ID,Camas,3,Camas County Jail,none,https://camascounty.id.gov/camas-county-sheriffs-office/,unknown,unknown,Sheriff contact info present; no confirmed public roster found,none
+ID,Caribou,3,Caribou County Jail,none,https://www.caribousheriff.com/departments/detention_and_jail/,unknown,unknown,Jail/detention page exists but public roster not confirmed,none
+ID,Clark,3,Clark County Jail,none,https://www.clark-co.id.gov/sheriff,unknown,unknown,No public roster found; small rural county with limited web presence,none
+ID,Clearwater,3,Clearwater County Jail,custom_html,https://www.clearwatercounty.org/departments/sheriff/jail/index.php,unknown,unknown,Sheriff/jail pages present but roster not confirmed in search results,none
+ID,Franklin,3,Franklin County Jail,custom_html,https://www.franklinsheriff.org/roster.php,active,daily,Inmate roster page observed with mugshots and booking dates,franklin_html
+ID,Fremont,3,Fremont County Jail,none,https://www.fremontcountyid.gov/240/Sheriffs-Office,unknown,unknown,No direct roster found; VINELink listed as option,none
+ID,Gooding,3,Gooding County Jail,none,https://www.goodingcounty.org/157/Sheriff,unknown,unknown,Sheriff page present; public roster not confirmed from search,none
+ID,Idaho,2,Idaho County Jail,custom_html,https://idahocounty.org/planb/sheriffs-office/jail-division/current-inmate-list/,active,daily,Official current inmate list page,none
+ID,Lemhi,3,Lemhi County Jail,none,https://www.lemhicountyidaho.org/222/Sheriff,unknown,unknown,Sheriff page present; roster not confirmed from search results,none
+ID,Lewis,3,Lewis County Jail,none,http://www.lewiscountyid.us/Elected-Officials/Sheriff,unknown,unknown,No confirmed online roster found; small rural sheriff presence,none
+ID,Lincoln,3,Lincoln County Jail,custom_html,https://www.lincolncountyid.gov/sheriff,unknown,unknown,Sheriff page references Offender Watch; public roster not confirmed,none
+ID,Madison,3,Madison County Jail,custom_html,https://madisonsheriff.com/,active,daily,Sheriff site references jail and inmate search/roster views,none
+ID,Minidoka,3,Minidoka County Jail,none,https://www.minidoka.id.us/191/Sheriff,unknown,unknown,No confirmed roster URL found; Mini-Cassia center is joint with Cassia,none
+ID,Oneida,3,Oneida County Jail,none,https://oneidaid.us/departments/sheriff/detention.php,no_public_access,daily,Official page states no jail/holding facility; inmates go to Caribou County Jail,none
+ID,Owyhee,3,Owyhee County Jail,custom_html,https://owyheecounty.net/sheriff/jail/,active,weekdays,Official jail roster page updated Monday-Friday mornings,owyhee_pdf
+ID,Power,3,Power County Jail,custom_html,https://jail.powercounty.gov/jailroster/,active,daily,Public jail roster with booking list and charges/bonds,power_html
+ID,Shoshone,3,Shoshone County Jail,none,https://shoshonecounty.id.gov/sheriff/,unknown,unknown,Sheriff contact info found; no confirmed public roster URL from search,none
+ID,Teton,3,Teton County Jail,none,https://www.tetoncountysheriff.com/jail___inmate_information/index.php,no_public_access,unknown,Official note says inmates housed at Madison County Jail,none
+ID,Washington,3,Washington County Jail,custom_html,https://www.co.washington.id.us/255/County-Jail,unknown,unknown,Jail page exists with friend/family info; public roster not confirmed,none

@@ -1,0 +1,8 @@
+In-Custody Search | Pennington County Sheriff's Office
+Search current custody records.
+
+| Picture | Name | Age | Inmate Type | Custody Date | Charge | Description | Severity |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| No photo | Abrahamson, Jason Robert | 44 | POLK | 08/19/2026 | 169A.20.1(7) | Traffic - DWI | GM |
+| No photo | Anderson, Lane Allen | 30 | PCSO | 06/25/2026 | 243.166.5(a)(1) | Predatory Offender | F |
+| No photo | Belgarde, Elijah Lee Louis | 19 | PCSO | 05/16/2026 | 609.582.1(a) | Burglary-1st Deg | F |

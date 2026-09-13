@@ -1,0 +1,8 @@
+[Unit]
+Description=Back up JailMap PostgreSQL and account storage
+After=docker.service
+[Service]
+Type=oneshot
+ExecStart=/bin/bash /root/jailmap/deploy/backup.sh
+TimeoutStartSec=1800
+Nice=15
