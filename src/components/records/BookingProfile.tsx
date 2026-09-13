@@ -36,6 +36,14 @@ export function BookingProfile({ id }: { id: string }) {
     <section className="mt-10 border-t pt-6">
       <h2 className="text-xl font-semibold">Request a correction or removal</h2>
       <p className="my-3">Requests are free and reviewed by a person. Do not include a Social Security number, full DOB, or identity documents.</p>
+      {booking && <p className="my-3 rounded border border-[var(--line)] bg-white p-4 text-sm">
+        Want your own name removed faster?{' '}
+        <a className="font-semibold text-[var(--green)] underline"
+           href={`/name-removal?name=${encodeURIComponent(`${booking.last_name}, ${booking.first_name}`)}`}>
+          Request a paid privacy review ($99)
+        </a>{' '}
+        — a reviewed request redacts the name from public pages where warranted.
+      </p>}
       <form className="grid gap-4" onSubmit={async event => {
         event.preventDefault(); setSending(true); setRequestMessage('Sending…')
         const data = new FormData(event.currentTarget)

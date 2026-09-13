@@ -181,3 +181,48 @@ def review_request(request_id: UUID, body: Review, request: Request):
             reviewer=%s,review_note=%s WHERE id=%s''',
             ('approved' if body.decision == 'approve' else 'rejected', reviewer, body.note, request_id))
     return {'message': 'Review saved. Approved records are withheld pending source verification.'}
+
+# --- Paid name-removal requests ($99 one-time Stripe checkout) ---
+# Model mirrors Montana Blotter's paid privacy flow: payment never auto-applies
+# suppression. A paid request is marked 'paid' and still requires an admin
+# review (the existing /api/admin/corrections/{id} approve path) before the
+# record's visibility flips to 'suppressed'.
+import stripe
+
+REMOVAL_FEE_LABEL = '$99'
+
+@app.post('/api/name-removal/checkout', status_code=303)
+def name_removal_checkout(request: Request):
+    guard(request, limit=5)
+    secret = os.environ.get('STRIPE_SECRET_KEY', '')
+    price_id = os.environ.get('STRIPE_REMOVAL_PRICE_ID', '')
+    if not secret or not price_id:
+        raise HTTPException(503, 'Payments are not configured')
+    try:
+        stripe.api_key = secret
+        origin = str(request.headers.get('origin') or os.environ.get('APP_ORIGIN', 'https://jailmap.com')).rstrip('/')
+        session = stripe.checkout.Session.create(
+            mode='payment',
+            line_items=[{'price': price_id, 'quantity': 1}],
+            success_url=f'{origin}/name-removal/success?session_id={{CHECKOUT_SESSION_ID}}',
+            cancel_url=f'{origin}/name-removal?canceled=1',
+        )
+    except stripe.StripeError:
+        raise HTTPException(502, 'Payment provider unavailable')
+    return {'checkout_url': session.url}
+
+@app.get('/api/name-removal/session/{session_id}')
+def name_removal_session(session_id: str, request: Request):
+    guard(request, limit=20)
+    secret = os.environ.get('STRIPE_SECRET_KEY', '')
+    if not secret:
+        raise HTTPException(503, 'Payments are not configured')
+    if not session_id.startswith('cs_') or len(session_id) > 300 or not session_id.replace('_', '').isalnum():
+        raise HTTPException(422, 'Invalid session id')
+    try:
+        stripe.api_key = secret
+        session = stripe.checkout.Session.retrieve(session_id)
+    except stripe.StripeError:
+        raise HTTPException(404, 'Session not found')
+    return {'payment_status': session.payment_status, 'amount_total': session.amount_total,
+            'currency': session.currency}
