@@ -1,0 +1,21 @@
+# JailMap bot team - Green tier only. Installed by hermes/BOT-SETUP.md.
+# Every entry below runs a read-only bot and appends a digest to that bot's own
+# agent-queue directory. No entry enables a source, publishes a record, sends
+# outbound mail, or restarts a service. Schedules are UTC and deliberately offset
+# from the 09:00 roster ingest, the 10:15 ingest watchdog and the 10:25 site check.
+SHELL=/bin/bash
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+
+# source-scout-<region> - weekly-coverage worklists, busiest uncovered counties first
+30 11 * * * root cd /root/jailmap && /usr/bin/python3 bots/scout_region.py west --write >> /root/jailmap/agent-queue/source-scout-west/cron.log 2>&1
+40 11 * * * root cd /root/jailmap && /usr/bin/python3 bots/scout_region.py south --write >> /root/jailmap/agent-queue/source-scout-south/cron.log 2>&1
+50 11 * * * root cd /root/jailmap && /usr/bin/python3 bots/scout_region.py north --write >> /root/jailmap/agent-queue/source-scout-north/cron.log 2>&1
+
+# feed-builder - adapter registration audit and orphaned-module candidates
+0 12 * * * root cd /root/jailmap && /usr/bin/python3 bots/adapter_audit.py --write >> /root/jailmap/agent-queue/feed-builder/cron.log 2>&1
+
+# privacy-reviewer - a verdict per registered source; BLOCKED rows are Red drafts
+10 12 * * * root cd /root/jailmap && /usr/bin/python3 bots/privacy_verdicts.py --write >> /root/jailmap/agent-queue/privacy-reviewer/cron.log 2>&1
+
+# search-indexer - Meilisearch reachability and outbox lag
+20 12 * * * root cd /root/jailmap && /usr/bin/python3 bots/index_health.py --write >> /root/jailmap/agent-queue/search-indexer/cron.log 2>&1
