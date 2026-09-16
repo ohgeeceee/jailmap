@@ -63,7 +63,8 @@ def _parse_date(raw: str) -> str | None:
     for fmt in _DATE_FORMATS:
         try:
             dt = datetime.strptime(raw, fmt)
-            if "%H" not in fmt:
+            # If no time component was specified (only date), default to noon
+            if "%H" not in fmt and "%I" not in fmt:
                 dt = dt.replace(hour=12, minute=0, second=0)
             return dt.strftime("%Y-%m-%dT%H:%M:%SZ")
         except ValueError:

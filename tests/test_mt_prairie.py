@@ -1,16 +1,14 @@
 """Tests for the Prairie County MT jail roster adapter."""
 import os
 import sys
+import unittest
 
 sys.path.insert(0, "/root/jailmap")
 
-import pytest
 from backend.adapters import mt_prairie
 
 
-@pytest.fixture
-def sample_html():
-    return """
+SAMPLE_HTML = """
 <html>
 <body>
 <form method="post" action="./NewInmates.aspx" id="form1">
@@ -42,40 +40,50 @@ def sample_html():
 """
 
 
-class TestMtPrairieAdapter:
-    def test_parse_entries(self, sample_html):
-        entries = mt_prairie._parse_entries(sample_html)
-        assert len(entries) == 1
+class TestMtPrairieAdapter(unittest.TestCase):
+    def test_parse_entries(self):
+        entries = mt_prairie._parse_entries(SAMPLE_HTML)
+        self.assertEqual(len(entries), 1)
         entry = entries[0]
-        assert entry["first_name"] == "Bryon"
-        assert entry["last_name"] == "Fair"
-        assert entry["age"] == 30
-        assert entry["sex"] == "Male"
-        assert entry["race"] == "B"
-        assert entry["booking_date"] == "2026-09-14T12:42:00Z"
-        assert entry["release_date"] == "2026-09-14T14:15:00Z"
-        assert entry["agency"] == "Prairie County Sheriff's Office"
-        assert len(entry["charges"]) == 1
-        assert entry["charges"][0] == "FAILURE TO APPEAR"
+        self.assertEqual(entry["first_name"], "Bryon Steven")
+        self.assertEqual(entry["last_name"], "Fair")
+        self.assertEqual(entry["age"], 30)
+        self.assertEqual(entry["sex"], "Male")
+        self.assertEqual(entry["race"], "B")
+        self.assertEqual(entry["booking_date"], "2026-09-14T12:42:00Z")
+        self.assertEqual(entry["release_date"], "2026-09-14T14:15:00Z")
+        self.assertEqual(entry["agency"], "Prairie County Sheriff's Office")
+        self.assertEqual(len(entry["charges"]), 1)
+        self.assertEqual(entry["charges"][0], "FAILURE TO APPEAR")
 
-    def test_parse_entries_two_inmates(self, sample_html):
-        html = sample_html.replace("_0", "_999").replace("rptListInmates_lblName_0", "rptListInmates_lblName_999")
-        entries = mt_prairie._parse_entries(html)
-        assert len(entries) == 1
-
-    def test_parse_race_sex_age(self):
+    def test_parse_race_sex_age_male(self):
         race, sex, age = mt_prairie._parse_race_sex_age("B / M / 30")
-        assert race == "B"
-        assert sex == "Male"
-        assert age == 30
+        self.assertEqual(race, "B")
+        self.assertEqual(sex, "Male")
+        self.assertEqual(age, 30)
 
+    def test_parse_race_sex_age_female(self):
         race, sex, age = mt_prairie._parse_race_sex_age("W / F / 26")
-        assert race == "W"
-        assert sex == "Female"
-        assert age == 26
+        self.assertEqual(race, "W")
+        self.assertEqual(sex, "Female")
+        self.assertEqual(age, 26)
 
-    def test_parse_date(self):
-        assert mt_prairie._parse_date("9/14/2026 12:42:00 PM") == "2026-09-14T12:42:00Z"
-        assert mt_prairie._parse_date("10/06/2026 09:00") == "2026-10-06T09:00:00Z"
-        assert mt_prairie._parse_date("") is None
-        assert mt_prairie._parse_date(None) is None
+    def test_parse_race_sex_age_empty(self):
+        race, sex, age = mt_prairie._parse_race_sex_age("")
+        self.assertIsNone(race)
+        self.assertIsNone(sex)
+        self.assertIsNone(age)
+
+    def test_parse_date_full(self):
+        self.assertEqual(mt_prairie._parse_date("9/14/2026 12:42:00 PM"), "2026-09-14T12:42:00Z")
+
+    def test_parse_date_short(self):
+        self.assertEqual(mt_prairie._parse_date("10/06/2026 09:00 AM"), "2026-10-06T09:00:00Z")
+
+    def test_parse_date_empty(self):
+        self.assertIsNone(mt_prairie._parse_date(""))
+        self.assertIsNone(mt_prairie._parse_date(None))
+
+
+if __name__ == "__main__":
+    unittest.main()

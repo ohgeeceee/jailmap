@@ -47,6 +47,7 @@ from backend.fulton import fetch_public as fulton_public
 from backend.adapters import bonneville_html, franklin_html, power_html
 from backend.adapters import minnehaha_html
 from backend.adapters import mt_zuercher, mt_flathead, mt_missoula, mt_yellowstone
+from backend.adapters import mt_prairie, mt_lake, mt_beaverhead, mt_lewis_and_clark
 from backend.adapters import html_roster
 from backend.adapters import socrata
 from backend.adapters import tyler_odyssey
@@ -62,6 +63,10 @@ ADAPTERS = {'standard_json': standard_json, 'fulton_socrata_staging': fulton_sta
             'flathead_html_staging': lambda source: mt_flathead.fetch(source).records,
             'missoula_html_staging': lambda source: mt_missoula.fetch(source).records,
             'yellowstone_html_staging': lambda source: mt_yellowstone.fetch(source).records,
+            'prairie_html_staging': lambda source: mt_prairie.fetch(source).records,
+            'lake_pdf_staging': lambda source: mt_lake.fetch(source).records,
+            'beaverhead_pdf_staging': lambda source: mt_beaverhead.fetch(source).records,
+            'lewis_and_clark_pdf_staging': lambda source: mt_lewis_and_clark.fetch(source).records,
             'tyler_odyssey_staging': lambda source: tyler_odyssey.fetch(source).records}
 
 def upsert(connection, jurisdiction_id, row):

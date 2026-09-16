@@ -1,17 +1,14 @@
 """Tests for the Lake County MT jail roster adapter."""
 import os
 import sys
+import unittest
 
 sys.path.insert(0, "/root/jailmap")
 
-import pytest
 from backend.adapters import mt_lake
 
 
-@pytest.fixture
-def sample_pdf_text():
-    """Sample text extracted from the Lake County PDF roster."""
-    return """Roster Printed on September 15, 2026
+SAMPLE_PDF_TEXT = """Roster Printed on September 15, 2026
 Last, First Middle Name Jacket # Age Race Sex Days Booking Date Arr Agency Charges / Hold Reasons
 45-5-502(3) - Sexual Assault Felony Inflicts Bodily Injury or Victim is Less than 16
 BEST, DALTON RAY 22-689 20 White Male 406 08/06/25 LCSO Offender 3 Years Older
@@ -28,24 +25,35 @@ in Subsection 45-9-102(1) or (2)
 """
 
 
-class TestMtLakeAdapter:
-    def test_parse_date(self):
-        assert mt_lake._parse_date("08/06/25") == "2025-08-06T12:00:00Z"
-        assert mt_lake._parse_date("09/15/2026") == "2026-09-15T12:00:00Z"
-        assert mt_lake._parse_date("") is None
-        assert mt_lake._parse_date(None) is None
+class TestMtLakeAdapter(unittest.TestCase):
+    def test_parse_date_short_year(self):
+        self.assertEqual(mt_lake._parse_date("08/06/25"), "2025-08-06T12:00:00Z")
 
-    def test_parse_pdf_with_fixture(self):
-        # Can't test PDF parsing without a real PDF, but we can test the regex pattern
-        import re
+    def test_parse_date_long_year(self):
+        self.assertEqual(mt_lake._parse_date("09/15/2026"), "2026-09-15T12:00:00Z")
+
+    def test_parse_date_empty(self):
+        self.assertIsNone(mt_lake._parse_date(""))
+        self.assertIsNone(mt_lake._parse_date(None))
+
+    def test_inmate_regex(self):
         line = "BEST, DALTON RAY 22-689 20 White Male 406 08/06/25 LCSO"
         m = mt_lake._INMATE_RE.match(line)
-        assert m is not None
-        assert m.group(1).strip() == "BEST, DALTON RAY"
-        assert m.group(2) == "22-689"
-        assert m.group(3) == "20"
-        assert m.group(4) == "White"
-        assert m.group(5) == "Male"
-        assert m.group(6) == "406"
-        assert m.group(7) == "08/06/25"
-        assert m.group(8) == "LCSO"
+        self.assertIsNotNone(m)
+        self.assertEqual(m.group(1).strip(), "BEST, DALTON RAY")
+        self.assertEqual(m.group(2), "22-689")
+        self.assertEqual(m.group(3), "20")
+        self.assertEqual(m.group(4), "White")
+        self.assertEqual(m.group(5), "Male")
+        self.assertEqual(m.group(6), "406")
+        self.assertEqual(m.group(7), "08/06/25")
+        self.assertEqual(m.group(8), "LCSO")
+
+    def test_inmate_regex_no_match(self):
+        line = "Charges / Hold Reasons"
+        m = mt_lake._INMATE_RE.match(line)
+        self.assertIsNone(m)
+
+
+if __name__ == "__main__":
+    unittest.main()

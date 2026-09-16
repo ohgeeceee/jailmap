@@ -22,7 +22,7 @@ _URL = "https://www.lakemt.gov/DocumentCenter/View/816/Jail_Roster-?bidId="
 # Pattern for the start of an inmate record
 # Format: LAST, FIRST MIDDLE Jacket# Age Race Sex Days BookingDate Agency
 _INMATE_RE = re.compile(
-    r'^([A-Z][A-Z\s\-\'.]+?)\s+(\d{2}-\d{3,4})\s+(\d{1,3})\s+([A-Z][a-z]+)\s+(Male|Female)\s+(\d{1,4})\s+(\d{1,2}/\d{1,2}/\d{2,4})\s+([A-Z]{2,5})'
+    r'^([A-Z][A-Z\s\-\',\.]+?)\s+(\d{2}-\d{3,4})\s+(\d{1,3})\s+([A-Z][a-z]+)\s+(Male|Female)\s+(\d{1,4})\s+(\d{1,2}/\d{1,2}/\d{2,4})\s+([A-Z]{2,5})'
 )
 
 
