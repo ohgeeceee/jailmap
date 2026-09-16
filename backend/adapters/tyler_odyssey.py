@@ -64,6 +64,7 @@ def fetch(source) -> AdapterResult:
                 'status': 'in_custody',
                 'visibility': 'public',
                 'dob': None,
+                'mugshot_url': None,
                 'charges': [],
                 'bonds': [],
             })
