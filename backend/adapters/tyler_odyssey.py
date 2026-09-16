@@ -21,16 +21,12 @@ def fetch(source) -> AdapterResult:
         resp.raise_for_status()
 
         html = resp.text
-        # Extract tbody content
         tbody_start = html.find('<tbody>')
         tbody_end = html.find('</tbody>', tbody_start) if tbody_start != -1 else -1
         if tbody_start == -1 or tbody_end == -1:
             return AdapterResult(source, [])
 
         tbody = html[tbody_start:tbody_end]
-
-        # Parse rows: each <tr> has <td class="Name"><a href="...">NAME</a></td>
-        # Pattern: <td class="Name"><a[^>]*>(NAME)</a></td>
         name_pattern = re.compile(r'<td class="Name"><a[^>]*>([^<]+)</a></td>\s*<td class="SubjectNumber">([^<]+)</td>\s*<td class="InCustody">([^<]+)</td>')
 
         for match in name_pattern.finditer(tbody):
@@ -41,7 +37,6 @@ def fetch(source) -> AdapterResult:
             if custody not in ('yes', 'true'):
                 continue
 
-            # Parse name "LAST, FIRST"
             last, first = '', ''
             if ',' in name:
                 parts = name.split(',', 1)
@@ -67,6 +62,8 @@ def fetch(source) -> AdapterResult:
                 'source_id': identity,
                 'booking_date': pulled_at,
                 'status': 'in_custody',
+                'visibility': 'public',
+                'dob': None,
                 'charges': [],
                 'bonds': [],
             })

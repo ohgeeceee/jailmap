@@ -50,6 +50,7 @@ from backend.adapters import mt_zuercher, mt_flathead, mt_missoula, mt_yellowsto
 from backend.adapters import mt_prairie, mt_lake, mt_beaverhead, mt_lewis_and_clark
 from backend.adapters import html_roster
 from backend.adapters import socrata
+from backend.adapters import evo_json, citizenrims
 from backend.adapters import tyler_odyssey
 ADAPTERS = {'standard_json': standard_json, 'fulton_socrata_staging': fulton_staging,
             'fulton_public_roster': fulton_public,
@@ -67,7 +68,9 @@ ADAPTERS = {'standard_json': standard_json, 'fulton_socrata_staging': fulton_sta
             'lake_pdf_staging': lambda source: mt_lake.fetch(source).records,
             'beaverhead_pdf_staging': lambda source: mt_beaverhead.fetch(source).records,
             'lewis_and_clark_pdf_staging': lambda source: mt_lewis_and_clark.fetch(source).records,
-            'tyler_odyssey_staging': lambda source: tyler_odyssey.fetch(source).records}
+            'tyler_odyssey_staging': lambda source: tyler_odyssey.fetch(source).records,
+            'evo_json_staging': lambda source: evo_json.fetch(source).records,
+            'citizenrims_portal': lambda source: citizenrims.fetch(source).records}
 
 def upsert(connection, jurisdiction_id, row):
     from datetime import datetime,timezone
