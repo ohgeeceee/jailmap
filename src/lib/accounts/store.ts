@@ -35,6 +35,9 @@ export function database() {
     CREATE TABLE IF NOT EXISTS rate_limits (key TEXT PRIMARY KEY, count INTEGER NOT NULL, expires_at INTEGER NOT NULL);
     CREATE TABLE IF NOT EXISTS account_audit (
       id TEXT PRIMARY KEY, actor_id TEXT, action TEXT NOT NULL, target_id TEXT, created_at INTEGER NOT NULL);
+    CREATE TABLE IF NOT EXISTS password_resets (
+      id TEXT PRIMARY KEY, account_id TEXT NOT NULL REFERENCES accounts(id) ON DELETE CASCADE,
+      token_hash TEXT NOT NULL UNIQUE, created_at INTEGER NOT NULL, expires_at INTEGER NOT NULL, used_at INTEGER);
   `)
   return connection
 }
@@ -199,5 +202,34 @@ export function promoteAdmin(email: string) {
     database().prepare("UPDATE accounts SET role='admin',status='active' WHERE id=?").run(String(account.id))
     database().prepare('DELETE FROM sessions WHERE account_id=?').run(String(account.id))
     audit(null, 'operator.promoted-admin', String(account.id))
+  })
+}
+
+const RESET_TOKEN_TTL = 60 * 60 // one hour
+export function requestPasswordReset(email: string): string | null {
+  const normalized = emailValue(email)
+  return transaction(() => {
+    const account = database().prepare('SELECT id FROM accounts WHERE email=?').get(normalized)
+    if (!account) return null
+    const token = randomBytes(32).toString('hex')
+    database().prepare('DELETE FROM password_resets WHERE account_id=?').run(String(account.id))
+    database().prepare('INSERT INTO password_resets (id,account_id,token_hash,created_at,expires_at) VALUES (?,?,?,?,?)')
+      .run(randomUUID(), String(account.id), digest(token), now(), now() + RESET_TOKEN_TTL)
+    return token
+  })
+}
+export async function resetPassword(token: string, password: string) {
+  if (!/^[a-f0-9]{64}$/.test(token)) throw new AccountError('This reset link is invalid or expired. Please request a new one.', 400)
+  const hash = await hashPassword(password)
+  transaction(() => {
+    const row = database().prepare('SELECT account_id, expires_at, used_at FROM password_resets WHERE token_hash=?').get(digest(token)) as { account_id: string; expires_at: number; used_at: number | null } | undefined
+    if (!row || row.used_at || Number(row.expires_at) < now()) throw new AccountError('This reset link is invalid or expired. Please request a new one.', 400)
+    const account = database().prepare("SELECT id FROM accounts WHERE id=? AND status='active'").get(row.account_id)
+    if (!account) throw new AccountError('This reset link is invalid or expired. Please request a new one.', 400)
+    database().prepare('UPDATE accounts SET password_hash=? WHERE id=?').run(hash, row.account_id)
+    database().prepare('UPDATE password_resets SET used_at=? WHERE token_hash=?').run(now(), digest(token))
+    database().prepare('DELETE FROM sessions WHERE account_id=?').run(row.account_id)
+    database().prepare('DELETE FROM password_resets WHERE account_id=? AND token_hash!=?').run(row.account_id, digest(token))
+    audit(row.account_id, 'password.reset', row.account_id)
   })
 }

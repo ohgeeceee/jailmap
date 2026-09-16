@@ -24,9 +24,10 @@ def snapshot_time(updated, now=None):
     return datetime.combine(day,time(19,30),EASTERN).astimezone(timezone.utc)
 
 def convert(row, observed):
-    if not isinstance(row.get('name'),str) or row['name'].count(',') != 1:
+    if not isinstance(row.get('name'),str) or ',' not in row['name']:
         raise ValueError('Unexpected Fulton name format')
-    last, first = (part.strip() for part in row['name'].split(',',1))
+    # Split on the LAST comma so "LAST, SUFFIX, FIRST" → last="LAST, SUFFIX", first="FIRST"
+    last, first = (part.strip() for part in row['name'].rsplit(',', 1))
     booking_date = datetime.fromisoformat(row['bookingdate'])
     if booking_date.tzinfo is not None or booking_date.time()!=time(0):
         raise ValueError('Fulton date-only contract changed')

@@ -47,12 +47,16 @@ from backend.fulton import fetch_public as fulton_public
 from backend.adapters import bonneville_html, franklin_html, power_html
 from backend.adapters import minnehaha_html
 from backend.adapters import mt_zuercher, mt_flathead, mt_missoula, mt_yellowstone
+from backend.adapters import html_roster
+from backend.adapters import socrata
 ADAPTERS = {'standard_json': standard_json, 'fulton_socrata_staging': fulton_staging,
             'fulton_public_roster': fulton_public,
             'bonneville_html_staging': lambda source: bonneville_html.parse(source).records,
             'franklin_html_staging': lambda source: franklin_html.parse(source).records,
             'power_html_staging': lambda source: power_html.parse(source).records,
             'minnehaha_html_staging': minnehaha_html.fetch,
+            'html_roster_staging': html_roster.fetch,
+            'socrata_staging': socrata.fetch,
             'mt_zuercher_staging': lambda source: mt_zuercher.fetch(source).records,
             'flathead_html_staging': lambda source: mt_flathead.fetch(source).records,
             'missoula_html_staging': lambda source: mt_missoula.fetch(source).records,
@@ -161,7 +165,7 @@ def run(state=None, county=None, jurisdiction=None, dry_run=False):
             except Exception as exc:
                 if run_id is not None:
                     with pool.connection() as connection:
-                        connection.execute("UPDATE records.ingestion_runs SET status='failed',finished_at=now(),error_type=%s WHERE id=%s", (type(exc).__name__,run_id))
+                        connection.execute("UPDATE records.ingestion_runs SET status='failed',finished_at=now(),error_type=%s,error_detail=%s WHERE id=%s", (type(exc).__name__,str(exc)[:800],run_id))
                 # Avoid logging raw payloads, credentials or personal information.
                 print(f"Source {source['id']} failed ({type(exc).__name__}); transaction not applied")
                 failed = True

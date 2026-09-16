@@ -4,7 +4,7 @@ import { NewBookingsFeed } from '@/components/records/NewBookingsFeed'
 import { Activity, Radio } from 'lucide-react'
 
 export const metadata = {
-  title: 'New Bookings — Live Feed | JailMap',
+  title: 'New Bookings — Live Feed',
   robots: { index: false, follow: false },
 }
 

@@ -3,14 +3,16 @@ x-logging: &logging
   driver: json-file
   options: { max-size: '10m', max-file: '3' }
 x-api-environment: &api-environment
-  DATABASE_URL: postgresql://jailmap_app:***@postgres:5432/jailmap
+  DATABASE_URL: postgresql://jailmap_app:${PG_APP_PASSWORD}@postgres:5432/jailmap
   REDIS_URL: redis://redis:6379/0
   MEILI_URL: http://meili:7700
+  MEILI_KEY: ${MEILI_MASTER_KEY}
   MEILI_MASTER_KEY: ${MEILI_MASTER_KEY}
   RECORDS_API_TOKEN: ${RECORDS_API_TOKEN}
   SOURCE_ALLOWED_HOSTS: ${SOURCE_ALLOWED_HOSTS:-}
   STRIPE_SECRET_KEY: ${STRIPE_SECRET_KEY:-}
   STRIPE_REMOVAL_PRICE_ID: ${STRIPE_REMOVAL_PRICE_ID:-}
+  STRIPE_WEBHOOK_SECRET: ${STRIPE_WEBHOOK_SECRET:-}
 services:
   postgres:
     image: ${POSTGRES_IMAGE:-postgres:16-alpine}
@@ -100,6 +102,11 @@ services:
       RECORDS_API_URL: http://api:8000
       RECORDS_API_TOKEN: ${RECORDS_API_TOKEN}
       DATABASE_URL: postgresql://jailmap_app:${PG_APP_PASSWORD}@postgres:5432/jailmap
+      SMTP_HOST: ${SMTP_HOST:-}
+      SMTP_PORT: ${SMTP_PORT:-587}
+      SMTP_USER: ${SMTP_USER:-}
+      SMTP_PASSWORD: ${SMTP_PASSWORD:-}
+      MAIL_FROM: ${MAIL_FROM:-}
       NODE_OPTIONS: --max-old-space-size=512
     ports: ['127.0.0.1:3109:3000']
     volumes: ['./data/accounts:/app/account-data']

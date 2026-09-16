@@ -22,5 +22,6 @@ export function AuthForm({ mode }: { mode: 'login' | 'register' }) {
     {error && <p className="form-error" role="alert">{error}</p>}
     <button className="jm-button full" disabled={busy}>{busy ? 'Please wait…' : register ? 'Create account' : 'Log in'}{!busy && <ArrowRight size={18} />}</button>
     <p className="auth-switch">{register ? 'Already have an account?' : 'New to JailMap?'} <Link href={register ? '/login' : '/register'}>{register ? 'Log in' : 'Create an account'}</Link></p>
+    {!register && <p className="auth-forgot"><Link href="/forgot">Forgot your password?</Link></p>}
   </form>
 }

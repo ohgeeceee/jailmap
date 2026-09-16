@@ -10,13 +10,24 @@ import { Badge } from '@/components/ui/Badge'
 import { State, County } from '@/types'
 import { cn } from '@/lib/utils'
 
+interface ParticipatingCounty {
+  county: string
+  facilities: number
+  bookings: number
+}
+
 interface StatePageClientProps {
   state: State & { counties: (County & { _count: { jails: number } })[] }
   counties: (County & { _count: { jails: number } })[]
   totalJails: number
+  participating: ParticipatingCounty[]
 }
 
-export function StatePageClient({ state, counties, totalJails }: StatePageClientProps) {
+function slugifyCounty(name: string): string {
+  return name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')
+}
+
+export function StatePageClient({ state, counties, totalJails, participating }: StatePageClientProps) {
   const router = useRouter()
   const [searchQuery, setSearchQuery] = useState('')
   const [selectedCounty, setSelectedCounty] = useState<string | null>(null)
@@ -63,6 +74,32 @@ export function StatePageClient({ state, counties, totalJails }: StatePageClient
             </div>
           </div>
         </div>
+
+        {participating.length > 0 && (
+          <section className="mb-8 rounded-lg border border-blue-200 bg-blue-50 dark:border-blue-900 dark:bg-blue-950/40 p-5">
+            <h2 className="text-lg font-semibold text-gray-900 dark:text-white">
+              Counties with live booking data
+            </h2>
+            <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">
+              These counties have participating facilities feeding current rosters into JailMap.
+            </p>
+            <ul className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+              {participating.map((p) => (
+                <li key={p.county}>
+                  <Link
+                    href={`/county/${state.abbrev}/${slugifyCounty(p.county)}`}
+                    className="block rounded border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 px-4 py-3 hover:border-blue-400"
+                  >
+                    <span className="font-medium text-gray-900 dark:text-white">{p.county} County</span>
+                    <span className="block text-xs text-gray-500 dark:text-gray-400">
+                      {p.facilities} facility{p.facilities === 1 ? '' : 's'} · {p.bookings} booking{p.bookings === 1 ? '' : 's'} in last 48h
+                    </span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
 
         <div className="grid lg:grid-cols-3 gap-8">
           <div className="lg:col-span-2">

@@ -13,8 +13,13 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "JailMap | Public records, clearer context",
-  description: "Find public booking records from participating jurisdictions. Review charges, bond information and original sources with JailMap.",
+  metadataBase: new URL('https://jailmap.com'),
+  title: {
+    default: 'JailMap | Public records, clearer context',
+    template: '%s | JailMap',
+  },
+  description: 'Find public booking records from participating jurisdictions. Review charges, bond information and original sources with JailMap.',
+  alternates: { canonical: '/' },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

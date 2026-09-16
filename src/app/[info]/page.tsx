@@ -21,7 +21,7 @@ const pages = {
     ['Service availability', 'Coverage depends on authorized data providers. Search results may change or become unavailable as data is updated, released, withheld or becomes stale.'],
   ] },
 } as const
-export async function generateMetadata({ params }: { params: Promise<{ info: string }> }) { const { info } = await params; return { title: info in pages ? `${pages[info as keyof typeof pages].title} | JailMap` : 'Page not found | JailMap' } }
+export async function generateMetadata({ params }: { params: Promise<{ info: string }> }) { const { info } = await params; return { title: info in pages ? `${pages[info as keyof typeof pages].title}` : 'Page not found' } }
 export default async function InfoPage({ params }: { params: Promise<{ info: string }> }) {
   const { info } = await params; if (!(info in pages)) notFound(); const page = pages[info as keyof typeof pages]
   return <div className="jm-theme"><PublicHeader /><main className="site-width info-page"><span className="eyebrow">THE JAILMAP APPROACH</span><h1>{page.title}</h1><p className="info-intro">{page.intro}</p>{page.sections.map(([title, text]) => <section key={title}><h2>{title}</h2><p>{text}</p></section>)}<Link className="jm-button" href="/search">Search public records</Link></main><Footer /></div>

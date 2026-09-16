@@ -2,7 +2,7 @@ import { PublicHeader } from '@/components/site/PublicHeader'
 import { Footer } from '@/components/site/Footer'
 import { CheckoutSuccess } from '@/components/records/NameRemoval'
 
-export const metadata = { title: 'Payment status | JailMap', robots: { index: false, follow: false } }
+export const metadata = { title: 'Payment status', robots: { index: false, follow: false } }
 
 export default function NameRemovalSuccessPage() {
   return (

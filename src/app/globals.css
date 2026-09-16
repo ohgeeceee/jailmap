@@ -137,6 +137,8 @@ body {
 .checkbox-label a { text-decoration: underline; text-underline-offset: 3px; }
 .auth-switch { font-size: 12px; text-align: center; color: #6d7a63; }
 .auth-switch a { color: #2e5940; font-weight: 600; margin-left: 4px; }
+.auth-forgot { font-size: 12px; text-align: center; margin-top: -8px; }
+.auth-forgot a { color: #2e5940; font-weight: 600; }
 .auth-note { margin-top: 24px; padding-top: 22px; border-top: 1px solid var(--line); font-size: 10px; line-height: 1.8; color: #7c8576; text-align: center; }
 .auth-bottom { display: flex; gap: 23px; justify-content: center; font-size: 10px; color: #78836e; }
 .form-error,.form-success { font-size: 12px; line-height: 1.7; border-radius: 7px; padding: 12px 15px; margin-block: 10px; }
@@ -346,3 +348,34 @@ body {
   .feed-item__time { flex-direction: row; align-items: center; gap: 8px; }
   .feed-footer { flex-wrap: wrap; }
 }
+
+/* --- Repeat Booking Leaderboard --- */
+.lb-controls { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; margin: 22px 0 16px; font-size: 14px; }
+.lb-controls label { display: inline-flex; align-items: center; gap: 8px; font-weight: 600; color: var(--ink, #1c2318); }
+.lb-controls select { font: inherit; padding: 7px 10px; border: 1px solid var(--line, #d8dfcc); border-radius: 6px; background: #fff; }
+.lb-table { width: 100%; border-collapse: collapse; background: #fff; border: 1px solid var(--line, #d8dfcc); border-radius: 10px; overflow: hidden; font-size: 14.5px; }
+.lb-table th { text-align: left; font-size: 11px; text-transform: uppercase; letter-spacing: 1.1px; color: var(--muted, #6b7462); padding: 12px 14px; border-bottom: 2px solid var(--line, #d8dfcc); background: #f7f9f2; }
+.lb-table td { padding: 11px 14px; border-bottom: 1px solid var(--line, #e6ebdb); }
+.lb-table tbody tr:last-child td { border-bottom: 0; }
+.lb-rank { width: 48px; font-weight: 700; color: var(--muted, #6b7462); }
+.lb-top { color: #8a6d1a; }
+.lb-count { white-space: nowrap; font-weight: 700; }
+.lb-count svg { vertical-align: -2px; color: #5c7444; }
+.lb-name { color: #2c4a1e; text-decoration: underline; text-underline-offset: 3px; }
+.lb-empty { padding: 28px 0; color: var(--muted, #6b7462); font-size: 14.5px; }
+.lb-note { margin-top: 14px; font-size: 12.5px; color: var(--muted, #6b7462); max-width: 680px; line-height: 1.6; }
+
+/* ===== Admin operations panels (coverage / ingestion / pipeline / revenue) ===== */
+.stat-grid.five { grid-template-columns: repeat(5,1fr); }
+.funnel { padding: 25px; display: grid; gap: 16px; }
+.funnel-row { display: grid; grid-template-columns: 260px 1fr 150px; align-items: center; gap: 18px; }
+.funnel-label { font-size: 11px; color: #6d7b63; }
+.funnel-track { height: 10px; background: #f0f3ea; border-radius: 6px; overflow: hidden; }
+.funnel-fill { display: block; height: 100%; background: var(--green); border-radius: 6px; }
+.funnel-value { font-size: 13px; font-weight: 600; color: #32573e; text-align: right; }
+.funnel-value small { display: block; font-size: 9px; font-weight: 400; color: #8a957e; }
+.cov-cell { display: flex; align-items: center; gap: 9px; white-space: nowrap; }
+.cov-track { display: inline-block; width: 66px; height: 6px; background: #f0f3ea; border-radius: 4px; overflow: hidden; }
+.cov-fill { display: block; height: 100%; background: #6f9155; border-radius: 4px; }
+@media(max-width: 1100px) { .stat-grid.five { grid-template-columns: repeat(3,1fr); } .funnel-row { grid-template-columns: 1fr; gap: 7px; } .funnel-value { text-align: left; } }
+@media(max-width: 560px) { .stat-grid.five { grid-template-columns: repeat(2,1fr); } }

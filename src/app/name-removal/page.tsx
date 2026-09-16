@@ -2,7 +2,7 @@ import { PublicHeader } from '@/components/site/PublicHeader'
 import { Footer } from '@/components/site/Footer'
 import { NameRemovalForm } from '@/components/records/NameRemoval'
 
-export const metadata = { title: 'Request name removal | JailMap', robots: { index: false, follow: false } }
+export const metadata = { title: 'Request name removal', robots: { index: false, follow: false } }
 
 export default async function NameRemovalPage({ searchParams }: { searchParams: Promise<{ name?: string }> }) {
   const { name } = await searchParams

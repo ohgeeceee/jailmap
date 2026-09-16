@@ -1,6 +1,7 @@
 import { cookies } from 'next/headers'
 import { SESSION_COOKIE } from '@/lib/accounts/session'
-import { AccountError, adminOverview, changePassword, createSession, deleteSearch, emailValue, getDashboard, getSession, login, logout, rateLimit, register, revokeOtherSessions, saveSearch, updateAccount, updateProfile } from '@/lib/accounts/store'
+import { AccountError, adminOverview, changePassword, createSession, deleteSearch, emailValue, getDashboard, getSession, login, logout, rateLimit, register, requestPasswordReset, resetPassword, revokeOtherSessions, saveSearch, updateAccount, updateProfile } from '@/lib/accounts/store'
+import { sendPasswordResetEmail } from '@/lib/accounts/mail'
 export const runtime = 'nodejs'
 export const dynamic = 'force-dynamic'
 const options = { httpOnly: true, secure: process.env.NODE_ENV === 'production', sameSite: 'lax' as const, path: '/', maxAge: 60 * 60 * 24 * 7 }
@@ -34,6 +35,27 @@ async function handle(request: Request, context: { params: Promise<{ path: strin
       return json({ user: getSession(nextToken) }, path === 'register' ? 201 : 200)
     }
     if (method === 'POST' && path === 'logout') { logout(token); jar.set(SESSION_COOKIE, '', { ...options, maxAge: 0 }); return json({ ok: true }) }
+    if (method === 'POST' && (path === 'password/forgot' || path === 'password/reset')) {
+      const trusted = process.env.AUTH_TRUSTED_CLIENT_HEADER
+      const client = trusted ? request.headers.get(trusted) || 'shared' : 'shared'
+      if (path === 'password/forgot') {
+        rateLimit(`password-forgot:${client}`, 10)
+        const input = await body(request)
+        let email = ''
+        try { email = emailValue(input.email) } catch { return json({ ok: true }) }
+        const resetToken = requestPasswordReset(email)
+        if (resetToken) {
+          const baseUrl = process.env.APP_ORIGIN || new URL(request.url).origin
+          try { await sendPasswordResetEmail(email, `${baseUrl}/reset?token=${resetToken}`) } catch (error) { console.error('Password reset email failed:', error instanceof Error ? error.name : 'UnknownError') }
+        }
+        return json({ ok: true })
+      }
+      rateLimit(`password-reset:${client}`, 20)
+      const input = await body(request)
+      await resetPassword(typeof input.token === 'string' ? input.token : '', typeof input.password === 'string' ? input.password : '')
+      logout(token)
+      return json({ ok: true })
+    }
     if (!account) throw new AccountError('Please sign in to continue.', 401)
     if (path.startsWith('admin/') && account.role !== 'admin') throw new AccountError('Administrator access required.', 403)
     if (method !== 'GET') rateLimit(`account:${account.id}`, 60)
