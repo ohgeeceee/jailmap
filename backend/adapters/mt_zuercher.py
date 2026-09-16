@@ -45,7 +45,7 @@ def _holds_to_charges(hold_reasons: str) -> List[Dict]:
             continue
         seen_charges.add(charge_id)
         charges.append({
-            "source_id": charge_id,
+            "id": charge_id,
             "description": chunk[:2000],
             "statute": None,
             "severity": None,
@@ -134,10 +134,9 @@ def fetch(source) -> AdapterResult:
                     "source_url": source["source_url"],
                     "source_type": "zuercher_portal",
                     "pulled_at": pulled_at,
-                    "source_id": identity,
-                    "inmate_id": None,
+                    "id": identity,
                     "booking_number": booking_number,
-                    "source_updated_at": booking_date or pulled_at,
+                    "updated_at": booking_date or pulled_at,
                     "visibility": "public",
                     "full_name": (row.get("name") or "").strip(),
                     "first_name": first,
