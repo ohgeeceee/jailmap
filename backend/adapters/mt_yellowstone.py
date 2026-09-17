@@ -121,7 +121,7 @@ def fetch(source) -> AdapterResult:
             "source_url": source["source_url"],
             "source_type": "custom_html",
             "pulled_at": pulled_at,
-            "source_id": identity,
+            "id": identity,
             "inmate_id": jacket or None,
             "booking_number": jacket or f"YSN-{identity}",
             "source_updated_at": pulled_at.split(".")[0] + "Z" if "." in pulled_at else pulled_at,

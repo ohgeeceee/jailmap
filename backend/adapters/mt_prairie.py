@@ -161,7 +161,7 @@ def fetch(source) -> AdapterResult:
             "pulled_at": pulled_at,
             "id": booking_number,
             "booking_number": booking_number,
-            "updated_at": entry["booking_date"] or pulled_at,
+            "source_updated_at": entry["booking_date"] or pulled_at,
             "visibility": "public",
             "full_name": f"{entry['first_name']} {entry['last_name']}".strip(),
             "first_name": entry["first_name"],
@@ -172,7 +172,7 @@ def fetch(source) -> AdapterResult:
             "race": entry["race"],
             "booking_date": entry["booking_date"],
             "release_date": entry["release_date"],
-            "charges": [{"source_id": f"CH-{j:03d}", "description": c[:2000],
+            "charges": [{"id": f"CH-{j:03d}", "description": c[:2000],
                          "statute": None, "severity": None}
                         for j, c in enumerate(entry["charges"])],
             "bond_amount": None,

@@ -79,7 +79,6 @@ def parse(source) -> AdapterResult:
             "source_url": source["source_url"],
             "source_type": "custom_html",
             "pulled_at": pulled_at,
-            "inmate_id": None,
             "booking_number": booking_number,
             "full_name": full_name,
             "first_name": first_name,

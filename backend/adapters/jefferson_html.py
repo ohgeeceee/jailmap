@@ -50,7 +50,6 @@ def parse(source) -> AdapterResult:
             "source_url": source["source_url"],
             "source_type": "custom_html",
             "pulled_at": datetime.now(timezone.utc).isoformat(),
-            "inmate_id": None,
             "booking_number": _clean_text(booking_match.group("number")) if booking_match else None,
             "full_name": full_name,
             "first_name": first_name,

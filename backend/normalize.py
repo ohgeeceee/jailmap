@@ -20,7 +20,7 @@ def normalize(row):
         raise ValueError('Explicit custody status required')
     result = {key: required(row.get(key), key) for key in ('booking_number','first_name','last_name')}
     result['booking_date'] = timestamp(row.get('booking_date'))
-    result['source_updated_at'] = timestamp(row.get('updated_at'))
+    result['source_updated_at'] = timestamp(row.get('source_updated_at'))
     result['dob'] = date.fromisoformat(row['dob']) if row.get('dob') else None
     if result['dob'] and result['dob'] > result['booking_date'].date():
         raise ValueError('DOB after booking')

@@ -155,7 +155,6 @@ def parse(source, pdf_reader=None, pdf_text_provider=None) -> AdapterResult:
                 "source_url": pdf_url,
                 "source_type": "pdf",
                 "pulled_at": pulled_at,
-                "inmate_id": None,
                 "booking_number": None,
                 "full_name": full_name,
                 "first_name": first_name,

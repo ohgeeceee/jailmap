@@ -63,7 +63,7 @@ def _bonds_from_holds(hold_reasons: str) -> List[Dict]:
             continue
         seen_bonds.add(bond_id)
         bonds.append({
-            "source_id": bond_id,
+            "id": bond_id,
             "amount": float(amount),
             "type": bond_type[:100] or "bond",
             "status": "set",
@@ -136,7 +136,7 @@ def fetch(source) -> AdapterResult:
                     "pulled_at": pulled_at,
                     "id": identity,
                     "booking_number": booking_number,
-                    "updated_at": booking_date or pulled_at,
+                    "source_updated_at": booking_date or pulled_at,
                     "visibility": "public",
                     "full_name": (row.get("name") or "").strip(),
                     "first_name": first,

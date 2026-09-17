@@ -59,7 +59,6 @@ def fetch(source) -> List[Dict]:
             "source_url": source["source_url"],
             "source_type": "custom_html",
             "pulled_at": _now_iso(),
-            "inmate_id": None,
             "booking_number": booking_number,
             "full_name": " ".join(x for x in [first_name, middle, last_name] if x),
             "first_name": first_name,

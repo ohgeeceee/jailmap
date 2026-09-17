@@ -57,7 +57,6 @@ def parse(source) -> AdapterResult:
             "source_url": source["source_url"],
             "source_type": "custom_html",
             "pulled_at": pulled_at,
-            "inmate_id": _clean_text(inmate_id),
             "booking_number": booking_number,
             "full_name": f"{_clean_text(first_name).strip()} {_clean_text(last_name).strip()}".strip(),
             "first_name": _clean_text(first_name).strip(),

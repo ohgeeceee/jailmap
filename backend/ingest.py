@@ -75,18 +75,18 @@ ADAPTERS = {'standard_json': standard_json, 'fulton_socrata_staging': fulton_sta
 def upsert(connection, jurisdiction_id, row):
     from datetime import datetime,timezone
     booking = connection.execute('''INSERT INTO records.inmates
-        (jurisdiction_id,booking_number,first_name,last_name,dob,booking_date,mugshot_url,source_updated_at,visibility,observed_at,booking_date_precision,booking_timezone)
-        VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
-        ON CONFLICT (jurisdiction_id,booking_number) DO UPDATE SET
-          first_name=EXCLUDED.first_name,last_name=EXCLUDED.last_name,dob=EXCLUDED.dob,
-          booking_date=EXCLUDED.booking_date,mugshot_url=EXCLUDED.mugshot_url,
-          source_updated_at=EXCLUDED.source_updated_at,observed_at=EXCLUDED.observed_at,
-          booking_date_precision=EXCLUDED.booking_date_precision,booking_timezone=EXCLUDED.booking_timezone,
-          visibility=CASE WHEN records.inmates.visibility='suppressed' THEN 'suppressed' ELSE EXCLUDED.visibility END,
-          version=records.inmates.version+1
-        WHERE records.inmates.source_updated_at <= EXCLUDED.source_updated_at
-        RETURNING id,version''', (jurisdiction_id, *[row[key] for key in (
-            'booking_number','first_name','last_name','dob','booking_date','mugshot_url','source_updated_at','visibility')],
+    (jurisdiction_id,booking_number,first_name,last_name,dob,booking_date,mugshot_url,source_updated_at,visibility,observed_at,booking_date_precision,booking_timezone)
+    VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
+    ON CONFLICT (jurisdiction_id,booking_number) DO UPDATE SET
+      first_name=EXCLUDED.first_name,last_name=EXCLUDED.last_name,dob=EXCLUDED.dob,
+      booking_date=EXCLUDED.booking_date,mugshot_url=EXCLUDED.mugshot_url,
+      source_updated_at=EXCLUDED.source_updated_at,observed_at=EXCLUDED.observed_at,
+      booking_date_precision=EXCLUDED.booking_date_precision,booking_timezone=EXCLUDED.booking_timezone,
+      visibility=CASE WHEN records.inmates.visibility='suppressed' THEN 'suppressed' ELSE EXCLUDED.visibility END,
+      version=records.inmates.version+1
+    WHERE records.inmates.source_updated_at <= EXCLUDED.source_updated_at
+    RETURNING id,version''', (jurisdiction_id, *[row[key] for key in (
+        'booking_number','first_name','last_name','dob','booking_date','mugshot_url','source_updated_at','visibility')],
             row.get('observed_at',datetime.now(timezone.utc)),row.get('booking_date_precision','timestamp'),row.get('booking_timezone','UTC'))).fetchone()
     if not booking:
         return
@@ -95,10 +95,10 @@ def upsert(connection, jurisdiction_id, row):
     connection.execute('DELETE FROM records.bonds WHERE inmate_id=%s', (booking['id'],))
     for charge in row['charges']:
         connection.execute('''INSERT INTO records.charges(inmate_id,source_id,statute,description,severity)
-            VALUES (%s,%s,%s,%s,%s)''', (booking['id'], charge['source_id'],charge['statute'],charge['description'],charge['severity']))
+            VALUES (%s,%s,%s,%s,%s)''', (booking['id'], charge['id'],charge['statute'],charge['description'],charge['severity']))
     for bond in row['bonds']:
         connection.execute('''INSERT INTO records.bonds(inmate_id,source_id,amount,type,status)
-            VALUES (%s,%s,%s,%s,%s)''', (booking['id'],bond['source_id'],bond['amount'],bond['type'],bond['status']))
+            VALUES (%s,%s,%s,%s,%s)''', (booking['id'],bond['id'],bond['amount'],bond['type'],bond['status']))
     connection.execute('''INSERT INTO records.search_outbox(inmate_id,version) VALUES (%s,%s)
         ON CONFLICT(inmate_id) DO UPDATE SET version=EXCLUDED.version,queued_at=now()''',
         (booking['id'],booking['version']))

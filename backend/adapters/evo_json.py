@@ -68,7 +68,7 @@ def fetch(source) -> AdapterResult:
                     "booking_number": identity,
                     "first_name": first,
                     "last_name": last,
-                    "source_id": identity,
+                    "id": identity,
                     "booking_date": _parse_date(row.get("booked", "")) or pulled_at,
                     "source_updated_at": pulled_at,
                     "status": "in_custody",
