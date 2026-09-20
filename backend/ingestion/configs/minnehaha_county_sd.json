@@ -1,0 +1,13 @@
+{
+  "facility_id": "census-landmark-1104474475994",
+  "source_url": "https://web.minnehahacounty.gov/dept/so/jailInmateInfo/browseJailInmate.php",
+  "state": "SD",
+  "county": "Minnehaha",
+  "vendor": "minnehaha_html",
+  "timezone": "America/Chicago",
+  "options": {
+    "summarize_facilities": true,
+    "min_interval_seconds": 2.0,
+    "max_attempts": 3
+  }
+}

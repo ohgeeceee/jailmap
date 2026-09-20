@@ -79,7 +79,7 @@ def fetch(source) -> AdapterResult:
             last_name, first_name = [p.strip() for p in raw_name.split(",", 1)]
         else:
             parts = raw_name.split()
-            last_name, first_name = (parts[0], " ".join(parts[1:])) if parts else ("", "")
+            first_name, last_name = (parts[0], " ".join(parts[1:])) if parts else ("", "")
 
         def stat(label: str) -> str:
             m = re.search(

@@ -1,0 +1,264 @@
+{
+  "state": "LA",
+  "name": "Louisiana",
+  "state_fips": "22",
+  "geography_vintage": "Census 2025 Gazetteer",
+  "counties": [
+    {
+      "name": "Acadia Parish",
+      "fips": "22001"
+    },
+    {
+      "name": "Allen Parish",
+      "fips": "22003"
+    },
+    {
+      "name": "Ascension Parish",
+      "fips": "22005"
+    },
+    {
+      "name": "Assumption Parish",
+      "fips": "22007"
+    },
+    {
+      "name": "Avoyelles Parish",
+      "fips": "22009"
+    },
+    {
+      "name": "Beauregard Parish",
+      "fips": "22011"
+    },
+    {
+      "name": "Bienville Parish",
+      "fips": "22013"
+    },
+    {
+      "name": "Bossier Parish",
+      "fips": "22015"
+    },
+    {
+      "name": "Caddo Parish",
+      "fips": "22017"
+    },
+    {
+      "name": "Calcasieu Parish",
+      "fips": "22019"
+    },
+    {
+      "name": "Caldwell Parish",
+      "fips": "22021"
+    },
+    {
+      "name": "Cameron Parish",
+      "fips": "22023"
+    },
+    {
+      "name": "Catahoula Parish",
+      "fips": "22025"
+    },
+    {
+      "name": "Claiborne Parish",
+      "fips": "22027"
+    },
+    {
+      "name": "Concordia Parish",
+      "fips": "22029"
+    },
+    {
+      "name": "De Soto Parish",
+      "fips": "22031"
+    },
+    {
+      "name": "East Baton Rouge Parish",
+      "fips": "22033"
+    },
+    {
+      "name": "East Carroll Parish",
+      "fips": "22035"
+    },
+    {
+      "name": "East Feliciana Parish",
+      "fips": "22037"
+    },
+    {
+      "name": "Evangeline Parish",
+      "fips": "22039"
+    },
+    {
+      "name": "Franklin Parish",
+      "fips": "22041"
+    },
+    {
+      "name": "Grant Parish",
+      "fips": "22043"
+    },
+    {
+      "name": "Iberia Parish",
+      "fips": "22045"
+    },
+    {
+      "name": "Iberville Parish",
+      "fips": "22047"
+    },
+    {
+      "name": "Jackson Parish",
+      "fips": "22049"
+    },
+    {
+      "name": "Jefferson Parish",
+      "fips": "22051"
+    },
+    {
+      "name": "Jefferson Davis Parish",
+      "fips": "22053"
+    },
+    {
+      "name": "Lafayette Parish",
+      "fips": "22055"
+    },
+    {
+      "name": "Lafourche Parish",
+      "fips": "22057"
+    },
+    {
+      "name": "LaSalle Parish",
+      "fips": "22059"
+    },
+    {
+      "name": "Lincoln Parish",
+      "fips": "22061"
+    },
+    {
+      "name": "Livingston Parish",
+      "fips": "22063"
+    },
+    {
+      "name": "Madison Parish",
+      "fips": "22065"
+    },
+    {
+      "name": "Morehouse Parish",
+      "fips": "22067"
+    },
+    {
+      "name": "Natchitoches Parish",
+      "fips": "22069"
+    },
+    {
+      "name": "Orleans Parish",
+      "fips": "22071"
+    },
+    {
+      "name": "Ouachita Parish",
+      "fips": "22073"
+    },
+    {
+      "name": "Plaquemines Parish",
+      "fips": "22075"
+    },
+    {
+      "name": "Pointe Coupee Parish",
+      "fips": "22077"
+    },
+    {
+      "name": "Rapides Parish",
+      "fips": "22079"
+    },
+    {
+      "name": "Red River Parish",
+      "fips": "22081"
+    },
+    {
+      "name": "Richland Parish",
+      "fips": "22083"
+    },
+    {
+      "name": "Sabine Parish",
+      "fips": "22085"
+    },
+    {
+      "name": "St. Bernard Parish",
+      "fips": "22087"
+    },
+    {
+      "name": "St. Charles Parish",
+      "fips": "22089"
+    },
+    {
+      "name": "St. Helena Parish",
+      "fips": "22091"
+    },
+    {
+      "name": "St. James Parish",
+      "fips": "22093"
+    },
+    {
+      "name": "St. John the Baptist Parish",
+      "fips": "22095"
+    },
+    {
+      "name": "St. Landry Parish",
+      "fips": "22097"
+    },
+    {
+      "name": "St. Martin Parish",
+      "fips": "22099"
+    },
+    {
+      "name": "St. Mary Parish",
+      "fips": "22101"
+    },
+    {
+      "name": "St. Tammany Parish",
+      "fips": "22103"
+    },
+    {
+      "name": "Tangipahoa Parish",
+      "fips": "22105"
+    },
+    {
+      "name": "Tensas Parish",
+      "fips": "22107"
+    },
+    {
+      "name": "Terrebonne Parish",
+      "fips": "22109"
+    },
+    {
+      "name": "Union Parish",
+      "fips": "22111"
+    },
+    {
+      "name": "Vermilion Parish",
+      "fips": "22113"
+    },
+    {
+      "name": "Vernon Parish",
+      "fips": "22115"
+    },
+    {
+      "name": "Washington Parish",
+      "fips": "22117"
+    },
+    {
+      "name": "Webster Parish",
+      "fips": "22119"
+    },
+    {
+      "name": "West Baton Rouge Parish",
+      "fips": "22121"
+    },
+    {
+      "name": "West Carroll Parish",
+      "fips": "22123"
+    },
+    {
+      "name": "West Feliciana Parish",
+      "fips": "22125"
+    },
+    {
+      "name": "Winn Parish",
+      "fips": "22127"
+    }
+  ]
+}

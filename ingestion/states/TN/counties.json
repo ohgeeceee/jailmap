@@ -1,0 +1,388 @@
+{
+  "state": "TN",
+  "name": "Tennessee",
+  "state_fips": "47",
+  "geography_vintage": "Census 2025 Gazetteer",
+  "counties": [
+    {
+      "name": "Anderson County",
+      "fips": "47001"
+    },
+    {
+      "name": "Bedford County",
+      "fips": "47003"
+    },
+    {
+      "name": "Benton County",
+      "fips": "47005"
+    },
+    {
+      "name": "Bledsoe County",
+      "fips": "47007"
+    },
+    {
+      "name": "Blount County",
+      "fips": "47009"
+    },
+    {
+      "name": "Bradley County",
+      "fips": "47011"
+    },
+    {
+      "name": "Campbell County",
+      "fips": "47013"
+    },
+    {
+      "name": "Cannon County",
+      "fips": "47015"
+    },
+    {
+      "name": "Carroll County",
+      "fips": "47017"
+    },
+    {
+      "name": "Carter County",
+      "fips": "47019"
+    },
+    {
+      "name": "Cheatham County",
+      "fips": "47021"
+    },
+    {
+      "name": "Chester County",
+      "fips": "47023"
+    },
+    {
+      "name": "Claiborne County",
+      "fips": "47025"
+    },
+    {
+      "name": "Clay County",
+      "fips": "47027"
+    },
+    {
+      "name": "Cocke County",
+      "fips": "47029"
+    },
+    {
+      "name": "Coffee County",
+      "fips": "47031"
+    },
+    {
+      "name": "Crockett County",
+      "fips": "47033"
+    },
+    {
+      "name": "Cumberland County",
+      "fips": "47035"
+    },
+    {
+      "name": "Davidson County",
+      "fips": "47037"
+    },
+    {
+      "name": "Decatur County",
+      "fips": "47039"
+    },
+    {
+      "name": "DeKalb County",
+      "fips": "47041"
+    },
+    {
+      "name": "Dickson County",
+      "fips": "47043"
+    },
+    {
+      "name": "Dyer County",
+      "fips": "47045"
+    },
+    {
+      "name": "Fayette County",
+      "fips": "47047"
+    },
+    {
+      "name": "Fentress County",
+      "fips": "47049"
+    },
+    {
+      "name": "Franklin County",
+      "fips": "47051"
+    },
+    {
+      "name": "Gibson County",
+      "fips": "47053"
+    },
+    {
+      "name": "Giles County",
+      "fips": "47055"
+    },
+    {
+      "name": "Grainger County",
+      "fips": "47057"
+    },
+    {
+      "name": "Greene County",
+      "fips": "47059"
+    },
+    {
+      "name": "Grundy County",
+      "fips": "47061"
+    },
+    {
+      "name": "Hamblen County",
+      "fips": "47063"
+    },
+    {
+      "name": "Hamilton County",
+      "fips": "47065"
+    },
+    {
+      "name": "Hancock County",
+      "fips": "47067"
+    },
+    {
+      "name": "Hardeman County",
+      "fips": "47069"
+    },
+    {
+      "name": "Hardin County",
+      "fips": "47071"
+    },
+    {
+      "name": "Hawkins County",
+      "fips": "47073"
+    },
+    {
+      "name": "Haywood County",
+      "fips": "47075"
+    },
+    {
+      "name": "Henderson County",
+      "fips": "47077"
+    },
+    {
+      "name": "Henry County",
+      "fips": "47079"
+    },
+    {
+      "name": "Hickman County",
+      "fips": "47081"
+    },
+    {
+      "name": "Houston County",
+      "fips": "47083"
+    },
+    {
+      "name": "Humphreys County",
+      "fips": "47085"
+    },
+    {
+      "name": "Jackson County",
+      "fips": "47087"
+    },
+    {
+      "name": "Jefferson County",
+      "fips": "47089"
+    },
+    {
+      "name": "Johnson County",
+      "fips": "47091"
+    },
+    {
+      "name": "Knox County",
+      "fips": "47093"
+    },
+    {
+      "name": "Lake County",
+      "fips": "47095"
+    },
+    {
+      "name": "Lauderdale County",
+      "fips": "47097"
+    },
+    {
+      "name": "Lawrence County",
+      "fips": "47099"
+    },
+    {
+      "name": "Lewis County",
+      "fips": "47101"
+    },
+    {
+      "name": "Lincoln County",
+      "fips": "47103"
+    },
+    {
+      "name": "Loudon County",
+      "fips": "47105"
+    },
+    {
+      "name": "McMinn County",
+      "fips": "47107"
+    },
+    {
+      "name": "McNairy County",
+      "fips": "47109"
+    },
+    {
+      "name": "Macon County",
+      "fips": "47111"
+    },
+    {
+      "name": "Madison County",
+      "fips": "47113"
+    },
+    {
+      "name": "Marion County",
+      "fips": "47115"
+    },
+    {
+      "name": "Marshall County",
+      "fips": "47117"
+    },
+    {
+      "name": "Maury County",
+      "fips": "47119"
+    },
+    {
+      "name": "Meigs County",
+      "fips": "47121"
+    },
+    {
+      "name": "Monroe County",
+      "fips": "47123"
+    },
+    {
+      "name": "Montgomery County",
+      "fips": "47125"
+    },
+    {
+      "name": "Moore County",
+      "fips": "47127"
+    },
+    {
+      "name": "Morgan County",
+      "fips": "47129"
+    },
+    {
+      "name": "Obion County",
+      "fips": "47131"
+    },
+    {
+      "name": "Overton County",
+      "fips": "47133"
+    },
+    {
+      "name": "Perry County",
+      "fips": "47135"
+    },
+    {
+      "name": "Pickett County",
+      "fips": "47137"
+    },
+    {
+      "name": "Polk County",
+      "fips": "47139"
+    },
+    {
+      "name": "Putnam County",
+      "fips": "47141"
+    },
+    {
+      "name": "Rhea County",
+      "fips": "47143"
+    },
+    {
+      "name": "Roane County",
+      "fips": "47145"
+    },
+    {
+      "name": "Robertson County",
+      "fips": "47147"
+    },
+    {
+      "name": "Rutherford County",
+      "fips": "47149"
+    },
+    {
+      "name": "Scott County",
+      "fips": "47151"
+    },
+    {
+      "name": "Sequatchie County",
+      "fips": "47153"
+    },
+    {
+      "name": "Sevier County",
+      "fips": "47155"
+    },
+    {
+      "name": "Shelby County",
+      "fips": "47157"
+    },
+    {
+      "name": "Smith County",
+      "fips": "47159"
+    },
+    {
+      "name": "Stewart County",
+      "fips": "47161"
+    },
+    {
+      "name": "Sullivan County",
+      "fips": "47163"
+    },
+    {
+      "name": "Sumner County",
+      "fips": "47165"
+    },
+    {
+      "name": "Tipton County",
+      "fips": "47167"
+    },
+    {
+      "name": "Trousdale County",
+      "fips": "47169"
+    },
+    {
+      "name": "Unicoi County",
+      "fips": "47171"
+    },
+    {
+      "name": "Union County",
+      "fips": "47173"
+    },
+    {
+      "name": "Van Buren County",
+      "fips": "47175"
+    },
+    {
+      "name": "Warren County",
+      "fips": "47177"
+    },
+    {
+      "name": "Washington County",
+      "fips": "47179"
+    },
+    {
+      "name": "Wayne County",
+      "fips": "47181"
+    },
+    {
+      "name": "Weakley County",
+      "fips": "47183"
+    },
+    {
+      "name": "White County",
+      "fips": "47185"
+    },
+    {
+      "name": "Williamson County",
+      "fips": "47187"
+    },
+    {
+      "name": "Wilson County",
+      "fips": "47189"
+    }
+  ]
+}

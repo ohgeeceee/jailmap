@@ -6,6 +6,8 @@ import { createHash, randomBytes, randomUUID, scrypt, timingSafeEqual } from 'no
 export type Account = { id: string; email: string; name: string; role: 'member' | 'admin'; status: 'active' | 'suspended'; created_at: number }
 type Credential = Account & { password_hash: string }
 export type SavedSearch = { id: string; label: string; name: string; state: string; county: string; created_at: number }
+export type Watchlist = { id: string; label: string; name: string; state: string; county: string; email_alerts: 0 | 1; last_checked_at: number | null; last_match_at: number | null; created_at: number }
+export type WatchlistCandidate = Watchlist & { account_id: string; account_email: string; account_name: string }
 export class AccountError extends Error {
   status: number
   constructor(message: string, status = 400) { super(message); this.status = status }
@@ -32,12 +34,33 @@ export function database() {
       id TEXT PRIMARY KEY, account_id TEXT NOT NULL REFERENCES accounts(id) ON DELETE CASCADE,
       label TEXT NOT NULL, name TEXT NOT NULL, state TEXT NOT NULL, county TEXT NOT NULL, created_at INTEGER NOT NULL);
     CREATE INDEX IF NOT EXISTS search_user ON saved_searches(account_id);
+    CREATE TABLE IF NOT EXISTS watchlists (
+      id TEXT PRIMARY KEY, account_id TEXT NOT NULL REFERENCES accounts(id) ON DELETE CASCADE,
+      label TEXT NOT NULL, name TEXT NOT NULL, state TEXT NOT NULL, county TEXT NOT NULL,
+      email_alerts INTEGER NOT NULL DEFAULT 0 CHECK(email_alerts IN (0,1)),
+      last_checked_at INTEGER, last_match_at INTEGER, created_at INTEGER NOT NULL);
+    CREATE INDEX IF NOT EXISTS watchlist_user ON watchlists(account_id);
+    CREATE INDEX IF NOT EXISTS watchlist_email_alerts ON watchlists(email_alerts, last_checked_at);
+    CREATE TABLE IF NOT EXISTS watchlist_matches (
+      watchlist_id TEXT NOT NULL REFERENCES watchlists(id) ON DELETE CASCADE,
+      booking_id TEXT NOT NULL, first_seen_at INTEGER NOT NULL, notified_at INTEGER,
+      PRIMARY KEY(watchlist_id, booking_id));
+    CREATE INDEX IF NOT EXISTS watchlist_matches_notify ON watchlist_matches(notified_at);
     CREATE TABLE IF NOT EXISTS rate_limits (key TEXT PRIMARY KEY, count INTEGER NOT NULL, expires_at INTEGER NOT NULL);
     CREATE TABLE IF NOT EXISTS account_audit (
       id TEXT PRIMARY KEY, actor_id TEXT, action TEXT NOT NULL, target_id TEXT, created_at INTEGER NOT NULL);
     CREATE TABLE IF NOT EXISTS password_resets (
       id TEXT PRIMARY KEY, account_id TEXT NOT NULL REFERENCES accounts(id) ON DELETE CASCADE,
       token_hash TEXT NOT NULL UNIQUE, created_at INTEGER NOT NULL, expires_at INTEGER NOT NULL, used_at INTEGER);
+    CREATE TABLE IF NOT EXISTS subscriptions (
+      id TEXT PRIMARY KEY, account_id TEXT NOT NULL REFERENCES accounts(id) ON DELETE CASCADE,
+      stripe_subscription_id TEXT, tier TEXT NOT NULL DEFAULT 'free'
+        CHECK(tier IN ('free','basic','pro','developer','enterprise')),
+      status TEXT NOT NULL DEFAULT 'inactive' CHECK(status IN ('active','inactive','cancelled','past_due')),
+      current_period_start INTEGER, current_period_end INTEGER,
+      api_requests_this_period INTEGER NOT NULL DEFAULT 0,
+      period_reset_at INTEGER, created_at INTEGER NOT NULL, updated_at INTEGER NOT NULL);
+    CREATE INDEX IF NOT EXISTS subscription_user ON subscriptions(account_id);
   `)
   return connection
 }
@@ -135,6 +158,7 @@ export function logout(token?: string) {
 export function getDashboard(id: string) {
   return {
     searches: database().prepare('SELECT id,label,name,state,county,created_at FROM saved_searches WHERE account_id=? ORDER BY created_at DESC').all(id).map(row => ({ ...row })) as SavedSearch[],
+    watchlists: database().prepare('SELECT id,label,name,state,county,email_alerts,last_checked_at,last_match_at,created_at FROM watchlists WHERE account_id=? ORDER BY created_at DESC').all(id).map(row => ({ ...row })) as Watchlist[],
     sessions: Number(database().prepare('SELECT count(*) AS n FROM sessions WHERE account_id=? AND expires_at>?').get(id, now())?.n),
   }
 }
@@ -173,6 +197,74 @@ export function deleteSearch(accountId: string, id: string) {
   const result = database().prepare('DELETE FROM saved_searches WHERE id=? AND account_id=?').run(id, accountId)
   if (!result.changes) throw new AccountError('Saved search not found.', 404)
 }
+function alertTier(accountId: string): Tier {
+  const subscription = getSubscription(accountId)
+  return subscription?.status === 'active' ? subscription.tier : 'free'
+}
+function alertFlag(accountId: string, input: unknown): 0 | 1 {
+  if (input !== true && input !== 'true') return 0
+  const tier = alertTier(accountId)
+  const limit = TIER_LIMITS[tier].alerts
+  if (limit === 0) throw new AccountError('Email alerts require a Basic plan or higher.', 402)
+  if (limit !== null) {
+    const count = Number(database().prepare('SELECT count(*) AS n FROM watchlists WHERE account_id=? AND email_alerts=1').get(accountId)?.n)
+    if (count >= limit) throw new AccountError(`Your current plan includes ${limit} email alerts. Turn one off or upgrade to add more.`, 402)
+  }
+  return 1
+}
+export function saveWatchlist(accountId: string, input: Record<string, unknown>) {
+  const label = textValue(input.label, 'Label', 2, 80), name = textValue(input.name, 'Name to watch', 2, 100)
+  const state = typeof input.state === 'string' ? input.state.toUpperCase() : ''
+  const county = typeof input.county === 'string' ? input.county.trim() : ''
+  if ((state && !/^[A-Z]{2}$/.test(state)) || county.length > 100) throw new AccountError('Invalid state or county.')
+  transaction(() => {
+    const count = Number(database().prepare('SELECT count(*) AS n FROM watchlists WHERE account_id=?').get(accountId)?.n)
+    if (count >= 25) throw new AccountError('You can keep up to 25 watchlists. Remove one to add another.')
+    const emailAlerts = alertFlag(accountId, input.emailAlerts)
+    database().prepare('INSERT INTO watchlists VALUES (?,?,?,?,?,?,?,?,?,?)').run(randomUUID(), accountId, label, name, state, county, emailAlerts, null, null, now())
+    audit(accountId, emailAlerts ? 'watchlist.created.email' : 'watchlist.created', accountId)
+  })
+}
+export function updateWatchlist(accountId: string, id: string, input: Record<string, unknown>) {
+  const emailAlerts = alertFlag(accountId, input.emailAlerts)
+  const result = database().prepare('UPDATE watchlists SET email_alerts=? WHERE id=? AND account_id=?').run(emailAlerts, id, accountId)
+  if (!result.changes) throw new AccountError('Watchlist not found.', 404)
+  audit(accountId, emailAlerts ? 'watchlist.email.enabled' : 'watchlist.email.disabled', accountId)
+}
+export function deleteWatchlist(accountId: string, id: string) {
+  const result = database().prepare('DELETE FROM watchlists WHERE id=? AND account_id=?').run(id, accountId)
+  if (!result.changes) throw new AccountError('Watchlist not found.', 404)
+}
+export function dueWatchlists(limit = 25): WatchlistCandidate[] {
+  if (!Number.isInteger(limit) || limit < 1 || limit > 100) throw new AccountError('Invalid watchlist limit.')
+  return database().prepare(`SELECT w.id,w.account_id,a.email AS account_email,a.name AS account_name,w.label,w.name,w.state,w.county,
+      w.email_alerts,w.last_checked_at,w.last_match_at,w.created_at
+    FROM watchlists w JOIN accounts a ON a.id=w.account_id
+    WHERE w.email_alerts=1 AND a.status='active'
+    ORDER BY coalesce(w.last_checked_at, 0), w.created_at
+    LIMIT ?`).all(limit).map(row => ({ ...row })) as WatchlistCandidate[]
+}
+export function recordWatchlistCheck(watchlistId: string, bookingIds: string[], notifiedIds: string[]) {
+  const ts = now()
+  transaction(() => {
+    const lastMatchAt = bookingIds.length ? ts : null
+    database().prepare('UPDATE watchlists SET last_checked_at=?, last_match_at=coalesce(?, last_match_at) WHERE id=?').run(ts, lastMatchAt, watchlistId)
+    for (const bookingId of bookingIds) {
+      database().prepare('INSERT OR IGNORE INTO watchlist_matches(watchlist_id,booking_id,first_seen_at) VALUES (?,?,?)').run(watchlistId, bookingId, ts)
+    }
+    for (const bookingId of notifiedIds) {
+      database().prepare('UPDATE watchlist_matches SET notified_at=coalesce(notified_at, ?) WHERE watchlist_id=? AND booking_id=?').run(ts, watchlistId, bookingId)
+    }
+  })
+}
+export function unnotifiedWatchlistMatches(watchlistId: string, bookingIds: string[]) {
+  const unique = [...new Set(bookingIds.filter(id => typeof id === 'string' && id.length <= 80))]
+  if (!unique.length) return []
+  const placeholders = unique.map(() => '?').join(',')
+  const rows = database().prepare(`SELECT booking_id FROM watchlist_matches WHERE watchlist_id=? AND notified_at IS NOT NULL AND booking_id IN (${placeholders})`).all(watchlistId, ...unique)
+  const notified = new Set(rows.map(row => String(row.booking_id)))
+  return unique.filter(id => !notified.has(id))
+}
 export function adminOverview(page = 1) {
   const db = database()
   return {
@@ -203,6 +295,65 @@ export function promoteAdmin(email: string) {
     database().prepare('DELETE FROM sessions WHERE account_id=?').run(String(account.id))
     audit(null, 'operator.promoted-admin', String(account.id))
   })
+}
+
+// ── Subscription helpers ──────────────────────────────────────────────────────
+
+export type Tier = 'free' | 'basic' | 'pro' | 'developer' | 'enterprise'
+export type SubscriptionStatus = 'active' | 'inactive' | 'cancelled' | 'past_due'
+export type Subscription = {
+  id: string; account_id: string; stripe_subscription_id: string | null
+  tier: Tier; status: SubscriptionStatus
+  current_period_start: number | null; current_period_end: number | null
+  api_requests_this_period: number; period_reset_at: number | null
+  created_at: number; updated_at: number
+}
+
+const TIER_HIERARCHY: Record<Tier, number> = { free: 0, basic: 1, pro: 2, developer: 3, enterprise: 4 }
+export const TIER_LIMITS: Record<Tier, { alerts: number | null; exports: number | null; api: number | null; advancedFilters: boolean; timeline: boolean }> = {
+  free:    { alerts: 0, exports: 0, api: 0, advancedFilters: false, timeline: false },
+  basic:   { alerts: 3, exports: 0, api: 0, advancedFilters: false, timeline: false },
+  pro:     { alerts: null, exports: 1000, api: 0, advancedFilters: true, timeline: true },
+  developer: { alerts: null, exports: 1000, api: 25000, advancedFilters: true, timeline: true },
+  enterprise: { alerts: null, exports: null, api: 150000, advancedFilters: true, timeline: true },
+}
+export function hasTierAccess(accountTier: Tier, requiredTier: Tier): boolean {
+  return TIER_HIERARCHY[accountTier] >= TIER_HIERARCHY[requiredTier]
+}
+
+export function getSubscription(accountId: string): Subscription | null {
+  const row = database().prepare('SELECT * FROM subscriptions WHERE account_id=? ORDER BY created_at DESC LIMIT 1').get(accountId) as Subscription | undefined
+  return row ?? null
+}
+
+export function createSubscription(accountId: string, tier: Tier, stripeSubId: string | null = null): Subscription {
+  const id = randomUUID(), ts = now()
+  return transaction(() => {
+    // Deactivate any existing subscription for this account
+    database().prepare("UPDATE subscriptions SET status='inactive', updated_at=? WHERE account_id=? AND status='active'").run(ts, accountId)
+    database().prepare(`INSERT INTO subscriptions(id,account_id,stripe_subscription_id,tier,status,created_at,updated_at)
+      VALUES (?,?,?,?, 'active',?,?)`).run(id, accountId, stripeSubId, tier, ts, ts)
+    audit(accountId, `subscription.created:${tier}`, accountId)
+    return getSubscription(accountId)!
+  })
+}
+
+export function updateSubscriptionStatus(stripeSubId: string, status: SubscriptionStatus, periodStart?: number, periodEnd?: number) {
+  const ts = now()
+  const sub = database().prepare('SELECT * FROM subscriptions WHERE stripe_subscription_id=?').get(stripeSubId) as Subscription | undefined
+  if (!sub) return
+  database().prepare('UPDATE subscriptions SET status=?, current_period_start=?, current_period_end=?, api_requests_this_period=0, period_reset_at=?, updated_at=? WHERE id=?')
+    .run(status, periodStart ?? sub.current_period_start, periodEnd ?? sub.current_period_end, periodEnd ?? null, ts, sub.id)
+  audit(sub.account_id, `subscription.${status}`, sub.account_id)
+}
+
+export function resetApiCounter(subId: string, resetAt: number) {
+  database().prepare('UPDATE subscriptions SET api_requests_this_period=0, period_reset_at=?, updated_at=? WHERE id=?').run(resetAt, now(), subId)
+}
+
+export function incrementApiCounter(subId: string): number {
+  const row = database().prepare('UPDATE subscriptions SET api_requests_this_period=api_requests_this_period+1, updated_at=? WHERE id=? RETURNING api_requests_this_period').get(now(), subId) as { api_requests_this_period: number } | undefined
+  return row?.api_requests_this_period ?? 0
 }
 
 const RESET_TOKEN_TTL = 60 * 60 // one hour

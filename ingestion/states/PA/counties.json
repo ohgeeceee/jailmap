@@ -1,0 +1,276 @@
+{
+  "state": "PA",
+  "name": "Pennsylvania",
+  "state_fips": "42",
+  "geography_vintage": "Census 2025 Gazetteer",
+  "counties": [
+    {
+      "name": "Adams County",
+      "fips": "42001"
+    },
+    {
+      "name": "Allegheny County",
+      "fips": "42003"
+    },
+    {
+      "name": "Armstrong County",
+      "fips": "42005"
+    },
+    {
+      "name": "Beaver County",
+      "fips": "42007"
+    },
+    {
+      "name": "Bedford County",
+      "fips": "42009"
+    },
+    {
+      "name": "Berks County",
+      "fips": "42011"
+    },
+    {
+      "name": "Blair County",
+      "fips": "42013"
+    },
+    {
+      "name": "Bradford County",
+      "fips": "42015"
+    },
+    {
+      "name": "Bucks County",
+      "fips": "42017"
+    },
+    {
+      "name": "Butler County",
+      "fips": "42019"
+    },
+    {
+      "name": "Cambria County",
+      "fips": "42021"
+    },
+    {
+      "name": "Cameron County",
+      "fips": "42023"
+    },
+    {
+      "name": "Carbon County",
+      "fips": "42025"
+    },
+    {
+      "name": "Centre County",
+      "fips": "42027"
+    },
+    {
+      "name": "Chester County",
+      "fips": "42029"
+    },
+    {
+      "name": "Clarion County",
+      "fips": "42031"
+    },
+    {
+      "name": "Clearfield County",
+      "fips": "42033"
+    },
+    {
+      "name": "Clinton County",
+      "fips": "42035"
+    },
+    {
+      "name": "Columbia County",
+      "fips": "42037"
+    },
+    {
+      "name": "Crawford County",
+      "fips": "42039"
+    },
+    {
+      "name": "Cumberland County",
+      "fips": "42041"
+    },
+    {
+      "name": "Dauphin County",
+      "fips": "42043"
+    },
+    {
+      "name": "Delaware County",
+      "fips": "42045"
+    },
+    {
+      "name": "Elk County",
+      "fips": "42047"
+    },
+    {
+      "name": "Erie County",
+      "fips": "42049"
+    },
+    {
+      "name": "Fayette County",
+      "fips": "42051"
+    },
+    {
+      "name": "Forest County",
+      "fips": "42053"
+    },
+    {
+      "name": "Franklin County",
+      "fips": "42055"
+    },
+    {
+      "name": "Fulton County",
+      "fips": "42057"
+    },
+    {
+      "name": "Greene County",
+      "fips": "42059"
+    },
+    {
+      "name": "Huntingdon County",
+      "fips": "42061"
+    },
+    {
+      "name": "Indiana County",
+      "fips": "42063"
+    },
+    {
+      "name": "Jefferson County",
+      "fips": "42065"
+    },
+    {
+      "name": "Juniata County",
+      "fips": "42067"
+    },
+    {
+      "name": "Lackawanna County",
+      "fips": "42069"
+    },
+    {
+      "name": "Lancaster County",
+      "fips": "42071"
+    },
+    {
+      "name": "Lawrence County",
+      "fips": "42073"
+    },
+    {
+      "name": "Lebanon County",
+      "fips": "42075"
+    },
+    {
+      "name": "Lehigh County",
+      "fips": "42077"
+    },
+    {
+      "name": "Luzerne County",
+      "fips": "42079"
+    },
+    {
+      "name": "Lycoming County",
+      "fips": "42081"
+    },
+    {
+      "name": "McKean County",
+      "fips": "42083"
+    },
+    {
+      "name": "Mercer County",
+      "fips": "42085"
+    },
+    {
+      "name": "Mifflin County",
+      "fips": "42087"
+    },
+    {
+      "name": "Monroe County",
+      "fips": "42089"
+    },
+    {
+      "name": "Montgomery County",
+      "fips": "42091"
+    },
+    {
+      "name": "Montour County",
+      "fips": "42093"
+    },
+    {
+      "name": "Northampton County",
+      "fips": "42095"
+    },
+    {
+      "name": "Northumberland County",
+      "fips": "42097"
+    },
+    {
+      "name": "Perry County",
+      "fips": "42099"
+    },
+    {
+      "name": "Philadelphia County",
+      "fips": "42101"
+    },
+    {
+      "name": "Pike County",
+      "fips": "42103"
+    },
+    {
+      "name": "Potter County",
+      "fips": "42105"
+    },
+    {
+      "name": "Schuylkill County",
+      "fips": "42107"
+    },
+    {
+      "name": "Snyder County",
+      "fips": "42109"
+    },
+    {
+      "name": "Somerset County",
+      "fips": "42111"
+    },
+    {
+      "name": "Sullivan County",
+      "fips": "42113"
+    },
+    {
+      "name": "Susquehanna County",
+      "fips": "42115"
+    },
+    {
+      "name": "Tioga County",
+      "fips": "42117"
+    },
+    {
+      "name": "Union County",
+      "fips": "42119"
+    },
+    {
+      "name": "Venango County",
+      "fips": "42121"
+    },
+    {
+      "name": "Warren County",
+      "fips": "42123"
+    },
+    {
+      "name": "Washington County",
+      "fips": "42125"
+    },
+    {
+      "name": "Wayne County",
+      "fips": "42127"
+    },
+    {
+      "name": "Westmoreland County",
+      "fips": "42129"
+    },
+    {
+      "name": "Wyoming County",
+      "fips": "42131"
+    },
+    {
+      "name": "York County",
+      "fips": "42133"
+    }
+  ]
+}

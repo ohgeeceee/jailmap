@@ -3,6 +3,17 @@ import os
 import unittest
 from unittest.mock import patch
 
+
+class PublicationBoundaryTests(unittest.TestCase):
+    def test_generic_html_adapter_cannot_be_configured_to_publish(self):
+        from backend.ingest import validate_publication_boundary
+        with self.assertRaisesRegex(ValueError, 'Staging adapter cannot publish'):
+            validate_publication_boundary({
+                'adapter': 'html_roster_staging',
+                'staging_only': False,
+            })
+
+
 @unittest.skipUnless(os.environ.get('RECORDS_TEST_DATABASE')=='1','Requires isolated PostgreSQL')
 class RunnerTests(unittest.TestCase):
     def setUp(self):

@@ -139,6 +139,64 @@ def _clean(value: Optional[str]) -> str:
     return re.sub(r'\s+', ' ', unescape(str(value))).strip()
 
 
+# Patterns that never belong in a person's name. When a cell matches one of
+# these, the row is UI chrome — not a roster entry.
+_NAME_BLOCKLIST = (
+    # URLs and web addresses
+    re.compile(r'^https?://'),
+    re.compile(r'^www\.'),
+    # UI action verbs at start of cell
+    re.compile(r'^(enter|select|choose|type|input)\b', re.I),
+    re.compile(r'^(view|click|tap|swipe|scroll|drag)\b', re.I),
+    re.compile(r'^(search|filter|sort|login|sign)\b', re.I),
+    re.compile(r'^(about|information|details|overview|summary)\b', re.I),
+    re.compile(r'^(building|property|land data)\b', re.I),
+    re.compile(r'^(record|records|inmate details|record searches)\b', re.I),
+    re.compile(r'^(navigation|menu|nav|footer|header|sidebar)\b', re.I),
+    re.compile(r'^(main|home|back|next|previous)\b', re.I),
+    re.compile(r'^(coordinator|contact|sar coordinator)\b', re.I),
+    re.compile(r'^street name', re.I),
+    # Status counters and UI text anywhere in cell
+    re.compile(r'live feed', re.I),
+    re.compile(r'active bookings', re.I),
+    re.compile(r'updates every', re.I),
+    re.compile(r'willyweather\.com'),
+    # Labels ending with colon ("Enter Tax Year :", "Select Identifier:")
+    re.compile(r':\s*$'),
+    # Timestamp pattern
+    re.compile(r'^\d{4}-\d{2}-\d{2} \d{2}:\d{2}$'),
+    # Form field labels at start
+    re.compile(r'^(value|amount|total)\s*:?\s*$', re.I),
+    # Job title followed by colon and name: "SAR Coordinator: Joe",
+    # "Tax Administrator: Jane", "Director: Smith"
+    re.compile(r'(coordinator|administrator|director|manager|officer)\s*:\s*\w', re.I),
+    # State abbreviation followed by county info in the name cell itself
+    re.compile(r'\b(AL|AK|AZ|AR|CA|CO|CT|DE|FL|GA|HI|ID|IL|IN|IA|KS|KY|LA|ME|MD|MA|MI|MN|MS|MO|MT|NE|NV|NH|NJ|NM|NY|NC|ND|OH|OK|OR|PA|RI|SC|SD|TN|TX|UT|VT|VA|WA|WV|WI|WY)\b.*\b(County|Jail|Facility|Detention)\b', re.I),
+    # Common single-word UI labels that are never a person's name
+    re.compile(r'^(land|their|our|your|my|its|this|that|these|those|there|here|tax rates|inmate|booking)$', re.I),
+    # Tax-related form labels
+    re.compile(r'^tax\s', re.I),
+    # Status words that adapters sometimes put in the name field
+    re.compile(r'^(deceased|et|inactive|active|transfered|transferred|released|arrested|inmate|detainee)\b', re.I),
+)
+
+
+def _is_valid_name(text: str) -> bool:
+    """Return False if a cell is UI chrome rather than a person's name."""
+    if not text:
+        return False
+    cleaned = _clean(text)
+    if not cleaned:
+        return False
+    # A real name is short. Form labels and UI text tend to be long.
+    if len(cleaned) > 80:
+        return False
+    for pattern in _NAME_BLOCKLIST:
+        if pattern.search(cleaned):
+            return False
+    return True
+
+
 def _norm_header(cell: str) -> str:
     return re.sub(r'[^a-z0-9]', '', _clean(cell).lower())
 
@@ -168,7 +226,7 @@ def _split_name(full_name: str, mapping: Dict[str, int], cells: List[str]) -> tu
     if not first and not last and full_name:
         if ',' in full_name:
             last_part, _, first_part = full_name.partition(',')
-            return _clean(first_part).split(' ')[0], _clean(last_part)
+            return _clean(first_part), _clean(last_part)
         pieces = full_name.split()
         if len(pieces) >= 2:
             return pieces[0], ' '.join(pieces[1:])
@@ -220,6 +278,7 @@ def parse_html(html: str, source: Dict) -> List[Dict]:
     extractor.feed(html[:MAX_BYTES])
     pulled_at = datetime.now(timezone.utc).isoformat()
     records: List[Dict] = []
+    seen_rows = set()
     for table in extractor.tables:
         if len(table) < 2:
             continue
@@ -231,6 +290,11 @@ def parse_html(html: str, source: Dict) -> List[Dict]:
                 continue
             row = _row_from_cells(cells, mapping, source, pulled_at)
             if row:
+                # Deduplicate rows within the same parse (repeated rows across pages/sections)
+                dedup_key = (row['booking_number'], row['booking_date'], row['full_name'])
+                if dedup_key in seen_rows:
+                    continue
+                seen_rows.add(dedup_key)
                 records.append(row)
             if len(records) >= MAX_ROWS:
                 return records
@@ -249,6 +313,11 @@ def _row_from_cells(cells: List[str], mapping: Dict[str, int], source: Dict,
         return None
     # A header row repeated between tbody sections looks like data; drop it.
     if _norm_header(full_name or last) in COLUMN_ALIASES:
+        return None
+    # UI chrome masquerading as a name: "Enter Taxpayer...", "View Inmate
+    # Details", URLs, timestamps, etc. — reject the row entirely.
+    name_source = full_name or last or first
+    if not _is_valid_name(name_source):
         return None
 
     booking_date = _parse_date(cell('booking_date'))
@@ -295,3 +364,75 @@ def fetch(source) -> List[Dict]:
 
 def parse(source) -> AdapterResult:
     return AdapterResult(source, fetch(source))
+
+
+class PlaywrightHTMLRosterAdapter:
+    """JS-rendered roster adapter using Playwright/Chromium.
+
+    Use this for pages that require JavaScript to render their inmate table.
+    The adapter navigates to source_url in headless Chromium, waits for table
+    rows to appear, then passes the rendered HTML to the shared parse_html().
+
+    For search-form pages (no data until form is submitted), set
+    `submit_selector` or leave empty to auto-detect and submit the first form
+    with an <input type="submit">.
+    """
+
+    def __init__(self, wait_for: str = 'table tbody tr', timeout_ms: int = 30000,
+                 max_bytes: int = MAX_BYTES, submit_selector: str = ''):
+        self.wait_for = wait_for
+        self.timeout_ms = timeout_ms
+        self.max_bytes = max_bytes
+        self.submit_selector = submit_selector
+
+    def fetch(self, source: Dict) -> List[Dict]:
+        """Fetch and parse a JS-rendered roster page."""
+        from playwright.sync_api import sync_playwright
+
+        url = source.get('source_url', '')
+        _assert_authorized(url)
+
+        with sync_playwright() as p:
+            browser = p.chromium.launch(
+                headless=True,
+                args=['--no-sandbox', '--disable-setuid-sandbox',
+                      '--disable-dev-shm-usage']
+            )
+            page = browser.new_page()
+            page.set_default_timeout(self.timeout_ms)
+            page.goto(url, wait_until='domcontentloaded')
+            page.wait_for_timeout(2000)
+
+            # Auto-detect and submit search form if no rows visible
+            rows = page.query_selector_all(self.wait_for)
+            if not rows:
+                if self.submit_selector:
+                    btn = page.query_selector(self.submit_selector)
+                    if btn:
+                        btn.click()
+                        page.wait_for_timeout(4000)
+                else:
+                    # Try the first submit button
+                    btn = page.query_selector(
+                        'input[type="submit"], button[type="submit"]'
+                    )
+                    if btn:
+                        btn.click()
+                        page.wait_for_timeout(4000)
+
+            try:
+                page.wait_for_selector(self.wait_for,
+                                       timeout=self.timeout_ms)
+            except Exception:
+                pass
+            page.wait_for_timeout(2000)
+            html = page.evaluate('document.documentElement.outerHTML')
+            browser.close()
+
+        if len(html) > self.max_bytes:
+            raise ValueError('Rendered page too large')
+
+        return parse_html(html, dict(source))
+
+    def parse(self, source: Dict) -> AdapterResult:
+        return AdapterResult(source, self.fetch(source))

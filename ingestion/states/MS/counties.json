@@ -1,0 +1,336 @@
+{
+  "state": "MS",
+  "name": "Mississippi",
+  "state_fips": "28",
+  "geography_vintage": "Census 2025 Gazetteer",
+  "counties": [
+    {
+      "name": "Adams County",
+      "fips": "28001"
+    },
+    {
+      "name": "Alcorn County",
+      "fips": "28003"
+    },
+    {
+      "name": "Amite County",
+      "fips": "28005"
+    },
+    {
+      "name": "Attala County",
+      "fips": "28007"
+    },
+    {
+      "name": "Benton County",
+      "fips": "28009"
+    },
+    {
+      "name": "Bolivar County",
+      "fips": "28011"
+    },
+    {
+      "name": "Calhoun County",
+      "fips": "28013"
+    },
+    {
+      "name": "Carroll County",
+      "fips": "28015"
+    },
+    {
+      "name": "Chickasaw County",
+      "fips": "28017"
+    },
+    {
+      "name": "Choctaw County",
+      "fips": "28019"
+    },
+    {
+      "name": "Claiborne County",
+      "fips": "28021"
+    },
+    {
+      "name": "Clarke County",
+      "fips": "28023"
+    },
+    {
+      "name": "Clay County",
+      "fips": "28025"
+    },
+    {
+      "name": "Coahoma County",
+      "fips": "28027"
+    },
+    {
+      "name": "Copiah County",
+      "fips": "28029"
+    },
+    {
+      "name": "Covington County",
+      "fips": "28031"
+    },
+    {
+      "name": "DeSoto County",
+      "fips": "28033"
+    },
+    {
+      "name": "Forrest County",
+      "fips": "28035"
+    },
+    {
+      "name": "Franklin County",
+      "fips": "28037"
+    },
+    {
+      "name": "George County",
+      "fips": "28039"
+    },
+    {
+      "name": "Greene County",
+      "fips": "28041"
+    },
+    {
+      "name": "Grenada County",
+      "fips": "28043"
+    },
+    {
+      "name": "Hancock County",
+      "fips": "28045"
+    },
+    {
+      "name": "Harrison County",
+      "fips": "28047"
+    },
+    {
+      "name": "Hinds County",
+      "fips": "28049"
+    },
+    {
+      "name": "Holmes County",
+      "fips": "28051"
+    },
+    {
+      "name": "Humphreys County",
+      "fips": "28053"
+    },
+    {
+      "name": "Issaquena County",
+      "fips": "28055"
+    },
+    {
+      "name": "Itawamba County",
+      "fips": "28057"
+    },
+    {
+      "name": "Jackson County",
+      "fips": "28059"
+    },
+    {
+      "name": "Jasper County",
+      "fips": "28061"
+    },
+    {
+      "name": "Jefferson County",
+      "fips": "28063"
+    },
+    {
+      "name": "Jefferson Davis County",
+      "fips": "28065"
+    },
+    {
+      "name": "Jones County",
+      "fips": "28067"
+    },
+    {
+      "name": "Kemper County",
+      "fips": "28069"
+    },
+    {
+      "name": "Lafayette County",
+      "fips": "28071"
+    },
+    {
+      "name": "Lamar County",
+      "fips": "28073"
+    },
+    {
+      "name": "Lauderdale County",
+      "fips": "28075"
+    },
+    {
+      "name": "Lawrence County",
+      "fips": "28077"
+    },
+    {
+      "name": "Leake County",
+      "fips": "28079"
+    },
+    {
+      "name": "Lee County",
+      "fips": "28081"
+    },
+    {
+      "name": "Leflore County",
+      "fips": "28083"
+    },
+    {
+      "name": "Lincoln County",
+      "fips": "28085"
+    },
+    {
+      "name": "Lowndes County",
+      "fips": "28087"
+    },
+    {
+      "name": "Madison County",
+      "fips": "28089"
+    },
+    {
+      "name": "Marion County",
+      "fips": "28091"
+    },
+    {
+      "name": "Marshall County",
+      "fips": "28093"
+    },
+    {
+      "name": "Monroe County",
+      "fips": "28095"
+    },
+    {
+      "name": "Montgomery County",
+      "fips": "28097"
+    },
+    {
+      "name": "Neshoba County",
+      "fips": "28099"
+    },
+    {
+      "name": "Newton County",
+      "fips": "28101"
+    },
+    {
+      "name": "Noxubee County",
+      "fips": "28103"
+    },
+    {
+      "name": "Oktibbeha County",
+      "fips": "28105"
+    },
+    {
+      "name": "Panola County",
+      "fips": "28107"
+    },
+    {
+      "name": "Pearl River County",
+      "fips": "28109"
+    },
+    {
+      "name": "Perry County",
+      "fips": "28111"
+    },
+    {
+      "name": "Pike County",
+      "fips": "28113"
+    },
+    {
+      "name": "Pontotoc County",
+      "fips": "28115"
+    },
+    {
+      "name": "Prentiss County",
+      "fips": "28117"
+    },
+    {
+      "name": "Quitman County",
+      "fips": "28119"
+    },
+    {
+      "name": "Rankin County",
+      "fips": "28121"
+    },
+    {
+      "name": "Scott County",
+      "fips": "28123"
+    },
+    {
+      "name": "Sharkey County",
+      "fips": "28125"
+    },
+    {
+      "name": "Simpson County",
+      "fips": "28127"
+    },
+    {
+      "name": "Smith County",
+      "fips": "28129"
+    },
+    {
+      "name": "Stone County",
+      "fips": "28131"
+    },
+    {
+      "name": "Sunflower County",
+      "fips": "28133"
+    },
+    {
+      "name": "Tallahatchie County",
+      "fips": "28135"
+    },
+    {
+      "name": "Tate County",
+      "fips": "28137"
+    },
+    {
+      "name": "Tippah County",
+      "fips": "28139"
+    },
+    {
+      "name": "Tishomingo County",
+      "fips": "28141"
+    },
+    {
+      "name": "Tunica County",
+      "fips": "28143"
+    },
+    {
+      "name": "Union County",
+      "fips": "28145"
+    },
+    {
+      "name": "Walthall County",
+      "fips": "28147"
+    },
+    {
+      "name": "Warren County",
+      "fips": "28149"
+    },
+    {
+      "name": "Washington County",
+      "fips": "28151"
+    },
+    {
+      "name": "Wayne County",
+      "fips": "28153"
+    },
+    {
+      "name": "Webster County",
+      "fips": "28155"
+    },
+    {
+      "name": "Wilkinson County",
+      "fips": "28157"
+    },
+    {
+      "name": "Winston County",
+      "fips": "28159"
+    },
+    {
+      "name": "Yalobusha County",
+      "fips": "28161"
+    },
+    {
+      "name": "Yazoo County",
+      "fips": "28163"
+    }
+  ]
+}

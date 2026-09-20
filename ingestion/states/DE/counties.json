@@ -1,0 +1,20 @@
+{
+  "state": "DE",
+  "name": "Delaware",
+  "state_fips": "10",
+  "geography_vintage": "Census 2025 Gazetteer",
+  "counties": [
+    {
+      "name": "Kent County",
+      "fips": "10001"
+    },
+    {
+      "name": "New Castle County",
+      "fips": "10003"
+    },
+    {
+      "name": "Sussex County",
+      "fips": "10005"
+    }
+  ]
+}

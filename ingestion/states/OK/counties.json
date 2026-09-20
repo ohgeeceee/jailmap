@@ -1,0 +1,316 @@
+{
+  "state": "OK",
+  "name": "Oklahoma",
+  "state_fips": "40",
+  "geography_vintage": "Census 2025 Gazetteer",
+  "counties": [
+    {
+      "name": "Adair County",
+      "fips": "40001"
+    },
+    {
+      "name": "Alfalfa County",
+      "fips": "40003"
+    },
+    {
+      "name": "Atoka County",
+      "fips": "40005"
+    },
+    {
+      "name": "Beaver County",
+      "fips": "40007"
+    },
+    {
+      "name": "Beckham County",
+      "fips": "40009"
+    },
+    {
+      "name": "Blaine County",
+      "fips": "40011"
+    },
+    {
+      "name": "Bryan County",
+      "fips": "40013"
+    },
+    {
+      "name": "Caddo County",
+      "fips": "40015"
+    },
+    {
+      "name": "Canadian County",
+      "fips": "40017"
+    },
+    {
+      "name": "Carter County",
+      "fips": "40019"
+    },
+    {
+      "name": "Cherokee County",
+      "fips": "40021"
+    },
+    {
+      "name": "Choctaw County",
+      "fips": "40023"
+    },
+    {
+      "name": "Cimarron County",
+      "fips": "40025"
+    },
+    {
+      "name": "Cleveland County",
+      "fips": "40027"
+    },
+    {
+      "name": "Coal County",
+      "fips": "40029"
+    },
+    {
+      "name": "Comanche County",
+      "fips": "40031"
+    },
+    {
+      "name": "Cotton County",
+      "fips": "40033"
+    },
+    {
+      "name": "Craig County",
+      "fips": "40035"
+    },
+    {
+      "name": "Creek County",
+      "fips": "40037"
+    },
+    {
+      "name": "Custer County",
+      "fips": "40039"
+    },
+    {
+      "name": "Delaware County",
+      "fips": "40041"
+    },
+    {
+      "name": "Dewey County",
+      "fips": "40043"
+    },
+    {
+      "name": "Ellis County",
+      "fips": "40045"
+    },
+    {
+      "name": "Garfield County",
+      "fips": "40047"
+    },
+    {
+      "name": "Garvin County",
+      "fips": "40049"
+    },
+    {
+      "name": "Grady County",
+      "fips": "40051"
+    },
+    {
+      "name": "Grant County",
+      "fips": "40053"
+    },
+    {
+      "name": "Greer County",
+      "fips": "40055"
+    },
+    {
+      "name": "Harmon County",
+      "fips": "40057"
+    },
+    {
+      "name": "Harper County",
+      "fips": "40059"
+    },
+    {
+      "name": "Haskell County",
+      "fips": "40061"
+    },
+    {
+      "name": "Hughes County",
+      "fips": "40063"
+    },
+    {
+      "name": "Jackson County",
+      "fips": "40065"
+    },
+    {
+      "name": "Jefferson County",
+      "fips": "40067"
+    },
+    {
+      "name": "Johnston County",
+      "fips": "40069"
+    },
+    {
+      "name": "Kay County",
+      "fips": "40071"
+    },
+    {
+      "name": "Kingfisher County",
+      "fips": "40073"
+    },
+    {
+      "name": "Kiowa County",
+      "fips": "40075"
+    },
+    {
+      "name": "Latimer County",
+      "fips": "40077"
+    },
+    {
+      "name": "Le Flore County",
+      "fips": "40079"
+    },
+    {
+      "name": "Lincoln County",
+      "fips": "40081"
+    },
+    {
+      "name": "Logan County",
+      "fips": "40083"
+    },
+    {
+      "name": "Love County",
+      "fips": "40085"
+    },
+    {
+      "name": "McClain County",
+      "fips": "40087"
+    },
+    {
+      "name": "McCurtain County",
+      "fips": "40089"
+    },
+    {
+      "name": "McIntosh County",
+      "fips": "40091"
+    },
+    {
+      "name": "Major County",
+      "fips": "40093"
+    },
+    {
+      "name": "Marshall County",
+      "fips": "40095"
+    },
+    {
+      "name": "Mayes County",
+      "fips": "40097"
+    },
+    {
+      "name": "Murray County",
+      "fips": "40099"
+    },
+    {
+      "name": "Muskogee County",
+      "fips": "40101"
+    },
+    {
+      "name": "Noble County",
+      "fips": "40103"
+    },
+    {
+      "name": "Nowata County",
+      "fips": "40105"
+    },
+    {
+      "name": "Okfuskee County",
+      "fips": "40107"
+    },
+    {
+      "name": "Oklahoma County",
+      "fips": "40109"
+    },
+    {
+      "name": "Okmulgee County",
+      "fips": "40111"
+    },
+    {
+      "name": "Osage County",
+      "fips": "40113"
+    },
+    {
+      "name": "Ottawa County",
+      "fips": "40115"
+    },
+    {
+      "name": "Pawnee County",
+      "fips": "40117"
+    },
+    {
+      "name": "Payne County",
+      "fips": "40119"
+    },
+    {
+      "name": "Pittsburg County",
+      "fips": "40121"
+    },
+    {
+      "name": "Pontotoc County",
+      "fips": "40123"
+    },
+    {
+      "name": "Pottawatomie County",
+      "fips": "40125"
+    },
+    {
+      "name": "Pushmataha County",
+      "fips": "40127"
+    },
+    {
+      "name": "Roger Mills County",
+      "fips": "40129"
+    },
+    {
+      "name": "Rogers County",
+      "fips": "40131"
+    },
+    {
+      "name": "Seminole County",
+      "fips": "40133"
+    },
+    {
+      "name": "Sequoyah County",
+      "fips": "40135"
+    },
+    {
+      "name": "Stephens County",
+      "fips": "40137"
+    },
+    {
+      "name": "Texas County",
+      "fips": "40139"
+    },
+    {
+      "name": "Tillman County",
+      "fips": "40141"
+    },
+    {
+      "name": "Tulsa County",
+      "fips": "40143"
+    },
+    {
+      "name": "Wagoner County",
+      "fips": "40145"
+    },
+    {
+      "name": "Washington County",
+      "fips": "40147"
+    },
+    {
+      "name": "Washita County",
+      "fips": "40149"
+    },
+    {
+      "name": "Woods County",
+      "fips": "40151"
+    },
+    {
+      "name": "Woodward County",
+      "fips": "40153"
+    }
+  ]
+}

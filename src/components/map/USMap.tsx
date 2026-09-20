@@ -97,8 +97,8 @@ export function USMap({ onStateClick, selectedState, className }: USMapProps) {
         aria-label="Interactive map of United States"
       >
         <defs>
-          <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
-            <feDropShadow dx="0" dy="2" stdDeviation="2" floodColor="#000" floodOpacity="0.1" />
+          <filter id="mapShadow" x="-20%" y="-20%" width="140%" height="140%">
+            <feDropShadow dx="0" dy="2" stdDeviation="2" floodColor="#000" floodOpacity="0.08" />
           </filter>
         </defs>
         
@@ -115,13 +115,13 @@ export function USMap({ onStateClick, selectedState, className }: USMapProps) {
               <path
                 d={path}
                 fill={isSelected 
-                  ? '#2563eb' 
+                  ? 'var(--green)' 
                   : isHovered 
-                  ? '#3b82f6' 
-                  : '#e5e7eb'}
-                stroke={isSelected ? '#1d4ed8' : '#9ca3af'}
+                  ? 'var(--green-2)' 
+                  : 'var(--surface-sunk)'}
+                stroke={isSelected ? 'var(--green-deep)' : 'var(--border)'}
                 strokeWidth={isSelected ? 2 : 1}
-                filter="url(#shadow)"
+                filter="url(#mapShadow)"
                 onMouseEnter={() => setHoveredState(state.abbrev)}
                 onMouseLeave={() => setHoveredState(null)}
                 onClick={() => handleClick(state.abbrev)}
@@ -136,7 +136,7 @@ export function USMap({ onStateClick, selectedState, className }: USMapProps) {
                 dominantBaseline="middle"
                 fontSize="7"
                 fontWeight={isSelected ? 'bold' : 'normal'}
-                fill={isSelected ? 'white' : '#374151'}
+                fill={isSelected ? '#fff' : 'var(--ink)'}
                 pointerEvents="none"
                 className="select-none"
               >
@@ -147,15 +147,15 @@ export function USMap({ onStateClick, selectedState, className }: USMapProps) {
         })}
       </svg>
       
-      <div className="mt-4 flex flex-wrap justify-center gap-1 text-xs text-gray-500">
+      <div className="mt-4 flex flex-wrap justify-center gap-1 text-xs text-[var(--muted)]">
         {US_STATES.map((state) => (
           <span
             key={state.abbrev}
             className={cn(
               'px-2 py-1 rounded transition-colors cursor-pointer',
               selectedState === state.abbrev 
-                ? 'bg-blue-100 text-blue-700 font-medium' 
-                : 'hover:bg-gray-100'
+                ? 'bg-[var(--green)] text-white font-medium' 
+                : 'hover:bg-[var(--surface-sunk)]'
             )}
             onClick={() => handleClick(state.abbrev)}
           >

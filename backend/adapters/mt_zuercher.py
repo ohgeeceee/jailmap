@@ -45,7 +45,7 @@ def _holds_to_charges(hold_reasons: str) -> List[Dict]:
             continue
         seen_charges.add(charge_id)
         charges.append({
-            "id": charge_id,
+            "source_id": charge_id,
             "description": chunk[:2000],
             "statute": None,
             "severity": None,
@@ -63,7 +63,7 @@ def _bonds_from_holds(hold_reasons: str) -> List[Dict]:
             continue
         seen_bonds.add(bond_id)
         bonds.append({
-            "id": bond_id,
+            "source_id": bond_id,
             "amount": float(amount),
             "type": bond_type[:100] or "bond",
             "status": "set",
@@ -77,7 +77,9 @@ def _name_parts(raw: str) -> tuple:
         last, first = name.split(",", 1)
         return first.strip().title(), last.strip().title()
     parts = name.split()
-    return (parts[1].title() if len(parts) > 1 else "", parts[0].title()) if parts else ("", "")
+    if len(parts) >= 2:
+        return parts[0].title(), " ".join(parts[1:]).title()
+    return (parts[0].title() if parts else "", "")
 
 
 def fetch(source) -> AdapterResult:

@@ -75,7 +75,9 @@ services:
     depends_on:
       postgres: { condition: service_healthy }
       redis: { condition: service_healthy }
-    mem_limit: 320m
+    volumes:
+      - ./data/allowed_hosts.txt:/app/data/allowed_hosts.txt:ro
+    mem_limit: 512m
     cpus: 0.75
     cap_drop: [ALL]
     security_opt: ['no-new-privileges:true']
@@ -107,6 +109,13 @@ services:
       SMTP_USER: ${SMTP_USER:-}
       SMTP_PASSWORD: ${SMTP_PASSWORD:-}
       MAIL_FROM: ${MAIL_FROM:-}
+      SUPPORT_EMAIL_USER: ${SUPPORT_EMAIL_USER:-}
+      SUPPORT_EMAIL_APP_PASSWORD: ${SUPPORT_EMAIL_APP_PASSWORD:-}
+      SUPPORT_IMAP_HOST: ${SUPPORT_IMAP_HOST:-imap.gmail.com}
+      SUPPORT_IMAP_PORT: ${SUPPORT_IMAP_PORT:-993}
+      SUPPORT_SMTP_HOST: ${SUPPORT_SMTP_HOST:-smtp.gmail.com}
+      SUPPORT_SMTP_PORT: ${SUPPORT_SMTP_PORT:-465}
+      SUPPORT_MAIL_FROM: ${SUPPORT_MAIL_FROM:-}
       NODE_OPTIONS: --max-old-space-size=512
     ports: ['127.0.0.1:3109:3000']
     volumes: ['./data/accounts:/app/account-data']

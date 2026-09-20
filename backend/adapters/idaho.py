@@ -9,7 +9,23 @@ REQUIRED_HEADERS = {
     "Accept": "text/html,application/xhtml+xml,application/pdf,*/*;q=0.8",
     "Accept-Language": "en-US,en;q=0.9",
 }
-ALLOWED_HOSTS = {h.strip() for h in os.environ.get("SOURCE_ALLOWED_HOSTS", "").split(",") if h.strip()}
+def _load_allowed_hosts():
+    """Load allowed hosts from file or env var."""
+    hosts = set()
+    # Try file first (allows long lists)
+    for path in ['/app/data/allowed_hosts.txt', 'data/allowed_hosts.txt']:
+        try:
+            with open(path) as f:
+                hosts.update(line.strip() for line in f if line.strip())
+        except FileNotFoundError:
+            pass
+    # Fall back to env var
+    env_hosts = os.environ.get("SOURCE_ALLOWED_HOSTS", "")
+    if env_hosts:
+        hosts.update(h.strip() for h in env_hosts.split(",") if h.strip())
+    return hosts
+
+ALLOWED_HOSTS = _load_allowed_hosts()
 
 
 class AdapterResult:
@@ -22,7 +38,10 @@ def _assert_authorized(url: str) -> None:
     parsed = urlparse(url)
     if parsed.scheme not in ("https", "http"):
         raise ValueError("Source endpoint is not authorized")
-    if ALLOWED_HOSTS and parsed.hostname not in ALLOWED_HOSTS:
+    hostname = parsed.hostname or ""
+    if hostname.startswith("www."):
+        hostname = hostname[4:]
+    if ALLOWED_HOSTS and hostname not in ALLOWED_HOSTS:
         raise ValueError("Source endpoint host is not allowed")
 
 
@@ -132,7 +151,7 @@ def _parse_common_text_record(fields: Dict[str, Optional[str]], source_url: str)
         "facility": fields.get("facility", ""),
         "source_url": source_url,
         "source_type": fields.get("source_type", "custom_html"),
-        "pulled_at": _now_iso(),
+        "source_updated_at": _now_iso(),
         "inmate_id": _first_non_empty(fields.get("inmate_id"), fields.get("id")),
         "booking_number": _first_non_empty(fields.get("booking_number"), fields.get("booking_no"), fields.get("case_number"), fields.get("jail_id")),
         "full_name": full_name,
@@ -183,7 +202,7 @@ def _stub_parse_html(source) -> List[Dict]:
         "source_type": "custom_html",
         "name": "HTML Parse Placeholder",
         "booking_number": "HTML-PLACEHOLDER",
-        "status": "in_custody",
+        "status": "in_custody", "visibility": "public",
         "booking_date": datetime.now(timezone.utc).isoformat(),
     }, source["source_url"]))
     return records
@@ -198,7 +217,7 @@ def _stub_parse_pdf(source) -> List[Dict]:
         "source_type": "pdf",
         "name": "PDF Parse Placeholder",
         "booking_number": "PDF-PLACEHOLDER",
-        "status": "in_custody",
+        "status": "in_custody", "visibility": "public",
         "booking_date": datetime.now(timezone.utc).isoformat(),
     }, source["source_url"]))
     return records

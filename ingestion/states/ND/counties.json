@@ -1,0 +1,220 @@
+{
+  "state": "ND",
+  "name": "North Dakota",
+  "state_fips": "38",
+  "geography_vintage": "Census 2025 Gazetteer",
+  "counties": [
+    {
+      "name": "Adams County",
+      "fips": "38001"
+    },
+    {
+      "name": "Barnes County",
+      "fips": "38003"
+    },
+    {
+      "name": "Benson County",
+      "fips": "38005"
+    },
+    {
+      "name": "Billings County",
+      "fips": "38007"
+    },
+    {
+      "name": "Bottineau County",
+      "fips": "38009"
+    },
+    {
+      "name": "Bowman County",
+      "fips": "38011"
+    },
+    {
+      "name": "Burke County",
+      "fips": "38013"
+    },
+    {
+      "name": "Burleigh County",
+      "fips": "38015"
+    },
+    {
+      "name": "Cass County",
+      "fips": "38017"
+    },
+    {
+      "name": "Cavalier County",
+      "fips": "38019"
+    },
+    {
+      "name": "Dickey County",
+      "fips": "38021"
+    },
+    {
+      "name": "Divide County",
+      "fips": "38023"
+    },
+    {
+      "name": "Dunn County",
+      "fips": "38025"
+    },
+    {
+      "name": "Eddy County",
+      "fips": "38027"
+    },
+    {
+      "name": "Emmons County",
+      "fips": "38029"
+    },
+    {
+      "name": "Foster County",
+      "fips": "38031"
+    },
+    {
+      "name": "Golden Valley County",
+      "fips": "38033"
+    },
+    {
+      "name": "Grand Forks County",
+      "fips": "38035"
+    },
+    {
+      "name": "Grant County",
+      "fips": "38037"
+    },
+    {
+      "name": "Griggs County",
+      "fips": "38039"
+    },
+    {
+      "name": "Hettinger County",
+      "fips": "38041"
+    },
+    {
+      "name": "Kidder County",
+      "fips": "38043"
+    },
+    {
+      "name": "LaMoure County",
+      "fips": "38045"
+    },
+    {
+      "name": "Logan County",
+      "fips": "38047"
+    },
+    {
+      "name": "McHenry County",
+      "fips": "38049"
+    },
+    {
+      "name": "McIntosh County",
+      "fips": "38051"
+    },
+    {
+      "name": "McKenzie County",
+      "fips": "38053"
+    },
+    {
+      "name": "McLean County",
+      "fips": "38055"
+    },
+    {
+      "name": "Mercer County",
+      "fips": "38057"
+    },
+    {
+      "name": "Morton County",
+      "fips": "38059"
+    },
+    {
+      "name": "Mountrail County",
+      "fips": "38061"
+    },
+    {
+      "name": "Nelson County",
+      "fips": "38063"
+    },
+    {
+      "name": "Oliver County",
+      "fips": "38065"
+    },
+    {
+      "name": "Pembina County",
+      "fips": "38067"
+    },
+    {
+      "name": "Pierce County",
+      "fips": "38069"
+    },
+    {
+      "name": "Ramsey County",
+      "fips": "38071"
+    },
+    {
+      "name": "Ransom County",
+      "fips": "38073"
+    },
+    {
+      "name": "Renville County",
+      "fips": "38075"
+    },
+    {
+      "name": "Richland County",
+      "fips": "38077"
+    },
+    {
+      "name": "Rolette County",
+      "fips": "38079"
+    },
+    {
+      "name": "Sargent County",
+      "fips": "38081"
+    },
+    {
+      "name": "Sheridan County",
+      "fips": "38083"
+    },
+    {
+      "name": "Sioux County",
+      "fips": "38085"
+    },
+    {
+      "name": "Slope County",
+      "fips": "38087"
+    },
+    {
+      "name": "Stark County",
+      "fips": "38089"
+    },
+    {
+      "name": "Steele County",
+      "fips": "38091"
+    },
+    {
+      "name": "Stutsman County",
+      "fips": "38093"
+    },
+    {
+      "name": "Towner County",
+      "fips": "38095"
+    },
+    {
+      "name": "Traill County",
+      "fips": "38097"
+    },
+    {
+      "name": "Walsh County",
+      "fips": "38099"
+    },
+    {
+      "name": "Ward County",
+      "fips": "38101"
+    },
+    {
+      "name": "Wells County",
+      "fips": "38103"
+    },
+    {
+      "name": "Williams County",
+      "fips": "38105"
+    }
+  ]
+}

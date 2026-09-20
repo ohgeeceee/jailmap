@@ -1,0 +1,540 @@
+{
+  "state": "VA",
+  "name": "Virginia",
+  "state_fips": "51",
+  "geography_vintage": "Census 2025 Gazetteer",
+  "counties": [
+    {
+      "name": "Accomack County",
+      "fips": "51001"
+    },
+    {
+      "name": "Albemarle County",
+      "fips": "51003"
+    },
+    {
+      "name": "Alleghany County",
+      "fips": "51005"
+    },
+    {
+      "name": "Amelia County",
+      "fips": "51007"
+    },
+    {
+      "name": "Amherst County",
+      "fips": "51009"
+    },
+    {
+      "name": "Appomattox County",
+      "fips": "51011"
+    },
+    {
+      "name": "Arlington County",
+      "fips": "51013"
+    },
+    {
+      "name": "Augusta County",
+      "fips": "51015"
+    },
+    {
+      "name": "Bath County",
+      "fips": "51017"
+    },
+    {
+      "name": "Bedford County",
+      "fips": "51019"
+    },
+    {
+      "name": "Bland County",
+      "fips": "51021"
+    },
+    {
+      "name": "Botetourt County",
+      "fips": "51023"
+    },
+    {
+      "name": "Brunswick County",
+      "fips": "51025"
+    },
+    {
+      "name": "Buchanan County",
+      "fips": "51027"
+    },
+    {
+      "name": "Buckingham County",
+      "fips": "51029"
+    },
+    {
+      "name": "Campbell County",
+      "fips": "51031"
+    },
+    {
+      "name": "Caroline County",
+      "fips": "51033"
+    },
+    {
+      "name": "Carroll County",
+      "fips": "51035"
+    },
+    {
+      "name": "Charles City County",
+      "fips": "51036"
+    },
+    {
+      "name": "Charlotte County",
+      "fips": "51037"
+    },
+    {
+      "name": "Chesterfield County",
+      "fips": "51041"
+    },
+    {
+      "name": "Clarke County",
+      "fips": "51043"
+    },
+    {
+      "name": "Craig County",
+      "fips": "51045"
+    },
+    {
+      "name": "Culpeper County",
+      "fips": "51047"
+    },
+    {
+      "name": "Cumberland County",
+      "fips": "51049"
+    },
+    {
+      "name": "Dickenson County",
+      "fips": "51051"
+    },
+    {
+      "name": "Dinwiddie County",
+      "fips": "51053"
+    },
+    {
+      "name": "Essex County",
+      "fips": "51057"
+    },
+    {
+      "name": "Fairfax County",
+      "fips": "51059"
+    },
+    {
+      "name": "Fauquier County",
+      "fips": "51061"
+    },
+    {
+      "name": "Floyd County",
+      "fips": "51063"
+    },
+    {
+      "name": "Fluvanna County",
+      "fips": "51065"
+    },
+    {
+      "name": "Franklin County",
+      "fips": "51067"
+    },
+    {
+      "name": "Frederick County",
+      "fips": "51069"
+    },
+    {
+      "name": "Giles County",
+      "fips": "51071"
+    },
+    {
+      "name": "Gloucester County",
+      "fips": "51073"
+    },
+    {
+      "name": "Goochland County",
+      "fips": "51075"
+    },
+    {
+      "name": "Grayson County",
+      "fips": "51077"
+    },
+    {
+      "name": "Greene County",
+      "fips": "51079"
+    },
+    {
+      "name": "Greensville County",
+      "fips": "51081"
+    },
+    {
+      "name": "Halifax County",
+      "fips": "51083"
+    },
+    {
+      "name": "Hanover County",
+      "fips": "51085"
+    },
+    {
+      "name": "Henrico County",
+      "fips": "51087"
+    },
+    {
+      "name": "Henry County",
+      "fips": "51089"
+    },
+    {
+      "name": "Highland County",
+      "fips": "51091"
+    },
+    {
+      "name": "Isle of Wight County",
+      "fips": "51093"
+    },
+    {
+      "name": "James City County",
+      "fips": "51095"
+    },
+    {
+      "name": "King and Queen County",
+      "fips": "51097"
+    },
+    {
+      "name": "King George County",
+      "fips": "51099"
+    },
+    {
+      "name": "King William County",
+      "fips": "51101"
+    },
+    {
+      "name": "Lancaster County",
+      "fips": "51103"
+    },
+    {
+      "name": "Lee County",
+      "fips": "51105"
+    },
+    {
+      "name": "Loudoun County",
+      "fips": "51107"
+    },
+    {
+      "name": "Louisa County",
+      "fips": "51109"
+    },
+    {
+      "name": "Lunenburg County",
+      "fips": "51111"
+    },
+    {
+      "name": "Madison County",
+      "fips": "51113"
+    },
+    {
+      "name": "Mathews County",
+      "fips": "51115"
+    },
+    {
+      "name": "Mecklenburg County",
+      "fips": "51117"
+    },
+    {
+      "name": "Middlesex County",
+      "fips": "51119"
+    },
+    {
+      "name": "Montgomery County",
+      "fips": "51121"
+    },
+    {
+      "name": "Nelson County",
+      "fips": "51125"
+    },
+    {
+      "name": "New Kent County",
+      "fips": "51127"
+    },
+    {
+      "name": "Northampton County",
+      "fips": "51131"
+    },
+    {
+      "name": "Northumberland County",
+      "fips": "51133"
+    },
+    {
+      "name": "Nottoway County",
+      "fips": "51135"
+    },
+    {
+      "name": "Orange County",
+      "fips": "51137"
+    },
+    {
+      "name": "Page County",
+      "fips": "51139"
+    },
+    {
+      "name": "Patrick County",
+      "fips": "51141"
+    },
+    {
+      "name": "Pittsylvania County",
+      "fips": "51143"
+    },
+    {
+      "name": "Powhatan County",
+      "fips": "51145"
+    },
+    {
+      "name": "Prince Edward County",
+      "fips": "51147"
+    },
+    {
+      "name": "Prince George County",
+      "fips": "51149"
+    },
+    {
+      "name": "Prince William County",
+      "fips": "51153"
+    },
+    {
+      "name": "Pulaski County",
+      "fips": "51155"
+    },
+    {
+      "name": "Rappahannock County",
+      "fips": "51157"
+    },
+    {
+      "name": "Richmond County",
+      "fips": "51159"
+    },
+    {
+      "name": "Roanoke County",
+      "fips": "51161"
+    },
+    {
+      "name": "Rockbridge County",
+      "fips": "51163"
+    },
+    {
+      "name": "Rockingham County",
+      "fips": "51165"
+    },
+    {
+      "name": "Russell County",
+      "fips": "51167"
+    },
+    {
+      "name": "Scott County",
+      "fips": "51169"
+    },
+    {
+      "name": "Shenandoah County",
+      "fips": "51171"
+    },
+    {
+      "name": "Smyth County",
+      "fips": "51173"
+    },
+    {
+      "name": "Southampton County",
+      "fips": "51175"
+    },
+    {
+      "name": "Spotsylvania County",
+      "fips": "51177"
+    },
+    {
+      "name": "Stafford County",
+      "fips": "51179"
+    },
+    {
+      "name": "Surry County",
+      "fips": "51181"
+    },
+    {
+      "name": "Sussex County",
+      "fips": "51183"
+    },
+    {
+      "name": "Tazewell County",
+      "fips": "51185"
+    },
+    {
+      "name": "Warren County",
+      "fips": "51187"
+    },
+    {
+      "name": "Washington County",
+      "fips": "51191"
+    },
+    {
+      "name": "Westmoreland County",
+      "fips": "51193"
+    },
+    {
+      "name": "Wise County",
+      "fips": "51195"
+    },
+    {
+      "name": "Wythe County",
+      "fips": "51197"
+    },
+    {
+      "name": "York County",
+      "fips": "51199"
+    },
+    {
+      "name": "Alexandria city",
+      "fips": "51510"
+    },
+    {
+      "name": "Bristol city",
+      "fips": "51520"
+    },
+    {
+      "name": "Buena Vista city",
+      "fips": "51530"
+    },
+    {
+      "name": "Charlottesville city",
+      "fips": "51540"
+    },
+    {
+      "name": "Chesapeake city",
+      "fips": "51550"
+    },
+    {
+      "name": "Colonial Heights city",
+      "fips": "51570"
+    },
+    {
+      "name": "Covington city",
+      "fips": "51580"
+    },
+    {
+      "name": "Danville city",
+      "fips": "51590"
+    },
+    {
+      "name": "Emporia city",
+      "fips": "51595"
+    },
+    {
+      "name": "Fairfax city",
+      "fips": "51600"
+    },
+    {
+      "name": "Falls Church city",
+      "fips": "51610"
+    },
+    {
+      "name": "Franklin city",
+      "fips": "51620"
+    },
+    {
+      "name": "Fredericksburg city",
+      "fips": "51630"
+    },
+    {
+      "name": "Galax city",
+      "fips": "51640"
+    },
+    {
+      "name": "Hampton city",
+      "fips": "51650"
+    },
+    {
+      "name": "Harrisonburg city",
+      "fips": "51660"
+    },
+    {
+      "name": "Hopewell city",
+      "fips": "51670"
+    },
+    {
+      "name": "Lexington city",
+      "fips": "51678"
+    },
+    {
+      "name": "Lynchburg city",
+      "fips": "51680"
+    },
+    {
+      "name": "Manassas city",
+      "fips": "51683"
+    },
+    {
+      "name": "Manassas Park city",
+      "fips": "51685"
+    },
+    {
+      "name": "Martinsville city",
+      "fips": "51690"
+    },
+    {
+      "name": "Newport News city",
+      "fips": "51700"
+    },
+    {
+      "name": "Norfolk city",
+      "fips": "51710"
+    },
+    {
+      "name": "Norton city",
+      "fips": "51720"
+    },
+    {
+      "name": "Petersburg city",
+      "fips": "51730"
+    },
+    {
+      "name": "Poquoson city",
+      "fips": "51735"
+    },
+    {
+      "name": "Portsmouth city",
+      "fips": "51740"
+    },
+    {
+      "name": "Radford city",
+      "fips": "51750"
+    },
+    {
+      "name": "Richmond city",
+      "fips": "51760"
+    },
+    {
+      "name": "Roanoke city",
+      "fips": "51770"
+    },
+    {
+      "name": "Salem city",
+      "fips": "51775"
+    },
+    {
+      "name": "Staunton city",
+      "fips": "51790"
+    },
+    {
+      "name": "Suffolk city",
+      "fips": "51800"
+    },
+    {
+      "name": "Virginia Beach city",
+      "fips": "51810"
+    },
+    {
+      "name": "Waynesboro city",
+      "fips": "51820"
+    },
+    {
+      "name": "Williamsburg city",
+      "fips": "51830"
+    },
+    {
+      "name": "Winchester city",
+      "fips": "51840"
+    }
+  ]
+}

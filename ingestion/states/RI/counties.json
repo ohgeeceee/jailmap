@@ -1,0 +1,28 @@
+{
+  "state": "RI",
+  "name": "Rhode Island",
+  "state_fips": "44",
+  "geography_vintage": "Census 2025 Gazetteer",
+  "counties": [
+    {
+      "name": "Bristol County",
+      "fips": "44001"
+    },
+    {
+      "name": "Kent County",
+      "fips": "44003"
+    },
+    {
+      "name": "Newport County",
+      "fips": "44005"
+    },
+    {
+      "name": "Providence County",
+      "fips": "44007"
+    },
+    {
+      "name": "Washington County",
+      "fips": "44009"
+    }
+  ]
+}

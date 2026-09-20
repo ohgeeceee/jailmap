@@ -31,7 +31,7 @@ class TestHtmlRoster(unittest.TestCase):
         self.assertEqual(len(rows), 1)
         row = rows[0]
         self.assertEqual(row['last_name'], 'DOE')
-        self.assertEqual(row['first_name'], 'JOHN')
+        self.assertEqual(row['first_name'], 'JOHN A')
         self.assertEqual(row['booking_number'], '2026-001')
         self.assertEqual(row['booking_date'], '2026-09-01T12:00:00Z')
         self.assertEqual(row['status'], 'in_custody')
@@ -58,6 +58,12 @@ class TestHtmlRoster(unittest.TestCase):
         rows = parse_html(html, SOURCE)
         self.assertEqual(len(rows), 1)
         self.assertIsNone(rows[0]['status'])
+
+    def test_booking_identity_and_date_are_not_invented(self):
+        html = table(['Name', 'Charges'], [['DOE, JOHN', 'DUI']])
+        [row] = parse_html(html, SOURCE)
+        self.assertIsNone(row['booking_number'])
+        self.assertIsNone(row['booking_date'])
 
     def test_repeated_header_row_is_dropped(self):
         inner = ('<tr><th>Name</th><th>Booking Date</th></tr>'
@@ -101,6 +107,45 @@ class TestHtmlRoster(unittest.TestCase):
         rows = parse_html(html, SOURCE)
         self.assertEqual(rows[0]['last_name'], "O'BRIEN")
         self.assertIn('fraud', rows[0]['charges'][0]['description'])
+
+    def test_ui_chrome_is_not_a_name(self):
+        # Tax data pages, property research, weather widgets — all produce
+        # table cells that look like names but are not people.
+        html = table(
+            ['Name', 'Value'],
+            [
+                ['Enter Taxpayer Account Number :', ''],
+                ['Enter Tax Year and Ticket Number (and suffix) :', ''],
+                ['Enter District, Map, Parcel, and Sub-Parcel :', ''],
+                ['View', 'Inmate Details'],
+                ['https://www.willyweather.com/tn/van-buren-county/spencer.html', ''],
+                ['land', 'Land data Provides information about zoning'],
+                ['their', 'Building information This section is where you can confirm the number of buildings on record'],
+                ['2024-09-23 13:27', ''],
+                ['About the Tax Office', ''],
+                ['Street Name (do not include street type, i.e. rd, ln, etc.)', ''],
+                ['Record Searches', ''],
+                ['Select Identifier:', ''],
+                ['Value:', ''],
+                ['Tax Rates', ''],
+                ['Bear Valley Search and Rescue SAR Coordinator: Joe', ''],
+                ['Main', 'Navigation'],
+                ['DOE, JOHN', '1200'],
+            ],
+        )
+        rows = parse_html(html, SOURCE)
+        # Only the real person should survive.
+        self.assertEqual(len(rows), 1)
+        self.assertEqual(rows[0]['last_name'], 'DOE')
+        self.assertEqual(rows[0]['first_name'], 'JOHN')
+
+    def test_long_text_is_not_a_name(self):
+        # A cell with 80+ chars of prose is not a person.
+        html = table(
+            ['Name', 'Description'],
+            [['This is a very long string that exceeds eighty characters and should never be parsed as a person name', 'x']],
+        )
+        self.assertEqual(parse_html(html, SOURCE), [])
 
 
 if __name__ == '__main__':

@@ -1,0 +1,488 @@
+{
+  "state": "KY",
+  "name": "Kentucky",
+  "state_fips": "21",
+  "geography_vintage": "Census 2025 Gazetteer",
+  "counties": [
+    {
+      "name": "Adair County",
+      "fips": "21001"
+    },
+    {
+      "name": "Allen County",
+      "fips": "21003"
+    },
+    {
+      "name": "Anderson County",
+      "fips": "21005"
+    },
+    {
+      "name": "Ballard County",
+      "fips": "21007"
+    },
+    {
+      "name": "Barren County",
+      "fips": "21009"
+    },
+    {
+      "name": "Bath County",
+      "fips": "21011"
+    },
+    {
+      "name": "Bell County",
+      "fips": "21013"
+    },
+    {
+      "name": "Boone County",
+      "fips": "21015"
+    },
+    {
+      "name": "Bourbon County",
+      "fips": "21017"
+    },
+    {
+      "name": "Boyd County",
+      "fips": "21019"
+    },
+    {
+      "name": "Boyle County",
+      "fips": "21021"
+    },
+    {
+      "name": "Bracken County",
+      "fips": "21023"
+    },
+    {
+      "name": "Breathitt County",
+      "fips": "21025"
+    },
+    {
+      "name": "Breckinridge County",
+      "fips": "21027"
+    },
+    {
+      "name": "Bullitt County",
+      "fips": "21029"
+    },
+    {
+      "name": "Butler County",
+      "fips": "21031"
+    },
+    {
+      "name": "Caldwell County",
+      "fips": "21033"
+    },
+    {
+      "name": "Calloway County",
+      "fips": "21035"
+    },
+    {
+      "name": "Campbell County",
+      "fips": "21037"
+    },
+    {
+      "name": "Carlisle County",
+      "fips": "21039"
+    },
+    {
+      "name": "Carroll County",
+      "fips": "21041"
+    },
+    {
+      "name": "Carter County",
+      "fips": "21043"
+    },
+    {
+      "name": "Casey County",
+      "fips": "21045"
+    },
+    {
+      "name": "Christian County",
+      "fips": "21047"
+    },
+    {
+      "name": "Clark County",
+      "fips": "21049"
+    },
+    {
+      "name": "Clay County",
+      "fips": "21051"
+    },
+    {
+      "name": "Clinton County",
+      "fips": "21053"
+    },
+    {
+      "name": "Crittenden County",
+      "fips": "21055"
+    },
+    {
+      "name": "Cumberland County",
+      "fips": "21057"
+    },
+    {
+      "name": "Daviess County",
+      "fips": "21059"
+    },
+    {
+      "name": "Edmonson County",
+      "fips": "21061"
+    },
+    {
+      "name": "Elliott County",
+      "fips": "21063"
+    },
+    {
+      "name": "Estill County",
+      "fips": "21065"
+    },
+    {
+      "name": "Fayette County",
+      "fips": "21067"
+    },
+    {
+      "name": "Fleming County",
+      "fips": "21069"
+    },
+    {
+      "name": "Floyd County",
+      "fips": "21071"
+    },
+    {
+      "name": "Franklin County",
+      "fips": "21073"
+    },
+    {
+      "name": "Fulton County",
+      "fips": "21075"
+    },
+    {
+      "name": "Gallatin County",
+      "fips": "21077"
+    },
+    {
+      "name": "Garrard County",
+      "fips": "21079"
+    },
+    {
+      "name": "Grant County",
+      "fips": "21081"
+    },
+    {
+      "name": "Graves County",
+      "fips": "21083"
+    },
+    {
+      "name": "Grayson County",
+      "fips": "21085"
+    },
+    {
+      "name": "Green County",
+      "fips": "21087"
+    },
+    {
+      "name": "Greenup County",
+      "fips": "21089"
+    },
+    {
+      "name": "Hancock County",
+      "fips": "21091"
+    },
+    {
+      "name": "Hardin County",
+      "fips": "21093"
+    },
+    {
+      "name": "Harlan County",
+      "fips": "21095"
+    },
+    {
+      "name": "Harrison County",
+      "fips": "21097"
+    },
+    {
+      "name": "Hart County",
+      "fips": "21099"
+    },
+    {
+      "name": "Henderson County",
+      "fips": "21101"
+    },
+    {
+      "name": "Henry County",
+      "fips": "21103"
+    },
+    {
+      "name": "Hickman County",
+      "fips": "21105"
+    },
+    {
+      "name": "Hopkins County",
+      "fips": "21107"
+    },
+    {
+      "name": "Jackson County",
+      "fips": "21109"
+    },
+    {
+      "name": "Jefferson County",
+      "fips": "21111"
+    },
+    {
+      "name": "Jessamine County",
+      "fips": "21113"
+    },
+    {
+      "name": "Johnson County",
+      "fips": "21115"
+    },
+    {
+      "name": "Kenton County",
+      "fips": "21117"
+    },
+    {
+      "name": "Knott County",
+      "fips": "21119"
+    },
+    {
+      "name": "Knox County",
+      "fips": "21121"
+    },
+    {
+      "name": "Larue County",
+      "fips": "21123"
+    },
+    {
+      "name": "Laurel County",
+      "fips": "21125"
+    },
+    {
+      "name": "Lawrence County",
+      "fips": "21127"
+    },
+    {
+      "name": "Lee County",
+      "fips": "21129"
+    },
+    {
+      "name": "Leslie County",
+      "fips": "21131"
+    },
+    {
+      "name": "Letcher County",
+      "fips": "21133"
+    },
+    {
+      "name": "Lewis County",
+      "fips": "21135"
+    },
+    {
+      "name": "Lincoln County",
+      "fips": "21137"
+    },
+    {
+      "name": "Livingston County",
+      "fips": "21139"
+    },
+    {
+      "name": "Logan County",
+      "fips": "21141"
+    },
+    {
+      "name": "Lyon County",
+      "fips": "21143"
+    },
+    {
+      "name": "McCracken County",
+      "fips": "21145"
+    },
+    {
+      "name": "McCreary County",
+      "fips": "21147"
+    },
+    {
+      "name": "McLean County",
+      "fips": "21149"
+    },
+    {
+      "name": "Madison County",
+      "fips": "21151"
+    },
+    {
+      "name": "Magoffin County",
+      "fips": "21153"
+    },
+    {
+      "name": "Marion County",
+      "fips": "21155"
+    },
+    {
+      "name": "Marshall County",
+      "fips": "21157"
+    },
+    {
+      "name": "Martin County",
+      "fips": "21159"
+    },
+    {
+      "name": "Mason County",
+      "fips": "21161"
+    },
+    {
+      "name": "Meade County",
+      "fips": "21163"
+    },
+    {
+      "name": "Menifee County",
+      "fips": "21165"
+    },
+    {
+      "name": "Mercer County",
+      "fips": "21167"
+    },
+    {
+      "name": "Metcalfe County",
+      "fips": "21169"
+    },
+    {
+      "name": "Monroe County",
+      "fips": "21171"
+    },
+    {
+      "name": "Montgomery County",
+      "fips": "21173"
+    },
+    {
+      "name": "Morgan County",
+      "fips": "21175"
+    },
+    {
+      "name": "Muhlenberg County",
+      "fips": "21177"
+    },
+    {
+      "name": "Nelson County",
+      "fips": "21179"
+    },
+    {
+      "name": "Nicholas County",
+      "fips": "21181"
+    },
+    {
+      "name": "Ohio County",
+      "fips": "21183"
+    },
+    {
+      "name": "Oldham County",
+      "fips": "21185"
+    },
+    {
+      "name": "Owen County",
+      "fips": "21187"
+    },
+    {
+      "name": "Owsley County",
+      "fips": "21189"
+    },
+    {
+      "name": "Pendleton County",
+      "fips": "21191"
+    },
+    {
+      "name": "Perry County",
+      "fips": "21193"
+    },
+    {
+      "name": "Pike County",
+      "fips": "21195"
+    },
+    {
+      "name": "Powell County",
+      "fips": "21197"
+    },
+    {
+      "name": "Pulaski County",
+      "fips": "21199"
+    },
+    {
+      "name": "Robertson County",
+      "fips": "21201"
+    },
+    {
+      "name": "Rockcastle County",
+      "fips": "21203"
+    },
+    {
+      "name": "Rowan County",
+      "fips": "21205"
+    },
+    {
+      "name": "Russell County",
+      "fips": "21207"
+    },
+    {
+      "name": "Scott County",
+      "fips": "21209"
+    },
+    {
+      "name": "Shelby County",
+      "fips": "21211"
+    },
+    {
+      "name": "Simpson County",
+      "fips": "21213"
+    },
+    {
+      "name": "Spencer County",
+      "fips": "21215"
+    },
+    {
+      "name": "Taylor County",
+      "fips": "21217"
+    },
+    {
+      "name": "Todd County",
+      "fips": "21219"
+    },
+    {
+      "name": "Trigg County",
+      "fips": "21221"
+    },
+    {
+      "name": "Trimble County",
+      "fips": "21223"
+    },
+    {
+      "name": "Union County",
+      "fips": "21225"
+    },
+    {
+      "name": "Warren County",
+      "fips": "21227"
+    },
+    {
+      "name": "Washington County",
+      "fips": "21229"
+    },
+    {
+      "name": "Wayne County",
+      "fips": "21231"
+    },
+    {
+      "name": "Webster County",
+      "fips": "21233"
+    },
+    {
+      "name": "Whitley County",
+      "fips": "21235"
+    },
+    {
+      "name": "Wolfe County",
+      "fips": "21237"
+    },
+    {
+      "name": "Woodford County",
+      "fips": "21239"
+    }
+  ]
+}

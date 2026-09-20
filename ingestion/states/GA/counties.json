@@ -1,0 +1,644 @@
+{
+  "state": "GA",
+  "name": "Georgia",
+  "state_fips": "13",
+  "geography_vintage": "Census 2025 Gazetteer",
+  "counties": [
+    {
+      "name": "Appling County",
+      "fips": "13001"
+    },
+    {
+      "name": "Atkinson County",
+      "fips": "13003"
+    },
+    {
+      "name": "Bacon County",
+      "fips": "13005"
+    },
+    {
+      "name": "Baker County",
+      "fips": "13007"
+    },
+    {
+      "name": "Baldwin County",
+      "fips": "13009"
+    },
+    {
+      "name": "Banks County",
+      "fips": "13011"
+    },
+    {
+      "name": "Barrow County",
+      "fips": "13013"
+    },
+    {
+      "name": "Bartow County",
+      "fips": "13015"
+    },
+    {
+      "name": "Ben Hill County",
+      "fips": "13017"
+    },
+    {
+      "name": "Berrien County",
+      "fips": "13019"
+    },
+    {
+      "name": "Bibb County",
+      "fips": "13021"
+    },
+    {
+      "name": "Bleckley County",
+      "fips": "13023"
+    },
+    {
+      "name": "Brantley County",
+      "fips": "13025"
+    },
+    {
+      "name": "Brooks County",
+      "fips": "13027"
+    },
+    {
+      "name": "Bryan County",
+      "fips": "13029"
+    },
+    {
+      "name": "Bulloch County",
+      "fips": "13031"
+    },
+    {
+      "name": "Burke County",
+      "fips": "13033"
+    },
+    {
+      "name": "Butts County",
+      "fips": "13035"
+    },
+    {
+      "name": "Calhoun County",
+      "fips": "13037"
+    },
+    {
+      "name": "Camden County",
+      "fips": "13039"
+    },
+    {
+      "name": "Candler County",
+      "fips": "13043"
+    },
+    {
+      "name": "Carroll County",
+      "fips": "13045"
+    },
+    {
+      "name": "Catoosa County",
+      "fips": "13047"
+    },
+    {
+      "name": "Charlton County",
+      "fips": "13049"
+    },
+    {
+      "name": "Chatham County",
+      "fips": "13051"
+    },
+    {
+      "name": "Chattahoochee County",
+      "fips": "13053"
+    },
+    {
+      "name": "Chattooga County",
+      "fips": "13055"
+    },
+    {
+      "name": "Cherokee County",
+      "fips": "13057"
+    },
+    {
+      "name": "Clarke County",
+      "fips": "13059"
+    },
+    {
+      "name": "Clay County",
+      "fips": "13061"
+    },
+    {
+      "name": "Clayton County",
+      "fips": "13063"
+    },
+    {
+      "name": "Clinch County",
+      "fips": "13065"
+    },
+    {
+      "name": "Cobb County",
+      "fips": "13067"
+    },
+    {
+      "name": "Coffee County",
+      "fips": "13069"
+    },
+    {
+      "name": "Colquitt County",
+      "fips": "13071"
+    },
+    {
+      "name": "Columbia County",
+      "fips": "13073"
+    },
+    {
+      "name": "Cook County",
+      "fips": "13075"
+    },
+    {
+      "name": "Coweta County",
+      "fips": "13077"
+    },
+    {
+      "name": "Crawford County",
+      "fips": "13079"
+    },
+    {
+      "name": "Crisp County",
+      "fips": "13081"
+    },
+    {
+      "name": "Dade County",
+      "fips": "13083"
+    },
+    {
+      "name": "Dawson County",
+      "fips": "13085"
+    },
+    {
+      "name": "Decatur County",
+      "fips": "13087"
+    },
+    {
+      "name": "DeKalb County",
+      "fips": "13089"
+    },
+    {
+      "name": "Dodge County",
+      "fips": "13091"
+    },
+    {
+      "name": "Dooly County",
+      "fips": "13093"
+    },
+    {
+      "name": "Dougherty County",
+      "fips": "13095"
+    },
+    {
+      "name": "Douglas County",
+      "fips": "13097"
+    },
+    {
+      "name": "Early County",
+      "fips": "13099"
+    },
+    {
+      "name": "Echols County",
+      "fips": "13101"
+    },
+    {
+      "name": "Effingham County",
+      "fips": "13103"
+    },
+    {
+      "name": "Elbert County",
+      "fips": "13105"
+    },
+    {
+      "name": "Emanuel County",
+      "fips": "13107"
+    },
+    {
+      "name": "Evans County",
+      "fips": "13109"
+    },
+    {
+      "name": "Fannin County",
+      "fips": "13111"
+    },
+    {
+      "name": "Fayette County",
+      "fips": "13113"
+    },
+    {
+      "name": "Floyd County",
+      "fips": "13115"
+    },
+    {
+      "name": "Forsyth County",
+      "fips": "13117"
+    },
+    {
+      "name": "Franklin County",
+      "fips": "13119"
+    },
+    {
+      "name": "Fulton County",
+      "fips": "13121"
+    },
+    {
+      "name": "Gilmer County",
+      "fips": "13123"
+    },
+    {
+      "name": "Glascock County",
+      "fips": "13125"
+    },
+    {
+      "name": "Glynn County",
+      "fips": "13127"
+    },
+    {
+      "name": "Gordon County",
+      "fips": "13129"
+    },
+    {
+      "name": "Grady County",
+      "fips": "13131"
+    },
+    {
+      "name": "Greene County",
+      "fips": "13133"
+    },
+    {
+      "name": "Gwinnett County",
+      "fips": "13135"
+    },
+    {
+      "name": "Habersham County",
+      "fips": "13137"
+    },
+    {
+      "name": "Hall County",
+      "fips": "13139"
+    },
+    {
+      "name": "Hancock County",
+      "fips": "13141"
+    },
+    {
+      "name": "Haralson County",
+      "fips": "13143"
+    },
+    {
+      "name": "Harris County",
+      "fips": "13145"
+    },
+    {
+      "name": "Hart County",
+      "fips": "13147"
+    },
+    {
+      "name": "Heard County",
+      "fips": "13149"
+    },
+    {
+      "name": "Henry County",
+      "fips": "13151"
+    },
+    {
+      "name": "Houston County",
+      "fips": "13153"
+    },
+    {
+      "name": "Irwin County",
+      "fips": "13155"
+    },
+    {
+      "name": "Jackson County",
+      "fips": "13157"
+    },
+    {
+      "name": "Jasper County",
+      "fips": "13159"
+    },
+    {
+      "name": "Jeff Davis County",
+      "fips": "13161"
+    },
+    {
+      "name": "Jefferson County",
+      "fips": "13163"
+    },
+    {
+      "name": "Jenkins County",
+      "fips": "13165"
+    },
+    {
+      "name": "Johnson County",
+      "fips": "13167"
+    },
+    {
+      "name": "Jones County",
+      "fips": "13169"
+    },
+    {
+      "name": "Lamar County",
+      "fips": "13171"
+    },
+    {
+      "name": "Lanier County",
+      "fips": "13173"
+    },
+    {
+      "name": "Laurens County",
+      "fips": "13175"
+    },
+    {
+      "name": "Lee County",
+      "fips": "13177"
+    },
+    {
+      "name": "Liberty County",
+      "fips": "13179"
+    },
+    {
+      "name": "Lincoln County",
+      "fips": "13181"
+    },
+    {
+      "name": "Long County",
+      "fips": "13183"
+    },
+    {
+      "name": "Lowndes County",
+      "fips": "13185"
+    },
+    {
+      "name": "Lumpkin County",
+      "fips": "13187"
+    },
+    {
+      "name": "McDuffie County",
+      "fips": "13189"
+    },
+    {
+      "name": "McIntosh County",
+      "fips": "13191"
+    },
+    {
+      "name": "Macon County",
+      "fips": "13193"
+    },
+    {
+      "name": "Madison County",
+      "fips": "13195"
+    },
+    {
+      "name": "Marion County",
+      "fips": "13197"
+    },
+    {
+      "name": "Meriwether County",
+      "fips": "13199"
+    },
+    {
+      "name": "Miller County",
+      "fips": "13201"
+    },
+    {
+      "name": "Mitchell County",
+      "fips": "13205"
+    },
+    {
+      "name": "Monroe County",
+      "fips": "13207"
+    },
+    {
+      "name": "Montgomery County",
+      "fips": "13209"
+    },
+    {
+      "name": "Morgan County",
+      "fips": "13211"
+    },
+    {
+      "name": "Murray County",
+      "fips": "13213"
+    },
+    {
+      "name": "Muscogee County",
+      "fips": "13215"
+    },
+    {
+      "name": "Newton County",
+      "fips": "13217"
+    },
+    {
+      "name": "Oconee County",
+      "fips": "13219"
+    },
+    {
+      "name": "Oglethorpe County",
+      "fips": "13221"
+    },
+    {
+      "name": "Paulding County",
+      "fips": "13223"
+    },
+    {
+      "name": "Peach County",
+      "fips": "13225"
+    },
+    {
+      "name": "Pickens County",
+      "fips": "13227"
+    },
+    {
+      "name": "Pierce County",
+      "fips": "13229"
+    },
+    {
+      "name": "Pike County",
+      "fips": "13231"
+    },
+    {
+      "name": "Polk County",
+      "fips": "13233"
+    },
+    {
+      "name": "Pulaski County",
+      "fips": "13235"
+    },
+    {
+      "name": "Putnam County",
+      "fips": "13237"
+    },
+    {
+      "name": "Quitman County",
+      "fips": "13239"
+    },
+    {
+      "name": "Rabun County",
+      "fips": "13241"
+    },
+    {
+      "name": "Randolph County",
+      "fips": "13243"
+    },
+    {
+      "name": "Richmond County",
+      "fips": "13245"
+    },
+    {
+      "name": "Rockdale County",
+      "fips": "13247"
+    },
+    {
+      "name": "Schley County",
+      "fips": "13249"
+    },
+    {
+      "name": "Screven County",
+      "fips": "13251"
+    },
+    {
+      "name": "Seminole County",
+      "fips": "13253"
+    },
+    {
+      "name": "Spalding County",
+      "fips": "13255"
+    },
+    {
+      "name": "Stephens County",
+      "fips": "13257"
+    },
+    {
+      "name": "Stewart County",
+      "fips": "13259"
+    },
+    {
+      "name": "Sumter County",
+      "fips": "13261"
+    },
+    {
+      "name": "Talbot County",
+      "fips": "13263"
+    },
+    {
+      "name": "Taliaferro County",
+      "fips": "13265"
+    },
+    {
+      "name": "Tattnall County",
+      "fips": "13267"
+    },
+    {
+      "name": "Taylor County",
+      "fips": "13269"
+    },
+    {
+      "name": "Telfair County",
+      "fips": "13271"
+    },
+    {
+      "name": "Terrell County",
+      "fips": "13273"
+    },
+    {
+      "name": "Thomas County",
+      "fips": "13275"
+    },
+    {
+      "name": "Tift County",
+      "fips": "13277"
+    },
+    {
+      "name": "Toombs County",
+      "fips": "13279"
+    },
+    {
+      "name": "Towns County",
+      "fips": "13281"
+    },
+    {
+      "name": "Treutlen County",
+      "fips": "13283"
+    },
+    {
+      "name": "Troup County",
+      "fips": "13285"
+    },
+    {
+      "name": "Turner County",
+      "fips": "13287"
+    },
+    {
+      "name": "Twiggs County",
+      "fips": "13289"
+    },
+    {
+      "name": "Union County",
+      "fips": "13291"
+    },
+    {
+      "name": "Upson County",
+      "fips": "13293"
+    },
+    {
+      "name": "Walker County",
+      "fips": "13295"
+    },
+    {
+      "name": "Walton County",
+      "fips": "13297"
+    },
+    {
+      "name": "Ware County",
+      "fips": "13299"
+    },
+    {
+      "name": "Warren County",
+      "fips": "13301"
+    },
+    {
+      "name": "Washington County",
+      "fips": "13303"
+    },
+    {
+      "name": "Wayne County",
+      "fips": "13305"
+    },
+    {
+      "name": "Webster County",
+      "fips": "13307"
+    },
+    {
+      "name": "Wheeler County",
+      "fips": "13309"
+    },
+    {
+      "name": "White County",
+      "fips": "13311"
+    },
+    {
+      "name": "Whitfield County",
+      "fips": "13313"
+    },
+    {
+      "name": "Wilcox County",
+      "fips": "13315"
+    },
+    {
+      "name": "Wilkes County",
+      "fips": "13317"
+    },
+    {
+      "name": "Wilkinson County",
+      "fips": "13319"
+    },
+    {
+      "name": "Worth County",
+      "fips": "13321"
+    }
+  ]
+}

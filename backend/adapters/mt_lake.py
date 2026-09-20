@@ -124,7 +124,7 @@ def fetch(source) -> AdapterResult:
             "race": entry["race"],
             "booking_date": entry["booking_date"],
             "release_date": None,
-            "charges": [{"id": f"CH-{j:03d}", "description": c[:2000],
+            "charges": [{"source_id": f"CH-{j:03d}", "description": c[:2000],
                          "statute": None, "severity": None}
                         for j, c in enumerate(entry["charges"])],
             "bond_amount": None,

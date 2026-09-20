@@ -49,7 +49,7 @@ def parse(source) -> AdapterResult:
             "facility": source["facility_name"],
             "source_url": source["source_url"],
             "source_type": "custom_html",
-            "pulled_at": datetime.now(timezone.utc).isoformat(),
+            "source_updated_at": datetime.now(timezone.utc).isoformat(),
             "booking_number": _clean_text(booking_match.group("number")) if booking_match else None,
             "full_name": full_name,
             "first_name": first_name,
@@ -62,7 +62,7 @@ def parse(source) -> AdapterResult:
             "release_date": None,
             "scheduled_release": None,
             "charges": [{"source_id": f"c{i+1}", "description": charge, "statute": None, "severity": None} for i, charge in enumerate(charges[:50])] or [{"source_id": "c1", "description": "Unknown charge", "statute": None, "severity": None}],
-            "status": "in_custody" if "released=1" not in source.get("source_url", "") else "released",
+            "status": "in_custody", "visibility": "public" if "released=1" not in source.get("source_url", "") else "released",
             "mugshot_url": None,
             "custody_level": None,
         })

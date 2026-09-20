@@ -1,0 +1,92 @@
+{
+  "state": "NJ",
+  "name": "New Jersey",
+  "state_fips": "34",
+  "geography_vintage": "Census 2025 Gazetteer",
+  "counties": [
+    {
+      "name": "Atlantic County",
+      "fips": "34001"
+    },
+    {
+      "name": "Bergen County",
+      "fips": "34003"
+    },
+    {
+      "name": "Burlington County",
+      "fips": "34005"
+    },
+    {
+      "name": "Camden County",
+      "fips": "34007"
+    },
+    {
+      "name": "Cape May County",
+      "fips": "34009"
+    },
+    {
+      "name": "Cumberland County",
+      "fips": "34011"
+    },
+    {
+      "name": "Essex County",
+      "fips": "34013"
+    },
+    {
+      "name": "Gloucester County",
+      "fips": "34015"
+    },
+    {
+      "name": "Hudson County",
+      "fips": "34017"
+    },
+    {
+      "name": "Hunterdon County",
+      "fips": "34019"
+    },
+    {
+      "name": "Mercer County",
+      "fips": "34021"
+    },
+    {
+      "name": "Middlesex County",
+      "fips": "34023"
+    },
+    {
+      "name": "Monmouth County",
+      "fips": "34025"
+    },
+    {
+      "name": "Morris County",
+      "fips": "34027"
+    },
+    {
+      "name": "Ocean County",
+      "fips": "34029"
+    },
+    {
+      "name": "Passaic County",
+      "fips": "34031"
+    },
+    {
+      "name": "Salem County",
+      "fips": "34033"
+    },
+    {
+      "name": "Somerset County",
+      "fips": "34035"
+    },
+    {
+      "name": "Sussex County",
+      "fips": "34037"
+    },
+    {
+      "name": "Union County",
+      "fips": "34039"
+    },
+    {
+      "name": "Warren County",
+      "fips": "34041"
+    }
+  ]
+}

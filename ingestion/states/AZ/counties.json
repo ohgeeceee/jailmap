@@ -1,0 +1,68 @@
+{
+  "state": "AZ",
+  "name": "Arizona",
+  "state_fips": "04",
+  "geography_vintage": "Census 2025 Gazetteer",
+  "counties": [
+    {
+      "name": "Apache County",
+      "fips": "04001"
+    },
+    {
+      "name": "Cochise County",
+      "fips": "04003"
+    },
+    {
+      "name": "Coconino County",
+      "fips": "04005"
+    },
+    {
+      "name": "Gila County",
+      "fips": "04007"
+    },
+    {
+      "name": "Graham County",
+      "fips": "04009"
+    },
+    {
+      "name": "Greenlee County",
+      "fips": "04011"
+    },
+    {
+      "name": "La Paz County",
+      "fips": "04012"
+    },
+    {
+      "name": "Maricopa County",
+      "fips": "04013"
+    },
+    {
+      "name": "Mohave County",
+      "fips": "04015"
+    },
+    {
+      "name": "Navajo County",
+      "fips": "04017"
+    },
+    {
+      "name": "Pima County",
+      "fips": "04019"
+    },
+    {
+      "name": "Pinal County",
+      "fips": "04021"
+    },
+    {
+      "name": "Santa Cruz County",
+      "fips": "04023"
+    },
+    {
+      "name": "Yavapai County",
+      "fips": "04025"
+    },
+    {
+      "name": "Yuma County",
+      "fips": "04027"
+    }
+  ]
+}

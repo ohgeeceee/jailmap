@@ -1,6 +1,6 @@
 import { cookies } from 'next/headers'
 import { SESSION_COOKIE } from '@/lib/accounts/session'
-import { AccountError, adminOverview, changePassword, createSession, deleteSearch, emailValue, getDashboard, getSession, login, logout, rateLimit, register, requestPasswordReset, resetPassword, revokeOtherSessions, saveSearch, updateAccount, updateProfile } from '@/lib/accounts/store'
+import { AccountError, adminOverview, changePassword, createSession, deleteSearch, deleteWatchlist, emailValue, getDashboard, getSession, login, logout, rateLimit, register, requestPasswordReset, resetPassword, revokeOtherSessions, saveSearch, saveWatchlist, updateAccount, updateProfile, updateWatchlist } from '@/lib/accounts/store'
 import { sendPasswordResetEmail } from '@/lib/accounts/mail'
 export const runtime = 'nodejs'
 export const dynamic = 'force-dynamic'
@@ -68,6 +68,9 @@ async function handle(request: Request, context: { params: Promise<{ path: strin
     if (method === 'POST' && path === 'sessions/revoke') { revokeOtherSessions(account.id, token!); return json({ ok: true }) }
     if (method === 'POST' && path === 'searches') { saveSearch(account.id, await body(request)); return json({ ok: true }, 201) }
     if (method === 'DELETE' && /^searches\/[^/]+$/.test(path)) { deleteSearch(account.id, path.split('/')[1]); return json({ ok: true }) }
+    if (method === 'POST' && path === 'watchlists') { saveWatchlist(account.id, await body(request)); return json({ ok: true }, 201) }
+    if (method === 'PATCH' && /^watchlists\/[^/]+$/.test(path)) { updateWatchlist(account.id, path.split('/')[1], await body(request)); return json({ ok: true }) }
+    if (method === 'DELETE' && /^watchlists\/[^/]+$/.test(path)) { deleteWatchlist(account.id, path.split('/')[1]); return json({ ok: true }) }
     if (method === 'GET' && path === 'admin/overview') {
       const page = Number(new URL(request.url).searchParams.get('page') || 1)
       if (!Number.isInteger(page) || page < 1 || page > 10000) throw new AccountError('Invalid page.')

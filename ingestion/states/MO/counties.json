@@ -1,0 +1,468 @@
+{
+  "state": "MO",
+  "name": "Missouri",
+  "state_fips": "29",
+  "geography_vintage": "Census 2025 Gazetteer",
+  "counties": [
+    {
+      "name": "Adair County",
+      "fips": "29001"
+    },
+    {
+      "name": "Andrew County",
+      "fips": "29003"
+    },
+    {
+      "name": "Atchison County",
+      "fips": "29005"
+    },
+    {
+      "name": "Audrain County",
+      "fips": "29007"
+    },
+    {
+      "name": "Barry County",
+      "fips": "29009"
+    },
+    {
+      "name": "Barton County",
+      "fips": "29011"
+    },
+    {
+      "name": "Bates County",
+      "fips": "29013"
+    },
+    {
+      "name": "Benton County",
+      "fips": "29015"
+    },
+    {
+      "name": "Bollinger County",
+      "fips": "29017"
+    },
+    {
+      "name": "Boone County",
+      "fips": "29019"
+    },
+    {
+      "name": "Buchanan County",
+      "fips": "29021"
+    },
+    {
+      "name": "Butler County",
+      "fips": "29023"
+    },
+    {
+      "name": "Caldwell County",
+      "fips": "29025"
+    },
+    {
+      "name": "Callaway County",
+      "fips": "29027"
+    },
+    {
+      "name": "Camden County",
+      "fips": "29029"
+    },
+    {
+      "name": "Cape Girardeau County",
+      "fips": "29031"
+    },
+    {
+      "name": "Carroll County",
+      "fips": "29033"
+    },
+    {
+      "name": "Carter County",
+      "fips": "29035"
+    },
+    {
+      "name": "Cass County",
+      "fips": "29037"
+    },
+    {
+      "name": "Cedar County",
+      "fips": "29039"
+    },
+    {
+      "name": "Chariton County",
+      "fips": "29041"
+    },
+    {
+      "name": "Christian County",
+      "fips": "29043"
+    },
+    {
+      "name": "Clark County",
+      "fips": "29045"
+    },
+    {
+      "name": "Clay County",
+      "fips": "29047"
+    },
+    {
+      "name": "Clinton County",
+      "fips": "29049"
+    },
+    {
+      "name": "Cole County",
+      "fips": "29051"
+    },
+    {
+      "name": "Cooper County",
+      "fips": "29053"
+    },
+    {
+      "name": "Crawford County",
+      "fips": "29055"
+    },
+    {
+      "name": "Dade County",
+      "fips": "29057"
+    },
+    {
+      "name": "Dallas County",
+      "fips": "29059"
+    },
+    {
+      "name": "Daviess County",
+      "fips": "29061"
+    },
+    {
+      "name": "DeKalb County",
+      "fips": "29063"
+    },
+    {
+      "name": "Dent County",
+      "fips": "29065"
+    },
+    {
+      "name": "Douglas County",
+      "fips": "29067"
+    },
+    {
+      "name": "Dunklin County",
+      "fips": "29069"
+    },
+    {
+      "name": "Franklin County",
+      "fips": "29071"
+    },
+    {
+      "name": "Gasconade County",
+      "fips": "29073"
+    },
+    {
+      "name": "Gentry County",
+      "fips": "29075"
+    },
+    {
+      "name": "Greene County",
+      "fips": "29077"
+    },
+    {
+      "name": "Grundy County",
+      "fips": "29079"
+    },
+    {
+      "name": "Harrison County",
+      "fips": "29081"
+    },
+    {
+      "name": "Henry County",
+      "fips": "29083"
+    },
+    {
+      "name": "Hickory County",
+      "fips": "29085"
+    },
+    {
+      "name": "Holt County",
+      "fips": "29087"
+    },
+    {
+      "name": "Howard County",
+      "fips": "29089"
+    },
+    {
+      "name": "Howell County",
+      "fips": "29091"
+    },
+    {
+      "name": "Iron County",
+      "fips": "29093"
+    },
+    {
+      "name": "Jackson County",
+      "fips": "29095"
+    },
+    {
+      "name": "Jasper County",
+      "fips": "29097"
+    },
+    {
+      "name": "Jefferson County",
+      "fips": "29099"
+    },
+    {
+      "name": "Johnson County",
+      "fips": "29101"
+    },
+    {
+      "name": "Knox County",
+      "fips": "29103"
+    },
+    {
+      "name": "Laclede County",
+      "fips": "29105"
+    },
+    {
+      "name": "Lafayette County",
+      "fips": "29107"
+    },
+    {
+      "name": "Lawrence County",
+      "fips": "29109"
+    },
+    {
+      "name": "Lewis County",
+      "fips": "29111"
+    },
+    {
+      "name": "Lincoln County",
+      "fips": "29113"
+    },
+    {
+      "name": "Linn County",
+      "fips": "29115"
+    },
+    {
+      "name": "Livingston County",
+      "fips": "29117"
+    },
+    {
+      "name": "McDonald County",
+      "fips": "29119"
+    },
+    {
+      "name": "Macon County",
+      "fips": "29121"
+    },
+    {
+      "name": "Madison County",
+      "fips": "29123"
+    },
+    {
+      "name": "Maries County",
+      "fips": "29125"
+    },
+    {
+      "name": "Marion County",
+      "fips": "29127"
+    },
+    {
+      "name": "Mercer County",
+      "fips": "29129"
+    },
+    {
+      "name": "Miller County",
+      "fips": "29131"
+    },
+    {
+      "name": "Mississippi County",
+      "fips": "29133"
+    },
+    {
+      "name": "Moniteau County",
+      "fips": "29135"
+    },
+    {
+      "name": "Monroe County",
+      "fips": "29137"
+    },
+    {
+      "name": "Montgomery County",
+      "fips": "29139"
+    },
+    {
+      "name": "Morgan County",
+      "fips": "29141"
+    },
+    {
+      "name": "New Madrid County",
+      "fips": "29143"
+    },
+    {
+      "name": "Newton County",
+      "fips": "29145"
+    },
+    {
+      "name": "Nodaway County",
+      "fips": "29147"
+    },
+    {
+      "name": "Oregon County",
+      "fips": "29149"
+    },
+    {
+      "name": "Osage County",
+      "fips": "29151"
+    },
+    {
+      "name": "Ozark County",
+      "fips": "29153"
+    },
+    {
+      "name": "Pemiscot County",
+      "fips": "29155"
+    },
+    {
+      "name": "Perry County",
+      "fips": "29157"
+    },
+    {
+      "name": "Pettis County",
+      "fips": "29159"
+    },
+    {
+      "name": "Phelps County",
+      "fips": "29161"
+    },
+    {
+      "name": "Pike County",
+      "fips": "29163"
+    },
+    {
+      "name": "Platte County",
+      "fips": "29165"
+    },
+    {
+      "name": "Polk County",
+      "fips": "29167"
+    },
+    {
+      "name": "Pulaski County",
+      "fips": "29169"
+    },
+    {
+      "name": "Putnam County",
+      "fips": "29171"
+    },
+    {
+      "name": "Ralls County",
+      "fips": "29173"
+    },
+    {
+      "name": "Randolph County",
+      "fips": "29175"
+    },
+    {
+      "name": "Ray County",
+      "fips": "29177"
+    },
+    {
+      "name": "Reynolds County",
+      "fips": "29179"
+    },
+    {
+      "name": "Ripley County",
+      "fips": "29181"
+    },
+    {
+      "name": "St. Charles County",
+      "fips": "29183"
+    },
+    {
+      "name": "St. Clair County",
+      "fips": "29185"
+    },
+    {
+      "name": "Ste. Genevieve County",
+      "fips": "29186"
+    },
+    {
+      "name": "St. Francois County",
+      "fips": "29187"
+    },
+    {
+      "name": "St. Louis County",
+      "fips": "29189"
+    },
+    {
+      "name": "Saline County",
+      "fips": "29195"
+    },
+    {
+      "name": "Schuyler County",
+      "fips": "29197"
+    },
+    {
+      "name": "Scotland County",
+      "fips": "29199"
+    },
+    {
+      "name": "Scott County",
+      "fips": "29201"
+    },
+    {
+      "name": "Shannon County",
+      "fips": "29203"
+    },
+    {
+      "name": "Shelby County",
+      "fips": "29205"
+    },
+    {
+      "name": "Stoddard County",
+      "fips": "29207"
+    },
+    {
+      "name": "Stone County",
+      "fips": "29209"
+    },
+    {
+      "name": "Sullivan County",
+      "fips": "29211"
+    },
+    {
+      "name": "Taney County",
+      "fips": "29213"
+    },
+    {
+      "name": "Texas County",
+      "fips": "29215"
+    },
+    {
+      "name": "Vernon County",
+      "fips": "29217"
+    },
+    {
+      "name": "Warren County",
+      "fips": "29219"
+    },
+    {
+      "name": "Washington County",
+      "fips": "29221"
+    },
+    {
+      "name": "Wayne County",
+      "fips": "29223"
+    },
+    {
+      "name": "Webster County",
+      "fips": "29225"
+    },
+    {
+      "name": "Worth County",
+      "fips": "29227"
+    },
+    {
+      "name": "Wright County",
+      "fips": "29229"
+    },
+    {
+      "name": "St. Louis city",
+      "fips": "29510"
+    }
+  ]
+}

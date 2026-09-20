@@ -73,7 +73,7 @@ def parse(source) -> AdapterResult:
             "facility": source["facility_name"],
             "source_url": source["source_url"],
             "source_type": "custom_html",
-            "pulled_at": pulled_at,
+            "source_updated_at": pulled_at,
             "inmate_id": num,
             "booking_number": num,
             "full_name": f"{first_name} {last_name}".strip(),
@@ -87,7 +87,7 @@ def parse(source) -> AdapterResult:
             "release_date": release_date if release_date else None,
             "charges": [{"source_id": "c1", "description": charge, "statute": None, "severity": None}] if charge else [],
             "bond_amount": bond_amount,
-            "status": "in_custody",
+            "status": "in_custody", "visibility": "public",
             "mugshot_url": None,
             "notes": None,
         })

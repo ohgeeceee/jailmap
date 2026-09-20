@@ -1,0 +1,428 @@
+{
+  "state": "KS",
+  "name": "Kansas",
+  "state_fips": "20",
+  "geography_vintage": "Census 2025 Gazetteer",
+  "counties": [
+    {
+      "name": "Allen County",
+      "fips": "20001"
+    },
+    {
+      "name": "Anderson County",
+      "fips": "20003"
+    },
+    {
+      "name": "Atchison County",
+      "fips": "20005"
+    },
+    {
+      "name": "Barber County",
+      "fips": "20007"
+    },
+    {
+      "name": "Barton County",
+      "fips": "20009"
+    },
+    {
+      "name": "Bourbon County",
+      "fips": "20011"
+    },
+    {
+      "name": "Brown County",
+      "fips": "20013"
+    },
+    {
+      "name": "Butler County",
+      "fips": "20015"
+    },
+    {
+      "name": "Chase County",
+      "fips": "20017"
+    },
+    {
+      "name": "Chautauqua County",
+      "fips": "20019"
+    },
+    {
+      "name": "Cherokee County",
+      "fips": "20021"
+    },
+    {
+      "name": "Cheyenne County",
+      "fips": "20023"
+    },
+    {
+      "name": "Clark County",
+      "fips": "20025"
+    },
+    {
+      "name": "Clay County",
+      "fips": "20027"
+    },
+    {
+      "name": "Cloud County",
+      "fips": "20029"
+    },
+    {
+      "name": "Coffey County",
+      "fips": "20031"
+    },
+    {
+      "name": "Comanche County",
+      "fips": "20033"
+    },
+    {
+      "name": "Cowley County",
+      "fips": "20035"
+    },
+    {
+      "name": "Crawford County",
+      "fips": "20037"
+    },
+    {
+      "name": "Decatur County",
+      "fips": "20039"
+    },
+    {
+      "name": "Dickinson County",
+      "fips": "20041"
+    },
+    {
+      "name": "Doniphan County",
+      "fips": "20043"
+    },
+    {
+      "name": "Douglas County",
+      "fips": "20045"
+    },
+    {
+      "name": "Edwards County",
+      "fips": "20047"
+    },
+    {
+      "name": "Elk County",
+      "fips": "20049"
+    },
+    {
+      "name": "Ellis County",
+      "fips": "20051"
+    },
+    {
+      "name": "Ellsworth County",
+      "fips": "20053"
+    },
+    {
+      "name": "Finney County",
+      "fips": "20055"
+    },
+    {
+      "name": "Ford County",
+      "fips": "20057"
+    },
+    {
+      "name": "Franklin County",
+      "fips": "20059"
+    },
+    {
+      "name": "Geary County",
+      "fips": "20061"
+    },
+    {
+      "name": "Gove County",
+      "fips": "20063"
+    },
+    {
+      "name": "Graham County",
+      "fips": "20065"
+    },
+    {
+      "name": "Grant County",
+      "fips": "20067"
+    },
+    {
+      "name": "Gray County",
+      "fips": "20069"
+    },
+    {
+      "name": "Greeley County",
+      "fips": "20071"
+    },
+    {
+      "name": "Greenwood County",
+      "fips": "20073"
+    },
+    {
+      "name": "Hamilton County",
+      "fips": "20075"
+    },
+    {
+      "name": "Harper County",
+      "fips": "20077"
+    },
+    {
+      "name": "Harvey County",
+      "fips": "20079"
+    },
+    {
+      "name": "Haskell County",
+      "fips": "20081"
+    },
+    {
+      "name": "Hodgeman County",
+      "fips": "20083"
+    },
+    {
+      "name": "Jackson County",
+      "fips": "20085"
+    },
+    {
+      "name": "Jefferson County",
+      "fips": "20087"
+    },
+    {
+      "name": "Jewell County",
+      "fips": "20089"
+    },
+    {
+      "name": "Johnson County",
+      "fips": "20091"
+    },
+    {
+      "name": "Kearny County",
+      "fips": "20093"
+    },
+    {
+      "name": "Kingman County",
+      "fips": "20095"
+    },
+    {
+      "name": "Kiowa County",
+      "fips": "20097"
+    },
+    {
+      "name": "Labette County",
+      "fips": "20099"
+    },
+    {
+      "name": "Lane County",
+      "fips": "20101"
+    },
+    {
+      "name": "Leavenworth County",
+      "fips": "20103"
+    },
+    {
+      "name": "Lincoln County",
+      "fips": "20105"
+    },
+    {
+      "name": "Linn County",
+      "fips": "20107"
+    },
+    {
+      "name": "Logan County",
+      "fips": "20109"
+    },
+    {
+      "name": "Lyon County",
+      "fips": "20111"
+    },
+    {
+      "name": "McPherson County",
+      "fips": "20113"
+    },
+    {
+      "name": "Marion County",
+      "fips": "20115"
+    },
+    {
+      "name": "Marshall County",
+      "fips": "20117"
+    },
+    {
+      "name": "Meade County",
+      "fips": "20119"
+    },
+    {
+      "name": "Miami County",
+      "fips": "20121"
+    },
+    {
+      "name": "Mitchell County",
+      "fips": "20123"
+    },
+    {
+      "name": "Montgomery County",
+      "fips": "20125"
+    },
+    {
+      "name": "Morris County",
+      "fips": "20127"
+    },
+    {
+      "name": "Morton County",
+      "fips": "20129"
+    },
+    {
+      "name": "Nemaha County",
+      "fips": "20131"
+    },
+    {
+      "name": "Neosho County",
+      "fips": "20133"
+    },
+    {
+      "name": "Ness County",
+      "fips": "20135"
+    },
+    {
+      "name": "Norton County",
+      "fips": "20137"
+    },
+    {
+      "name": "Osage County",
+      "fips": "20139"
+    },
+    {
+      "name": "Osborne County",
+      "fips": "20141"
+    },
+    {
+      "name": "Ottawa County",
+      "fips": "20143"
+    },
+    {
+      "name": "Pawnee County",
+      "fips": "20145"
+    },
+    {
+      "name": "Phillips County",
+      "fips": "20147"
+    },
+    {
+      "name": "Pottawatomie County",
+      "fips": "20149"
+    },
+    {
+      "name": "Pratt County",
+      "fips": "20151"
+    },
+    {
+      "name": "Rawlins County",
+      "fips": "20153"
+    },
+    {
+      "name": "Reno County",
+      "fips": "20155"
+    },
+    {
+      "name": "Republic County",
+      "fips": "20157"
+    },
+    {
+      "name": "Rice County",
+      "fips": "20159"
+    },
+    {
+      "name": "Riley County",
+      "fips": "20161"
+    },
+    {
+      "name": "Rooks County",
+      "fips": "20163"
+    },
+    {
+      "name": "Rush County",
+      "fips": "20165"
+    },
+    {
+      "name": "Russell County",
+      "fips": "20167"
+    },
+    {
+      "name": "Saline County",
+      "fips": "20169"
+    },
+    {
+      "name": "Scott County",
+      "fips": "20171"
+    },
+    {
+      "name": "Sedgwick County",
+      "fips": "20173"
+    },
+    {
+      "name": "Seward County",
+      "fips": "20175"
+    },
+    {
+      "name": "Shawnee County",
+      "fips": "20177"
+    },
+    {
+      "name": "Sheridan County",
+      "fips": "20179"
+    },
+    {
+      "name": "Sherman County",
+      "fips": "20181"
+    },
+    {
+      "name": "Smith County",
+      "fips": "20183"
+    },
+    {
+      "name": "Stafford County",
+      "fips": "20185"
+    },
+    {
+      "name": "Stanton County",
+      "fips": "20187"
+    },
+    {
+      "name": "Stevens County",
+      "fips": "20189"
+    },
+    {
+      "name": "Sumner County",
+      "fips": "20191"
+    },
+    {
+      "name": "Thomas County",
+      "fips": "20193"
+    },
+    {
+      "name": "Trego County",
+      "fips": "20195"
+    },
+    {
+      "name": "Wabaunsee County",
+      "fips": "20197"
+    },
+    {
+      "name": "Wallace County",
+      "fips": "20199"
+    },
+    {
+      "name": "Washington County",
+      "fips": "20201"
+    },
+    {
+      "name": "Wichita County",
+      "fips": "20203"
+    },
+    {
+      "name": "Wilson County",
+      "fips": "20205"
+    },
+    {
+      "name": "Woodson County",
+      "fips": "20207"
+    },
+    {
+      "name": "Wyandotte County",
+      "fips": "20209"
+    }
+  ]
+}

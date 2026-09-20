@@ -1,0 +1,360 @@
+{
+  "state": "OH",
+  "name": "Ohio",
+  "state_fips": "39",
+  "geography_vintage": "Census 2025 Gazetteer",
+  "counties": [
+    {
+      "name": "Adams County",
+      "fips": "39001"
+    },
+    {
+      "name": "Allen County",
+      "fips": "39003"
+    },
+    {
+      "name": "Ashland County",
+      "fips": "39005"
+    },
+    {
+      "name": "Ashtabula County",
+      "fips": "39007"
+    },
+    {
+      "name": "Athens County",
+      "fips": "39009"
+    },
+    {
+      "name": "Auglaize County",
+      "fips": "39011"
+    },
+    {
+      "name": "Belmont County",
+      "fips": "39013"
+    },
+    {
+      "name": "Brown County",
+      "fips": "39015"
+    },
+    {
+      "name": "Butler County",
+      "fips": "39017"
+    },
+    {
+      "name": "Carroll County",
+      "fips": "39019"
+    },
+    {
+      "name": "Champaign County",
+      "fips": "39021"
+    },
+    {
+      "name": "Clark County",
+      "fips": "39023"
+    },
+    {
+      "name": "Clermont County",
+      "fips": "39025"
+    },
+    {
+      "name": "Clinton County",
+      "fips": "39027"
+    },
+    {
+      "name": "Columbiana County",
+      "fips": "39029"
+    },
+    {
+      "name": "Coshocton County",
+      "fips": "39031"
+    },
+    {
+      "name": "Crawford County",
+      "fips": "39033"
+    },
+    {
+      "name": "Cuyahoga County",
+      "fips": "39035"
+    },
+    {
+      "name": "Darke County",
+      "fips": "39037"
+    },
+    {
+      "name": "Defiance County",
+      "fips": "39039"
+    },
+    {
+      "name": "Delaware County",
+      "fips": "39041"
+    },
+    {
+      "name": "Erie County",
+      "fips": "39043"
+    },
+    {
+      "name": "Fairfield County",
+      "fips": "39045"
+    },
+    {
+      "name": "Fayette County",
+      "fips": "39047"
+    },
+    {
+      "name": "Franklin County",
+      "fips": "39049"
+    },
+    {
+      "name": "Fulton County",
+      "fips": "39051"
+    },
+    {
+      "name": "Gallia County",
+      "fips": "39053"
+    },
+    {
+      "name": "Geauga County",
+      "fips": "39055"
+    },
+    {
+      "name": "Greene County",
+      "fips": "39057"
+    },
+    {
+      "name": "Guernsey County",
+      "fips": "39059"
+    },
+    {
+      "name": "Hamilton County",
+      "fips": "39061"
+    },
+    {
+      "name": "Hancock County",
+      "fips": "39063"
+    },
+    {
+      "name": "Hardin County",
+      "fips": "39065"
+    },
+    {
+      "name": "Harrison County",
+      "fips": "39067"
+    },
+    {
+      "name": "Henry County",
+      "fips": "39069"
+    },
+    {
+      "name": "Highland County",
+      "fips": "39071"
+    },
+    {
+      "name": "Hocking County",
+      "fips": "39073"
+    },
+    {
+      "name": "Holmes County",
+      "fips": "39075"
+    },
+    {
+      "name": "Huron County",
+      "fips": "39077"
+    },
+    {
+      "name": "Jackson County",
+      "fips": "39079"
+    },
+    {
+      "name": "Jefferson County",
+      "fips": "39081"
+    },
+    {
+      "name": "Knox County",
+      "fips": "39083"
+    },
+    {
+      "name": "Lake County",
+      "fips": "39085"
+    },
+    {
+      "name": "Lawrence County",
+      "fips": "39087"
+    },
+    {
+      "name": "Licking County",
+      "fips": "39089"
+    },
+    {
+      "name": "Logan County",
+      "fips": "39091"
+    },
+    {
+      "name": "Lorain County",
+      "fips": "39093"
+    },
+    {
+      "name": "Lucas County",
+      "fips": "39095"
+    },
+    {
+      "name": "Madison County",
+      "fips": "39097"
+    },
+    {
+      "name": "Mahoning County",
+      "fips": "39099"
+    },
+    {
+      "name": "Marion County",
+      "fips": "39101"
+    },
+    {
+      "name": "Medina County",
+      "fips": "39103"
+    },
+    {
+      "name": "Meigs County",
+      "fips": "39105"
+    },
+    {
+      "name": "Mercer County",
+      "fips": "39107"
+    },
+    {
+      "name": "Miami County",
+      "fips": "39109"
+    },
+    {
+      "name": "Monroe County",
+      "fips": "39111"
+    },
+    {
+      "name": "Montgomery County",
+      "fips": "39113"
+    },
+    {
+      "name": "Morgan County",
+      "fips": "39115"
+    },
+    {
+      "name": "Morrow County",
+      "fips": "39117"
+    },
+    {
+      "name": "Muskingum County",
+      "fips": "39119"
+    },
+    {
+      "name": "Noble County",
+      "fips": "39121"
+    },
+    {
+      "name": "Ottawa County",
+      "fips": "39123"
+    },
+    {
+      "name": "Paulding County",
+      "fips": "39125"
+    },
+    {
+      "name": "Perry County",
+      "fips": "39127"
+    },
+    {
+      "name": "Pickaway County",
+      "fips": "39129"
+    },
+    {
+      "name": "Pike County",
+      "fips": "39131"
+    },
+    {
+      "name": "Portage County",
+      "fips": "39133"
+    },
+    {
+      "name": "Preble County",
+      "fips": "39135"
+    },
+    {
+      "name": "Putnam County",
+      "fips": "39137"
+    },
+    {
+      "name": "Richland County",
+      "fips": "39139"
+    },
+    {
+      "name": "Ross County",
+      "fips": "39141"
+    },
+    {
+      "name": "Sandusky County",
+      "fips": "39143"
+    },
+    {
+      "name": "Scioto County",
+      "fips": "39145"
+    },
+    {
+      "name": "Seneca County",
+      "fips": "39147"
+    },
+    {
+      "name": "Shelby County",
+      "fips": "39149"
+    },
+    {
+      "name": "Stark County",
+      "fips": "39151"
+    },
+    {
+      "name": "Summit County",
+      "fips": "39153"
+    },
+    {
+      "name": "Trumbull County",
+      "fips": "39155"
+    },
+    {
+      "name": "Tuscarawas County",
+      "fips": "39157"
+    },
+    {
+      "name": "Union County",
+      "fips": "39159"
+    },
+    {
+      "name": "Van Wert County",
+      "fips": "39161"
+    },
+    {
+      "name": "Vinton County",
+      "fips": "39163"
+    },
+    {
+      "name": "Warren County",
+      "fips": "39165"
+    },
+    {
+      "name": "Washington County",
+      "fips": "39167"
+    },
+    {
+      "name": "Wayne County",
+      "fips": "39169"
+    },
+    {
+      "name": "Williams County",
+      "fips": "39171"
+    },
+    {
+      "name": "Wood County",
+      "fips": "39173"
+    },
+    {
+      "name": "Wyandot County",
+      "fips": "39175"
+    }
+  ]
+}

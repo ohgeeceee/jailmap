@@ -1,0 +1,48 @@
+{
+  "state": "NH",
+  "name": "New Hampshire",
+  "state_fips": "33",
+  "geography_vintage": "Census 2025 Gazetteer",
+  "counties": [
+    {
+      "name": "Belknap County",
+      "fips": "33001"
+    },
+    {
+      "name": "Carroll County",
+      "fips": "33003"
+    },
+    {
+      "name": "Cheshire County",
+      "fips": "33005"
+    },
+    {
+      "name": "Coos County",
+      "fips": "33007"
+    },
+    {
+      "name": "Grafton County",
+      "fips": "33009"
+    },
+    {
+      "name": "Hillsborough County",
+      "fips": "33011"
+    },
+    {
+      "name": "Merrimack County",
+      "fips": "33013"
+    },
+    {
+      "name": "Rockingham County",
+      "fips": "33015"
+    },
+    {
+      "name": "Strafford County",
+      "fips": "33017"
+    },
+    {
+      "name": "Sullivan County",
+      "fips": "33019"
+    }
+  ]
+}

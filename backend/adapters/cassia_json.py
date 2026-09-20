@@ -72,7 +72,7 @@ def parse(source) -> AdapterResult:
             "facility": source["facility_name"],
             "source_url": data_url,
             "source_type": "json",
-            "pulled_at": pulled_at,
+            "source_updated_at": pulled_at,
             "inmate_id": row.get("booking_id", "").split()[0] if " " in row.get("booking_id", "") else row.get("booking_id", ""),
             "booking_number": row.get("booking_id", "").split()[0] if " " in row.get("booking_id", "") else row.get("booking_id", ""),
             "full_name": f"{first_name} {last_name}".strip(),
@@ -86,7 +86,7 @@ def parse(source) -> AdapterResult:
             "release_date": None,
             "charges": charges or [{"source_id": "c1", "description": "Unknown charge", "statute": None, "severity": None}],
             "bond_amount": bond_amount,
-            "status": "in_custody",
+            "status": "in_custody", "visibility": "public",
             "mugshot_url": row.get("photo_url"),
             "notes": f"Type: {row.get('inmate_type', '')}, Days: {row.get('days_in_jail', '')}",
         })

@@ -1,0 +1,404 @@
+{
+  "state": "IA",
+  "name": "Iowa",
+  "state_fips": "19",
+  "geography_vintage": "Census 2025 Gazetteer",
+  "counties": [
+    {
+      "name": "Adair County",
+      "fips": "19001"
+    },
+    {
+      "name": "Adams County",
+      "fips": "19003"
+    },
+    {
+      "name": "Allamakee County",
+      "fips": "19005"
+    },
+    {
+      "name": "Appanoose County",
+      "fips": "19007"
+    },
+    {
+      "name": "Audubon County",
+      "fips": "19009"
+    },
+    {
+      "name": "Benton County",
+      "fips": "19011"
+    },
+    {
+      "name": "Black Hawk County",
+      "fips": "19013"
+    },
+    {
+      "name": "Boone County",
+      "fips": "19015"
+    },
+    {
+      "name": "Bremer County",
+      "fips": "19017"
+    },
+    {
+      "name": "Buchanan County",
+      "fips": "19019"
+    },
+    {
+      "name": "Buena Vista County",
+      "fips": "19021"
+    },
+    {
+      "name": "Butler County",
+      "fips": "19023"
+    },
+    {
+      "name": "Calhoun County",
+      "fips": "19025"
+    },
+    {
+      "name": "Carroll County",
+      "fips": "19027"
+    },
+    {
+      "name": "Cass County",
+      "fips": "19029"
+    },
+    {
+      "name": "Cedar County",
+      "fips": "19031"
+    },
+    {
+      "name": "Cerro Gordo County",
+      "fips": "19033"
+    },
+    {
+      "name": "Cherokee County",
+      "fips": "19035"
+    },
+    {
+      "name": "Chickasaw County",
+      "fips": "19037"
+    },
+    {
+      "name": "Clarke County",
+      "fips": "19039"
+    },
+    {
+      "name": "Clay County",
+      "fips": "19041"
+    },
+    {
+      "name": "Clayton County",
+      "fips": "19043"
+    },
+    {
+      "name": "Clinton County",
+      "fips": "19045"
+    },
+    {
+      "name": "Crawford County",
+      "fips": "19047"
+    },
+    {
+      "name": "Dallas County",
+      "fips": "19049"
+    },
+    {
+      "name": "Davis County",
+      "fips": "19051"
+    },
+    {
+      "name": "Decatur County",
+      "fips": "19053"
+    },
+    {
+      "name": "Delaware County",
+      "fips": "19055"
+    },
+    {
+      "name": "Des Moines County",
+      "fips": "19057"
+    },
+    {
+      "name": "Dickinson County",
+      "fips": "19059"
+    },
+    {
+      "name": "Dubuque County",
+      "fips": "19061"
+    },
+    {
+      "name": "Emmet County",
+      "fips": "19063"
+    },
+    {
+      "name": "Fayette County",
+      "fips": "19065"
+    },
+    {
+      "name": "Floyd County",
+      "fips": "19067"
+    },
+    {
+      "name": "Franklin County",
+      "fips": "19069"
+    },
+    {
+      "name": "Fremont County",
+      "fips": "19071"
+    },
+    {
+      "name": "Greene County",
+      "fips": "19073"
+    },
+    {
+      "name": "Grundy County",
+      "fips": "19075"
+    },
+    {
+      "name": "Guthrie County",
+      "fips": "19077"
+    },
+    {
+      "name": "Hamilton County",
+      "fips": "19079"
+    },
+    {
+      "name": "Hancock County",
+      "fips": "19081"
+    },
+    {
+      "name": "Hardin County",
+      "fips": "19083"
+    },
+    {
+      "name": "Harrison County",
+      "fips": "19085"
+    },
+    {
+      "name": "Henry County",
+      "fips": "19087"
+    },
+    {
+      "name": "Howard County",
+      "fips": "19089"
+    },
+    {
+      "name": "Humboldt County",
+      "fips": "19091"
+    },
+    {
+      "name": "Ida County",
+      "fips": "19093"
+    },
+    {
+      "name": "Iowa County",
+      "fips": "19095"
+    },
+    {
+      "name": "Jackson County",
+      "fips": "19097"
+    },
+    {
+      "name": "Jasper County",
+      "fips": "19099"
+    },
+    {
+      "name": "Jefferson County",
+      "fips": "19101"
+    },
+    {
+      "name": "Johnson County",
+      "fips": "19103"
+    },
+    {
+      "name": "Jones County",
+      "fips": "19105"
+    },
+    {
+      "name": "Keokuk County",
+      "fips": "19107"
+    },
+    {
+      "name": "Kossuth County",
+      "fips": "19109"
+    },
+    {
+      "name": "Lee County",
+      "fips": "19111"
+    },
+    {
+      "name": "Linn County",
+      "fips": "19113"
+    },
+    {
+      "name": "Louisa County",
+      "fips": "19115"
+    },
+    {
+      "name": "Lucas County",
+      "fips": "19117"
+    },
+    {
+      "name": "Lyon County",
+      "fips": "19119"
+    },
+    {
+      "name": "Madison County",
+      "fips": "19121"
+    },
+    {
+      "name": "Mahaska County",
+      "fips": "19123"
+    },
+    {
+      "name": "Marion County",
+      "fips": "19125"
+    },
+    {
+      "name": "Marshall County",
+      "fips": "19127"
+    },
+    {
+      "name": "Mills County",
+      "fips": "19129"
+    },
+    {
+      "name": "Mitchell County",
+      "fips": "19131"
+    },
+    {
+      "name": "Monona County",
+      "fips": "19133"
+    },
+    {
+      "name": "Monroe County",
+      "fips": "19135"
+    },
+    {
+      "name": "Montgomery County",
+      "fips": "19137"
+    },
+    {
+      "name": "Muscatine County",
+      "fips": "19139"
+    },
+    {
+      "name": "O'Brien County",
+      "fips": "19141"
+    },
+    {
+      "name": "Osceola County",
+      "fips": "19143"
+    },
+    {
+      "name": "Page County",
+      "fips": "19145"
+    },
+    {
+      "name": "Palo Alto County",
+      "fips": "19147"
+    },
+    {
+      "name": "Plymouth County",
+      "fips": "19149"
+    },
+    {
+      "name": "Pocahontas County",
+      "fips": "19151"
+    },
+    {
+      "name": "Polk County",
+      "fips": "19153"
+    },
+    {
+      "name": "Pottawattamie County",
+      "fips": "19155"
+    },
+    {
+      "name": "Poweshiek County",
+      "fips": "19157"
+    },
+    {
+      "name": "Ringgold County",
+      "fips": "19159"
+    },
+    {
+      "name": "Sac County",
+      "fips": "19161"
+    },
+    {
+      "name": "Scott County",
+      "fips": "19163"
+    },
+    {
+      "name": "Shelby County",
+      "fips": "19165"
+    },
+    {
+      "name": "Sioux County",
+      "fips": "19167"
+    },
+    {
+      "name": "Story County",
+      "fips": "19169"
+    },
+    {
+      "name": "Tama County",
+      "fips": "19171"
+    },
+    {
+      "name": "Taylor County",
+      "fips": "19173"
+    },
+    {
+      "name": "Union County",
+      "fips": "19175"
+    },
+    {
+      "name": "Van Buren County",
+      "fips": "19177"
+    },
+    {
+      "name": "Wapello County",
+      "fips": "19179"
+    },
+    {
+      "name": "Warren County",
+      "fips": "19181"
+    },
+    {
+      "name": "Washington County",
+      "fips": "19183"
+    },
+    {
+      "name": "Wayne County",
+      "fips": "19185"
+    },
+    {
+      "name": "Webster County",
+      "fips": "19187"
+    },
+    {
+      "name": "Winnebago County",
+      "fips": "19189"
+    },
+    {
+      "name": "Winneshiek County",
+      "fips": "19191"
+    },
+    {
+      "name": "Woodbury County",
+      "fips": "19193"
+    },
+    {
+      "name": "Worth County",
+      "fips": "19195"
+    },
+    {
+      "name": "Wright County",
+      "fips": "19197"
+    }
+  ]
+}

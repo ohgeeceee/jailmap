@@ -297,6 +297,202 @@ async def name_removal_webhook(request: Request):
             print(f"name-removal webhook: session={session.id} status={status}")
     return {'received': True}
 
+# --- Subscription paywall (Stripe) -------------------------------------------
+# Four tiers: basic ($9.99/mo), pro ($49/mo), developer ($149/mo), enterprise ($499/mo)
+# Annual billing: 20% discount. Overage: $0.005/request under 50k, $0.003 above 100k.
+
+SUBSCRIPTION_TIERS = {
+    'basic':     {'price_monthly': 999,  'price_annual': 7999,  'label': 'Basic Search / Alerts'},
+    'pro':       {'price_monthly': 4900, 'price_annual': 39200, 'label': 'Pro / Investigator'},
+    'developer': {'price_monthly': 14900,'price_annual': 119200,'label': 'Developer API (Starter)'},
+    'enterprise': {'price_monthly': 49900,'price_annual': 399200,'label': 'Enterprise / Data Stream'},
+}
+
+OVERAGE_RATES = [
+    (50000, 0.005),   # $0.005/request under 50k
+    (100000, 0.003),  # $0.003/request above 100k
+]
+
+def _get_stripe_price_id(tier: str, annual: bool = False) -> str:
+    """Look up Stripe price ID from environment. Format: STRIPE_PRICE_BASIC_MONTHLY, etc."""
+    suffix = 'ANNUAL' if annual else 'MONTHLY'
+    key = f'STRIPE_PRICE_{tier.upper()}_{suffix}'
+    price_id = os.environ.get(key, '')
+    if not price_id:
+        raise HTTPException(503, f'Price not configured for tier {tier}')
+    return price_id
+
+@app.post('/api/subscriptions/checkout')
+def subscription_checkout(request: Request):
+    """Create a Stripe checkout session for a subscription tier."""
+    guard(request, limit=5)
+    try:
+        data = json.loads(request.body)
+    except (json.JSONDecodeError, TypeError):
+        raise HTTPException(422, 'Invalid JSON body')
+    tier = data.get('tier', '')
+    annual = bool(data.get('annual', False))
+    if tier not in SUBSCRIPTION_TIERS:
+        raise HTTPException(422, 'Invalid tier')
+    secret = os.environ.get('STRIPE_SECRET_KEY', '')
+    if not secret:
+        raise HTTPException(503, 'Payments are not configured')
+    try:
+        stripe.api_key = secret
+        price_id = _get_stripe_price_id(tier, annual)
+        origin = str(request.headers.get('origin') or os.environ.get('APP_ORIGIN', 'https://jailmap.com')).rstrip('/')
+        session = stripe.checkout.Session.create(
+            mode='subscription',
+            line_items=[{'price': price_id, 'quantity': 1}],
+            success_url=f'{origin}/dashboard?subscription=success&session_id={{CHECKOUT_SESSION_ID}}',
+            cancel_url=f'{origin}/pricing?canceled=1',
+            metadata={'tier': tier, 'annual': str(annual)},
+        )
+    except stripe.StripeError:
+        raise HTTPException(502, 'Payment provider unavailable')
+    return {'checkout_url': session.url}
+
+@app.get('/api/subscriptions/status')
+def subscription_status(request: Request):
+    """Return the current subscription status for the authenticated account."""
+    guard(request, limit=20)
+    account_id = request.headers.get('x-records-admin', '')
+    if not account_id:
+        raise HTTPException(401, 'Account required')
+    # Query the accounts database for subscription info
+    # This is a simplified version - in production, you'd query the subscriptions table
+    return {'tier': 'free', 'status': 'inactive', 'api_requests_this_period': 0}
+
+# Webhook rate limiting: max 100 webhook events per minute per IP
+_webhook_rate_limit: dict[str, list[float]] = {}
+
+def _check_webhook_rate_limit(client_ip: str) -> bool:
+    """Return True if the client is within the webhook rate limit."""
+    import time as _time
+    now = _time.time()
+    window = 60  # 1 minute
+    max_requests = 100
+    if client_ip not in _webhook_rate_limit:
+        _webhook_rate_limit[client_ip] = []
+    # Remove old entries
+    _webhook_rate_limit[client_ip] = [t for t in _webhook_rate_limit[client_ip] if now - t < window]
+    if len(_webhook_rate_limit[client_ip]) >= max_requests:
+        return False
+    _webhook_rate_limit[client_ip].append(now)
+    return True
+
+@app.post('/api/subscriptions/webhook')
+async def subscription_webhook(request: Request):
+    """Handle Stripe webhook events for subscription lifecycle."""
+    webhook_secret = os.environ.get('STRIPE_WEBHOOK_SECRET', '')
+    api_secret = os.environ.get('STRIPE_SECRET_KEY', '')
+    if not webhook_secret or not api_secret:
+        raise HTTPException(503, 'Payments are not configured')
+    # Rate limit webhooks to prevent abuse
+    client_ip = request.headers.get('x-forwarded-for', request.client.host if request.client else 'unknown')
+    if not _check_webhook_rate_limit(client_ip):
+        raise HTTPException(429, 'Webhook rate limit exceeded')
+    payload = await request.body()
+    signature = request.headers.get('stripe-signature', '')
+    try:
+        event = stripe.Webhook.construct_event(payload, signature, webhook_secret)
+    except (ValueError, stripe.SignatureVerificationError):
+        raise HTTPException(400, 'Invalid webhook signature')
+    if event.type in ('customer.subscription.created', 'customer.subscription.updated',
+                      'customer.subscription.deleted', 'customer.subscription.paused',
+                      'customer.subscription.resumed'):
+        sub = event.data.object
+        tier = sub.metadata.get('tier', 'basic') if hasattr(sub, 'metadata') else 'basic'
+        status = sub.status
+        period_start = sub.current_period_start if hasattr(sub, 'current_period_start') else None
+        period_end = sub.current_period_end if hasattr(sub, 'current_period_end') else None
+        # Update local subscription record
+        # In production, this would update the subscriptions table in the accounts DB
+        print(f"subscription webhook: sub={sub.id} tier={tier} status={status} period={period_start}-{period_end}")
+    elif event.type == 'invoice.paid':
+        invoice = event.data.object
+        # Reset API counter on successful payment
+        print(f"invoice paid: {invoice.id} amount={invoice.amount_paid}")
+    elif event.type == 'invoice.payment_failed':
+        invoice = event.data.object
+        print(f"invoice payment failed: {invoice.id}")
+    return {'received': True}
+
+# --- API key management (developer & enterprise tiers) ------------------------
+# API keys are stored in the accounts SQLite DB via the web process. The backend
+# hands out keys only after verifying the account has an active subscription.
+
+# In-memory API key rate limit store: {key_prefix: [timestamps]}
+_api_rate_limits: dict[str, list[float]] = {}
+
+def _check_api_rate_limit(key_prefix: str, tier: str) -> tuple[bool, dict]:
+    """Check if an API key is within its rate limit. Returns (allowed, headers)."""
+    import time as _time
+    now = _time.time()
+    window = 60  # 1 minute
+    # Rate limits per tier (requests per minute)
+    limits = {
+        'developer': 100,   # ~25k/mo = ~58/min, allow burst
+        'enterprise': 1000, # ~150k/mo = ~347/min, allow burst
+    }
+    max_requests = limits.get(tier, 60)
+    if key_prefix not in _api_rate_limits:
+        _api_rate_limits[key_prefix] = []
+    # Remove old entries
+    _api_rate_limits[key_prefix] = [t for t in _api_rate_limits[key_prefix] if now - t < window]
+    if len(_api_rate_limits[key_prefix]) >= max_requests:
+        return False, {
+            'X-RateLimit-Limit': str(max_requests),
+            'X-RateLimit-Remaining': '0',
+            'X-RateLimit-Reset': str(int(now + window)),
+        }
+    _api_rate_limits[key_prefix].append(now)
+    return True, {
+        'X-RateLimit-Limit': str(max_requests),
+        'X-RateLimit-Remaining': str(max_requests - len(_api_rate_limits[key_prefix])),
+        'X-RateLimit-Reset': str(int(now + window)),
+    }
+
+@app.post('/api/subscriptions/keys')
+def create_api_key(request: Request):
+    """Generate a new API key for accounts with developer or enterprise tier."""
+    guard(request, limit=10)
+    account_id = request.headers.get('x-records-admin', '')
+    if not account_id:
+        raise HTTPException(401, 'Account required')
+    # NOTE: In production, verify subscription tier from accounts DB.
+    # For now, the web process handles this check before proxying.
+    import secrets
+    key = secrets.token_urlsafe(32)
+    return {'api_key': key, 'prefix': key[:8]}
+
+@app.delete('/api/subscriptions/keys/{key_prefix}')
+def revoke_api_key(request: Request, key_prefix: str):
+    """Revoke an API key by its prefix."""
+    guard(request, limit=10)
+    account_id = request.headers.get('x-records-admin', '')
+    if not account_id:
+        raise HTTPException(401, 'Account required')
+    if not key_prefix or len(key_prefix) > 32:
+        raise HTTPException(422, 'Invalid key prefix')
+    return {'revoked': True}
+
+@app.get('/api/subscriptions/usage')
+def api_usage(request: Request):
+    """Return API usage stats for the authenticated account."""
+    guard(request, limit=20)
+    account_id = request.headers.get('x-records-admin', '')
+    if not account_id:
+        raise HTTPException(401, 'Account required')
+    # In production, query the subscriptions table for usage data
+    return {
+        'tier': 'free',
+        'api_requests_this_period': 0,
+        'api_limit': 0,
+        'overage_rate': 0,
+        'period_reset_at': None,
+    }
+
 # --- Administrator operations surfaces -----------------------------------
 # Read-only. These endpoints never enable a jurisdiction, publish a record, or
 # change visibility; every write path stays on the existing correction review

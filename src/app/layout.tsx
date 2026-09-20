@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import type { ReactNode } from "react";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -15,14 +16,19 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL('https://jailmap.com'),
   title: {
-    default: 'JailMap | Public records, clearer context',
+    default: 'JailMap — Public records, clearer context',
     template: '%s | JailMap',
   },
-  description: 'Find public booking records from participating jurisdictions. Review charges, bond information and original sources with JailMap.',
-  alternates: { canonical: '/' },
+  description: 'JailMap aggregates official booking records from every US state into one searchable platform. Free search, source-linked records, transparent corrections.',
+  openGraph: {
+    type: 'website',
+    siteName: 'JailMap',
+    title: 'JailMap — Public records, clearer context',
+    description: 'Official booking records from every US state, searchable in one place.',
+  },
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html
       lang="en"

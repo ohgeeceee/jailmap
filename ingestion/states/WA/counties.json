@@ -1,0 +1,164 @@
+{
+  "state": "WA",
+  "name": "Washington",
+  "state_fips": "53",
+  "geography_vintage": "Census 2025 Gazetteer",
+  "counties": [
+    {
+      "name": "Adams County",
+      "fips": "53001"
+    },
+    {
+      "name": "Asotin County",
+      "fips": "53003"
+    },
+    {
+      "name": "Benton County",
+      "fips": "53005"
+    },
+    {
+      "name": "Chelan County",
+      "fips": "53007"
+    },
+    {
+      "name": "Clallam County",
+      "fips": "53009"
+    },
+    {
+      "name": "Clark County",
+      "fips": "53011"
+    },
+    {
+      "name": "Columbia County",
+      "fips": "53013"
+    },
+    {
+      "name": "Cowlitz County",
+      "fips": "53015"
+    },
+    {
+      "name": "Douglas County",
+      "fips": "53017"
+    },
+    {
+      "name": "Ferry County",
+      "fips": "53019"
+    },
+    {
+      "name": "Franklin County",
+      "fips": "53021"
+    },
+    {
+      "name": "Garfield County",
+      "fips": "53023"
+    },
+    {
+      "name": "Grant County",
+      "fips": "53025"
+    },
+    {
+      "name": "Grays Harbor County",
+      "fips": "53027"
+    },
+    {
+      "name": "Island County",
+      "fips": "53029"
+    },
+    {
+      "name": "Jefferson County",
+      "fips": "53031"
+    },
+    {
+      "name": "King County",
+      "fips": "53033"
+    },
+    {
+      "name": "Kitsap County",
+      "fips": "53035"
+    },
+    {
+      "name": "Kittitas County",
+      "fips": "53037"
+    },
+    {
+      "name": "Klickitat County",
+      "fips": "53039"
+    },
+    {
+      "name": "Lewis County",
+      "fips": "53041"
+    },
+    {
+      "name": "Lincoln County",
+      "fips": "53043"
+    },
+    {
+      "name": "Mason County",
+      "fips": "53045"
+    },
+    {
+      "name": "Okanogan County",
+      "fips": "53047"
+    },
+    {
+      "name": "Pacific County",
+      "fips": "53049"
+    },
+    {
+      "name": "Pend Oreille County",
+      "fips": "53051"
+    },
+    {
+      "name": "Pierce County",
+      "fips": "53053"
+    },
+    {
+      "name": "San Juan County",
+      "fips": "53055"
+    },
+    {
+      "name": "Skagit County",
+      "fips": "53057"
+    },
+    {
+      "name": "Skamania County",
+      "fips": "53059"
+    },
+    {
+      "name": "Snohomish County",
+      "fips": "53061"
+    },
+    {
+      "name": "Spokane County",
+      "fips": "53063"
+    },
+    {
+      "name": "Stevens County",
+      "fips": "53065"
+    },
+    {
+      "name": "Thurston County",
+      "fips": "53067"
+    },
+    {
+      "name": "Wahkiakum County",
+      "fips": "53069"
+    },
+    {
+      "name": "Walla Walla County",
+      "fips": "53071"
+    },
+    {
+      "name": "Whatcom County",
+      "fips": "53073"
+    },
+    {
+      "name": "Whitman County",
+      "fips": "53075"
+    },
+    {
+      "name": "Yakima County",
+      "fips": "53077"
+    }
+  ]
+}

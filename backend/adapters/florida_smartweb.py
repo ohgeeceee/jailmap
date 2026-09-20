@@ -168,7 +168,7 @@ def smartweb_parse_page(html: str, source_url: str, county: str = "", facility: 
             "facility": rec.get("facility", facility),
             "source_url": source_url,
             "source_type": "smartweb",
-            "pulled_at": now,
+            "source_updated_at": now,
             "booking_number": rec.get("booking_number", ""),
             "full_name": rec.get("full_name", ""),
             "first_name": rec.get("first_name", ""),

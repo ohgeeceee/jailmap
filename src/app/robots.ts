@@ -6,7 +6,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: '*',
         allow: '/',
-        disallow: ['/api/', '/admin', '/login', '/register', '/dashboard', '/inmate/'],
+        disallow: ['/api/', '/admin/', '/login', '/register', '/dashboard', '/inmate/', '/forgot', '/reset'],
       },
     ],
     sitemap: 'https://jailmap.com/sitemap.xml',

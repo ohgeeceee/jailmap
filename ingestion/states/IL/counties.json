@@ -1,0 +1,416 @@
+{
+  "state": "IL",
+  "name": "Illinois",
+  "state_fips": "17",
+  "geography_vintage": "Census 2025 Gazetteer",
+  "counties": [
+    {
+      "name": "Adams County",
+      "fips": "17001"
+    },
+    {
+      "name": "Alexander County",
+      "fips": "17003"
+    },
+    {
+      "name": "Bond County",
+      "fips": "17005"
+    },
+    {
+      "name": "Boone County",
+      "fips": "17007"
+    },
+    {
+      "name": "Brown County",
+      "fips": "17009"
+    },
+    {
+      "name": "Bureau County",
+      "fips": "17011"
+    },
+    {
+      "name": "Calhoun County",
+      "fips": "17013"
+    },
+    {
+      "name": "Carroll County",
+      "fips": "17015"
+    },
+    {
+      "name": "Cass County",
+      "fips": "17017"
+    },
+    {
+      "name": "Champaign County",
+      "fips": "17019"
+    },
+    {
+      "name": "Christian County",
+      "fips": "17021"
+    },
+    {
+      "name": "Clark County",
+      "fips": "17023"
+    },
+    {
+      "name": "Clay County",
+      "fips": "17025"
+    },
+    {
+      "name": "Clinton County",
+      "fips": "17027"
+    },
+    {
+      "name": "Coles County",
+      "fips": "17029"
+    },
+    {
+      "name": "Cook County",
+      "fips": "17031"
+    },
+    {
+      "name": "Crawford County",
+      "fips": "17033"
+    },
+    {
+      "name": "Cumberland County",
+      "fips": "17035"
+    },
+    {
+      "name": "DeKalb County",
+      "fips": "17037"
+    },
+    {
+      "name": "De Witt County",
+      "fips": "17039"
+    },
+    {
+      "name": "Douglas County",
+      "fips": "17041"
+    },
+    {
+      "name": "DuPage County",
+      "fips": "17043"
+    },
+    {
+      "name": "Edgar County",
+      "fips": "17045"
+    },
+    {
+      "name": "Edwards County",
+      "fips": "17047"
+    },
+    {
+      "name": "Effingham County",
+      "fips": "17049"
+    },
+    {
+      "name": "Fayette County",
+      "fips": "17051"
+    },
+    {
+      "name": "Ford County",
+      "fips": "17053"
+    },
+    {
+      "name": "Franklin County",
+      "fips": "17055"
+    },
+    {
+      "name": "Fulton County",
+      "fips": "17057"
+    },
+    {
+      "name": "Gallatin County",
+      "fips": "17059"
+    },
+    {
+      "name": "Greene County",
+      "fips": "17061"
+    },
+    {
+      "name": "Grundy County",
+      "fips": "17063"
+    },
+    {
+      "name": "Hamilton County",
+      "fips": "17065"
+    },
+    {
+      "name": "Hancock County",
+      "fips": "17067"
+    },
+    {
+      "name": "Hardin County",
+      "fips": "17069"
+    },
+    {
+      "name": "Henderson County",
+      "fips": "17071"
+    },
+    {
+      "name": "Henry County",
+      "fips": "17073"
+    },
+    {
+      "name": "Iroquois County",
+      "fips": "17075"
+    },
+    {
+      "name": "Jackson County",
+      "fips": "17077"
+    },
+    {
+      "name": "Jasper County",
+      "fips": "17079"
+    },
+    {
+      "name": "Jefferson County",
+      "fips": "17081"
+    },
+    {
+      "name": "Jersey County",
+      "fips": "17083"
+    },
+    {
+      "name": "Jo Daviess County",
+      "fips": "17085"
+    },
+    {
+      "name": "Johnson County",
+      "fips": "17087"
+    },
+    {
+      "name": "Kane County",
+      "fips": "17089"
+    },
+    {
+      "name": "Kankakee County",
+      "fips": "17091"
+    },
+    {
+      "name": "Kendall County",
+      "fips": "17093"
+    },
+    {
+      "name": "Knox County",
+      "fips": "17095"
+    },
+    {
+      "name": "Lake County",
+      "fips": "17097"
+    },
+    {
+      "name": "LaSalle County",
+      "fips": "17099"
+    },
+    {
+      "name": "Lawrence County",
+      "fips": "17101"
+    },
+    {
+      "name": "Lee County",
+      "fips": "17103"
+    },
+    {
+      "name": "Livingston County",
+      "fips": "17105"
+    },
+    {
+      "name": "Logan County",
+      "fips": "17107"
+    },
+    {
+      "name": "McDonough County",
+      "fips": "17109"
+    },
+    {
+      "name": "McHenry County",
+      "fips": "17111"
+    },
+    {
+      "name": "McLean County",
+      "fips": "17113"
+    },
+    {
+      "name": "Macon County",
+      "fips": "17115"
+    },
+    {
+      "name": "Macoupin County",
+      "fips": "17117"
+    },
+    {
+      "name": "Madison County",
+      "fips": "17119"
+    },
+    {
+      "name": "Marion County",
+      "fips": "17121"
+    },
+    {
+      "name": "Marshall County",
+      "fips": "17123"
+    },
+    {
+      "name": "Mason County",
+      "fips": "17125"
+    },
+    {
+      "name": "Massac County",
+      "fips": "17127"
+    },
+    {
+      "name": "Menard County",
+      "fips": "17129"
+    },
+    {
+      "name": "Mercer County",
+      "fips": "17131"
+    },
+    {
+      "name": "Monroe County",
+      "fips": "17133"
+    },
+    {
+      "name": "Montgomery County",
+      "fips": "17135"
+    },
+    {
+      "name": "Morgan County",
+      "fips": "17137"
+    },
+    {
+      "name": "Moultrie County",
+      "fips": "17139"
+    },
+    {
+      "name": "Ogle County",
+      "fips": "17141"
+    },
+    {
+      "name": "Peoria County",
+      "fips": "17143"
+    },
+    {
+      "name": "Perry County",
+      "fips": "17145"
+    },
+    {
+      "name": "Piatt County",
+      "fips": "17147"
+    },
+    {
+      "name": "Pike County",
+      "fips": "17149"
+    },
+    {
+      "name": "Pope County",
+      "fips": "17151"
+    },
+    {
+      "name": "Pulaski County",
+      "fips": "17153"
+    },
+    {
+      "name": "Putnam County",
+      "fips": "17155"
+    },
+    {
+      "name": "Randolph County",
+      "fips": "17157"
+    },
+    {
+      "name": "Richland County",
+      "fips": "17159"
+    },
+    {
+      "name": "Rock Island County",
+      "fips": "17161"
+    },
+    {
+      "name": "St. Clair County",
+      "fips": "17163"
+    },
+    {
+      "name": "Saline County",
+      "fips": "17165"
+    },
+    {
+      "name": "Sangamon County",
+      "fips": "17167"
+    },
+    {
+      "name": "Schuyler County",
+      "fips": "17169"
+    },
+    {
+      "name": "Scott County",
+      "fips": "17171"
+    },
+    {
+      "name": "Shelby County",
+      "fips": "17173"
+    },
+    {
+      "name": "Stark County",
+      "fips": "17175"
+    },
+    {
+      "name": "Stephenson County",
+      "fips": "17177"
+    },
+    {
+      "name": "Tazewell County",
+      "fips": "17179"
+    },
+    {
+      "name": "Union County",
+      "fips": "17181"
+    },
+    {
+      "name": "Vermilion County",
+      "fips": "17183"
+    },
+    {
+      "name": "Wabash County",
+      "fips": "17185"
+    },
+    {
+      "name": "Warren County",
+      "fips": "17187"
+    },
+    {
+      "name": "Washington County",
+      "fips": "17189"
+    },
+    {
+      "name": "Wayne County",
+      "fips": "17191"
+    },
+    {
+      "name": "White County",
+      "fips": "17193"
+    },
+    {
+      "name": "Whiteside County",
+      "fips": "17195"
+    },
+    {
+      "name": "Will County",
+      "fips": "17197"
+    },
+    {
+      "name": "Williamson County",
+      "fips": "17199"
+    },
+    {
+      "name": "Winnebago County",
+      "fips": "17201"
+    },
+    {
+      "name": "Woodford County",
+      "fips": "17203"
+    }
+  ]
+}

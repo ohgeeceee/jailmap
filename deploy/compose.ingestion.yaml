@@ -1,0 +1,13 @@
+services:
+  ingestion:
+    image: jailmap-ingestion:20260920
+    profiles: [ingestion]
+    environment:
+      DATABASE_URL: postgresql://jailmap_app:${PG_APP_PASSWORD}@postgres:5432/jailmap
+    networks: [private, egress]
+    depends_on:
+      postgres: { condition: service_healthy }
+    mem_limit: 512m
+    cpus: 0.75
+    cap_drop: [ALL]
+    security_opt: ['no-new-privileges:true']

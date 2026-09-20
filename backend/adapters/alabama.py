@@ -117,9 +117,9 @@ def jefferson_county_al(source: Dict[str, Any]) -> AdapterResult:
             records.append({
                 "state": "AL", "county": "Jefferson", "facility": "Jefferson County Jail",
                 "source_url": url, "source_type": "custom_html",
-                "pulled_at": now, "booking_number": booking_num,
+                "source_updated_at": now, "booking_number": booking_num,
                 "full_name": name, "first_name": first_name, "last_name": last_name,
-                "booking_date": parse_iso(booking_date), "charges": charge_objs, "status": "in_custody",
+                "booking_date": parse_iso(booking_date), "charges": charge_objs, "status": "in_custody", "visibility": "public",
             })
         
         return AdapterResult(source, records)
@@ -165,9 +165,9 @@ def mobile_county_al(source: Dict[str, Any]) -> AdapterResult:
                 records.append({
                     "state": "AL", "county": "Mobile", "facility": "Mobile County Jail",
                     "source_url": url, "source_type": "html_table",
-                    "pulled_at": now, "full_name": name,
+                    "source_updated_at": now, "full_name": name,
                     "first_name": first_name, "last_name": last_name,
-                    "booking_date": parse_iso(booking_date), "charges": charges, "status": "in_custody",
+                    "booking_date": parse_iso(booking_date), "charges": charges, "status": "in_custody", "visibility": "public",
                 })
         
         return AdapterResult(source, records)
@@ -219,10 +219,10 @@ def madison_county_al(source: Dict[str, Any]) -> AdapterResult:
             records.append({
                 "state": "AL", "county": "Madison", "facility": "Madison County Jail",
                 "source_url": url, "source_type": "smartweb",
-                "pulled_at": now, "booking_number": booking_match.group(1).strip() if booking_match else "",
+                "source_updated_at": now, "booking_number": booking_match.group(1).strip() if booking_match else "",
                 "full_name": name, "first_name": first_name, "last_name": last_name,
                 "booking_date": parse_iso(date_match.group(1)) if date_match else None,
-                "charges": charges, "status": "in_custody",
+                "charges": charges, "status": "in_custody", "visibility": "public",
             })
         
         return AdapterResult(source, records)
@@ -262,11 +262,11 @@ def montgomery_county_al(source: Dict[str, Any]) -> AdapterResult:
                 records.append({
                     "state": "AL", "county": "Montgomery", "facility": "Montgomery County Jail",
                     "source_url": url, "source_type": "html_table",
-                    "pulled_at": now, "full_name": name,
+                    "source_updated_at": now, "full_name": name,
                     "first_name": first_name, "last_name": last_name,
                     "booking_date": parse_iso(cell_texts[1] if len(cell_texts) > 1 else ""),
                     "charges": [{"source_id": "c1", "description": cell_texts[2] if len(cell_texts) > 2 else "Unknown", "statute": None, "severity": None}],
-                    "status": "in_custody",
+                    "status": "in_custody", "visibility": "public",
                 })
         
         return AdapterResult(source, records)
@@ -300,11 +300,11 @@ def baldwin_county_al(source: Dict[str, Any]) -> AdapterResult:
                 records.append({
                     "state": "AL", "county": "Baldwin", "facility": "Baldwin County Jail",
                     "source_url": url, "source_type": "html_table",
-                    "pulled_at": now, "full_name": name,
+                    "source_updated_at": now, "full_name": name,
                     "first_name": first_name, "last_name": last_name,
                     "booking_date": parse_iso(cell_texts[1] if len(cell_texts) > 1 else ""),
                     "charges": [{"source_id": "c1", "description": "Unknown", "statute": None, "severity": None}],
-                    "status": "in_custody",
+                    "status": "in_custody", "visibility": "public",
                 })
         
         return AdapterResult(source, records)
@@ -338,11 +338,11 @@ def elmore_county_al(source: Dict[str, Any]) -> AdapterResult:
                 records.append({
                     "state": "AL", "county": "Elmore", "facility": "Elmore County Jail",
                     "source_url": url, "source_type": "html_table",
-                    "pulled_at": now, "full_name": name,
+                    "source_updated_at": now, "full_name": name,
                     "first_name": first_name, "last_name": last_name,
                     "booking_date": parse_iso(cell_texts[1] if len(cell_texts) > 1 else ""),
                     "charges": [{"source_id": "c1", "description": cell_texts[2] if len(cell_texts) > 2 else "Unknown", "statute": None, "severity": None}],
-                    "status": "in_custody",
+                    "status": "in_custody", "visibility": "public",
                 })
         
         return AdapterResult(source, records)
@@ -375,11 +375,11 @@ def houston_county_al(source: Dict[str, Any]) -> AdapterResult:
                 records.append({
                     "state": "AL", "county": "Houston", "facility": "Houston County Jail",
                     "source_url": url, "source_type": "html_table",
-                    "pulled_at": now, "full_name": name,
+                    "source_updated_at": now, "full_name": name,
                     "first_name": first_name, "last_name": last_name,
                     "booking_date": parse_iso(cell_texts[1] if len(cell_texts) > 1 else ""),
                     "charges": [{"source_id": "c1", "description": cell_texts[2] if len(cell_texts) > 2 else "Unknown", "statute": None, "severity": None}],
-                    "status": "in_custody",
+                    "status": "in_custody", "visibility": "public",
                 })
         
         return AdapterResult(source, records)

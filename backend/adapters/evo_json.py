@@ -48,11 +48,20 @@ def fetch(source) -> AdapterResult:
             for row in data.get("rows", []):
                 first, last = _name_parts(row.get("name", ""))
                 charges = row.get("charges") or []
-                bonds = []
+                # Dedupe identical charges within a row (vendor sometimes emits dupes)
+                seen_charges = set()
+                deduped_charges = []
                 for c in charges:
+                    key = (c.get("case_number", ""), c.get("bond_amount"))
+                    if key not in seen_charges:
+                        seen_charges.add(key)
+                        deduped_charges.append(c)
+                charges = deduped_charges
+                bonds = []
+                for i, c in enumerate(charges):
                     bond_amt = c.get("bond_amount")
                     bonds.append({
-                        "source_id": str(uuid.uuid5(uuid.NAMESPACE_URL, c.get("case_number", "") + str(c.get("bond_amount", ""))))[:16],
+                        "source_id": str(uuid.uuid5(uuid.NAMESPACE_URL, c.get("case_number", "") + str(c.get("bond_amount", "")) + f"-{i}"))[:16],
                         "amount": float(bond_amt) if bond_amt else None,
                         "type": "bond",
                         "status": "set",
@@ -76,11 +85,11 @@ def fetch(source) -> AdapterResult:
                     "dob": None,
                     "mugshot_url": row.get("photo_url"),
                     "charges": [{
-                        "source_id": str(uuid.uuid5(uuid.NAMESPACE_URL, "|" + identity + c.get("case_number", "") + str(c.get("bond_amount", ""))))[:16],
+                        "source_id": str(uuid.uuid5(uuid.NAMESPACE_URL, "|" + identity + c.get("case_number", "") + str(c.get("bond_amount", "")) + f"-{i}"))[:16],
                         "description": c.get("case_number", "")[:2000],
                         "statute": None,
                         "severity": None,
-                    } for c in charges],
+                    } for i, c in enumerate(charges)],
                     "bonds": bonds,
                 })
             if len(records) >= total or not data.get("rows"):

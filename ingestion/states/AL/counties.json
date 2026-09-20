@@ -1,0 +1,276 @@
+{
+  "state": "AL",
+  "name": "Alabama",
+  "state_fips": "01",
+  "geography_vintage": "Census 2025 Gazetteer",
+  "counties": [
+    {
+      "name": "Autauga County",
+      "fips": "01001"
+    },
+    {
+      "name": "Baldwin County",
+      "fips": "01003"
+    },
+    {
+      "name": "Barbour County",
+      "fips": "01005"
+    },
+    {
+      "name": "Bibb County",
+      "fips": "01007"
+    },
+    {
+      "name": "Blount County",
+      "fips": "01009"
+    },
+    {
+      "name": "Bullock County",
+      "fips": "01011"
+    },
+    {
+      "name": "Butler County",
+      "fips": "01013"
+    },
+    {
+      "name": "Calhoun County",
+      "fips": "01015"
+    },
+    {
+      "name": "Chambers County",
+      "fips": "01017"
+    },
+    {
+      "name": "Cherokee County",
+      "fips": "01019"
+    },
+    {
+      "name": "Chilton County",
+      "fips": "01021"
+    },
+    {
+      "name": "Choctaw County",
+      "fips": "01023"
+    },
+    {
+      "name": "Clarke County",
+      "fips": "01025"
+    },
+    {
+      "name": "Clay County",
+      "fips": "01027"
+    },
+    {
+      "name": "Cleburne County",
+      "fips": "01029"
+    },
+    {
+      "name": "Coffee County",
+      "fips": "01031"
+    },
+    {
+      "name": "Colbert County",
+      "fips": "01033"
+    },
+    {
+      "name": "Conecuh County",
+      "fips": "01035"
+    },
+    {
+      "name": "Coosa County",
+      "fips": "01037"
+    },
+    {
+      "name": "Covington County",
+      "fips": "01039"
+    },
+    {
+      "name": "Crenshaw County",
+      "fips": "01041"
+    },
+    {
+      "name": "Cullman County",
+      "fips": "01043"
+    },
+    {
+      "name": "Dale County",
+      "fips": "01045"
+    },
+    {
+      "name": "Dallas County",
+      "fips": "01047"
+    },
+    {
+      "name": "DeKalb County",
+      "fips": "01049"
+    },
+    {
+      "name": "Elmore County",
+      "fips": "01051"
+    },
+    {
+      "name": "Escambia County",
+      "fips": "01053"
+    },
+    {
+      "name": "Etowah County",
+      "fips": "01055"
+    },
+    {
+      "name": "Fayette County",
+      "fips": "01057"
+    },
+    {
+      "name": "Franklin County",
+      "fips": "01059"
+    },
+    {
+      "name": "Geneva County",
+      "fips": "01061"
+    },
+    {
+      "name": "Greene County",
+      "fips": "01063"
+    },
+    {
+      "name": "Hale County",
+      "fips": "01065"
+    },
+    {
+      "name": "Henry County",
+      "fips": "01067"
+    },
+    {
+      "name": "Houston County",
+      "fips": "01069"
+    },
+    {
+      "name": "Jackson County",
+      "fips": "01071"
+    },
+    {
+      "name": "Jefferson County",
+      "fips": "01073"
+    },
+    {
+      "name": "Lamar County",
+      "fips": "01075"
+    },
+    {
+      "name": "Lauderdale County",
+      "fips": "01077"
+    },
+    {
+      "name": "Lawrence County",
+      "fips": "01079"
+    },
+    {
+      "name": "Lee County",
+      "fips": "01081"
+    },
+    {
+      "name": "Limestone County",
+      "fips": "01083"
+    },
+    {
+      "name": "Lowndes County",
+      "fips": "01085"
+    },
+    {
+      "name": "Macon County",
+      "fips": "01087"
+    },
+    {
+      "name": "Madison County",
+      "fips": "01089"
+    },
+    {
+      "name": "Marengo County",
+      "fips": "01091"
+    },
+    {
+      "name": "Marion County",
+      "fips": "01093"
+    },
+    {
+      "name": "Marshall County",
+      "fips": "01095"
+    },
+    {
+      "name": "Mobile County",
+      "fips": "01097"
+    },
+    {
+      "name": "Monroe County",
+      "fips": "01099"
+    },
+    {
+      "name": "Montgomery County",
+      "fips": "01101"
+    },
+    {
+      "name": "Morgan County",
+      "fips": "01103"
+    },
+    {
+      "name": "Perry County",
+      "fips": "01105"
+    },
+    {
+      "name": "Pickens County",
+      "fips": "01107"
+    },
+    {
+      "name": "Pike County",
+      "fips": "01109"
+    },
+    {
+      "name": "Randolph County",
+      "fips": "01111"
+    },
+    {
+      "name": "Russell County",
+      "fips": "01113"
+    },
+    {
+      "name": "St. Clair County",
+      "fips": "01115"
+    },
+    {
+      "name": "Shelby County",
+      "fips": "01117"
+    },
+    {
+      "name": "Sumter County",
+      "fips": "01119"
+    },
+    {
+      "name": "Talladega County",
+      "fips": "01121"
+    },
+    {
+      "name": "Tallapoosa County",
+      "fips": "01123"
+    },
+    {
+      "name": "Tuscaloosa County",
+      "fips": "01125"
+    },
+    {
+      "name": "Walker County",
+      "fips": "01127"
+    },
+    {
+      "name": "Washington County",
+      "fips": "01129"
+    },
+    {
+      "name": "Wilcox County",
+      "fips": "01131"
+    },
+    {
+      "name": "Winston County",
+      "fips": "01133"
+    }
+  ]
+}

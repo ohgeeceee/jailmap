@@ -1,0 +1,340 @@
+{
+  "state": "MI",
+  "name": "Michigan",
+  "state_fips": "26",
+  "geography_vintage": "Census 2025 Gazetteer",
+  "counties": [
+    {
+      "name": "Alcona County",
+      "fips": "26001"
+    },
+    {
+      "name": "Alger County",
+      "fips": "26003"
+    },
+    {
+      "name": "Allegan County",
+      "fips": "26005"
+    },
+    {
+      "name": "Alpena County",
+      "fips": "26007"
+    },
+    {
+      "name": "Antrim County",
+      "fips": "26009"
+    },
+    {
+      "name": "Arenac County",
+      "fips": "26011"
+    },
+    {
+      "name": "Baraga County",
+      "fips": "26013"
+    },
+    {
+      "name": "Barry County",
+      "fips": "26015"
+    },
+    {
+      "name": "Bay County",
+      "fips": "26017"
+    },
+    {
+      "name": "Benzie County",
+      "fips": "26019"
+    },
+    {
+      "name": "Berrien County",
+      "fips": "26021"
+    },
+    {
+      "name": "Branch County",
+      "fips": "26023"
+    },
+    {
+      "name": "Calhoun County",
+      "fips": "26025"
+    },
+    {
+      "name": "Cass County",
+      "fips": "26027"
+    },
+    {
+      "name": "Charlevoix County",
+      "fips": "26029"
+    },
+    {
+      "name": "Cheboygan County",
+      "fips": "26031"
+    },
+    {
+      "name": "Chippewa County",
+      "fips": "26033"
+    },
+    {
+      "name": "Clare County",
+      "fips": "26035"
+    },
+    {
+      "name": "Clinton County",
+      "fips": "26037"
+    },
+    {
+      "name": "Crawford County",
+      "fips": "26039"
+    },
+    {
+      "name": "Delta County",
+      "fips": "26041"
+    },
+    {
+      "name": "Dickinson County",
+      "fips": "26043"
+    },
+    {
+      "name": "Eaton County",
+      "fips": "26045"
+    },
+    {
+      "name": "Emmet County",
+      "fips": "26047"
+    },
+    {
+      "name": "Genesee County",
+      "fips": "26049"
+    },
+    {
+      "name": "Gladwin County",
+      "fips": "26051"
+    },
+    {
+      "name": "Gogebic County",
+      "fips": "26053"
+    },
+    {
+      "name": "Grand Traverse County",
+      "fips": "26055"
+    },
+    {
+      "name": "Gratiot County",
+      "fips": "26057"
+    },
+    {
+      "name": "Hillsdale County",
+      "fips": "26059"
+    },
+    {
+      "name": "Houghton County",
+      "fips": "26061"
+    },
+    {
+      "name": "Huron County",
+      "fips": "26063"
+    },
+    {
+      "name": "Ingham County",
+      "fips": "26065"
+    },
+    {
+      "name": "Ionia County",
+      "fips": "26067"
+    },
+    {
+      "name": "Iosco County",
+      "fips": "26069"
+    },
+    {
+      "name": "Iron County",
+      "fips": "26071"
+    },
+    {
+      "name": "Isabella County",
+      "fips": "26073"
+    },
+    {
+      "name": "Jackson County",
+      "fips": "26075"
+    },
+    {
+      "name": "Kalamazoo County",
+      "fips": "26077"
+    },
+    {
+      "name": "Kalkaska County",
+      "fips": "26079"
+    },
+    {
+      "name": "Kent County",
+      "fips": "26081"
+    },
+    {
+      "name": "Keweenaw County",
+      "fips": "26083"
+    },
+    {
+      "name": "Lake County",
+      "fips": "26085"
+    },
+    {
+      "name": "Lapeer County",
+      "fips": "26087"
+    },
+    {
+      "name": "Leelanau County",
+      "fips": "26089"
+    },
+    {
+      "name": "Lenawee County",
+      "fips": "26091"
+    },
+    {
+      "name": "Livingston County",
+      "fips": "26093"
+    },
+    {
+      "name": "Luce County",
+      "fips": "26095"
+    },
+    {
+      "name": "Mackinac County",
+      "fips": "26097"
+    },
+    {
+      "name": "Macomb County",
+      "fips": "26099"
+    },
+    {
+      "name": "Manistee County",
+      "fips": "26101"
+    },
+    {
+      "name": "Marquette County",
+      "fips": "26103"
+    },
+    {
+      "name": "Mason County",
+      "fips": "26105"
+    },
+    {
+      "name": "Mecosta County",
+      "fips": "26107"
+    },
+    {
+      "name": "Menominee County",
+      "fips": "26109"
+    },
+    {
+      "name": "Midland County",
+      "fips": "26111"
+    },
+    {
+      "name": "Missaukee County",
+      "fips": "26113"
+    },
+    {
+      "name": "Monroe County",
+      "fips": "26115"
+    },
+    {
+      "name": "Montcalm County",
+      "fips": "26117"
+    },
+    {
+      "name": "Montmorency County",
+      "fips": "26119"
+    },
+    {
+      "name": "Muskegon County",
+      "fips": "26121"
+    },
+    {
+      "name": "Newaygo County",
+      "fips": "26123"
+    },
+    {
+      "name": "Oakland County",
+      "fips": "26125"
+    },
+    {
+      "name": "Oceana County",
+      "fips": "26127"
+    },
+    {
+      "name": "Ogemaw County",
+      "fips": "26129"
+    },
+    {
+      "name": "Ontonagon County",
+      "fips": "26131"
+    },
+    {
+      "name": "Osceola County",
+      "fips": "26133"
+    },
+    {
+      "name": "Oscoda County",
+      "fips": "26135"
+    },
+    {
+      "name": "Otsego County",
+      "fips": "26137"
+    },
+    {
+      "name": "Ottawa County",
+      "fips": "26139"
+    },
+    {
+      "name": "Presque Isle County",
+      "fips": "26141"
+    },
+    {
+      "name": "Roscommon County",
+      "fips": "26143"
+    },
+    {
+      "name": "Saginaw County",
+      "fips": "26145"
+    },
+    {
+      "name": "St. Clair County",
+      "fips": "26147"
+    },
+    {
+      "name": "St. Joseph County",
+      "fips": "26149"
+    },
+    {
+      "name": "Sanilac County",
+      "fips": "26151"
+    },
+    {
+      "name": "Schoolcraft County",
+      "fips": "26153"
+    },
+    {
+      "name": "Shiawassee County",
+      "fips": "26155"
+    },
+    {
+      "name": "Tuscola County",
+      "fips": "26157"
+    },
+    {
+      "name": "Van Buren County",
+      "fips": "26159"
+    },
+    {
+      "name": "Washtenaw County",
+      "fips": "26161"
+    },
+    {
+      "name": "Wayne County",
+      "fips": "26163"
+    },
+    {
+      "name": "Wexford County",
+      "fips": "26165"
+    }
+  ]
+}

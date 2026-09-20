@@ -1,0 +1,356 @@
+{
+  "state": "MN",
+  "name": "Minnesota",
+  "state_fips": "27",
+  "geography_vintage": "Census 2025 Gazetteer",
+  "counties": [
+    {
+      "name": "Aitkin County",
+      "fips": "27001"
+    },
+    {
+      "name": "Anoka County",
+      "fips": "27003"
+    },
+    {
+      "name": "Becker County",
+      "fips": "27005"
+    },
+    {
+      "name": "Beltrami County",
+      "fips": "27007"
+    },
+    {
+      "name": "Benton County",
+      "fips": "27009"
+    },
+    {
+      "name": "Big Stone County",
+      "fips": "27011"
+    },
+    {
+      "name": "Blue Earth County",
+      "fips": "27013"
+    },
+    {
+      "name": "Brown County",
+      "fips": "27015"
+    },
+    {
+      "name": "Carlton County",
+      "fips": "27017"
+    },
+    {
+      "name": "Carver County",
+      "fips": "27019"
+    },
+    {
+      "name": "Cass County",
+      "fips": "27021"
+    },
+    {
+      "name": "Chippewa County",
+      "fips": "27023"
+    },
+    {
+      "name": "Chisago County",
+      "fips": "27025"
+    },
+    {
+      "name": "Clay County",
+      "fips": "27027"
+    },
+    {
+      "name": "Clearwater County",
+      "fips": "27029"
+    },
+    {
+      "name": "Cook County",
+      "fips": "27031"
+    },
+    {
+      "name": "Cottonwood County",
+      "fips": "27033"
+    },
+    {
+      "name": "Crow Wing County",
+      "fips": "27035"
+    },
+    {
+      "name": "Dakota County",
+      "fips": "27037"
+    },
+    {
+      "name": "Dodge County",
+      "fips": "27039"
+    },
+    {
+      "name": "Douglas County",
+      "fips": "27041"
+    },
+    {
+      "name": "Faribault County",
+      "fips": "27043"
+    },
+    {
+      "name": "Fillmore County",
+      "fips": "27045"
+    },
+    {
+      "name": "Freeborn County",
+      "fips": "27047"
+    },
+    {
+      "name": "Goodhue County",
+      "fips": "27049"
+    },
+    {
+      "name": "Grant County",
+      "fips": "27051"
+    },
+    {
+      "name": "Hennepin County",
+      "fips": "27053"
+    },
+    {
+      "name": "Houston County",
+      "fips": "27055"
+    },
+    {
+      "name": "Hubbard County",
+      "fips": "27057"
+    },
+    {
+      "name": "Isanti County",
+      "fips": "27059"
+    },
+    {
+      "name": "Itasca County",
+      "fips": "27061"
+    },
+    {
+      "name": "Jackson County",
+      "fips": "27063"
+    },
+    {
+      "name": "Kanabec County",
+      "fips": "27065"
+    },
+    {
+      "name": "Kandiyohi County",
+      "fips": "27067"
+    },
+    {
+      "name": "Kittson County",
+      "fips": "27069"
+    },
+    {
+      "name": "Koochiching County",
+      "fips": "27071"
+    },
+    {
+      "name": "Lac qui Parle County",
+      "fips": "27073"
+    },
+    {
+      "name": "Lake County",
+      "fips": "27075"
+    },
+    {
+      "name": "Lake of the Woods County",
+      "fips": "27077"
+    },
+    {
+      "name": "Le Sueur County",
+      "fips": "27079"
+    },
+    {
+      "name": "Lincoln County",
+      "fips": "27081"
+    },
+    {
+      "name": "Lyon County",
+      "fips": "27083"
+    },
+    {
+      "name": "McLeod County",
+      "fips": "27085"
+    },
+    {
+      "name": "Mahnomen County",
+      "fips": "27087"
+    },
+    {
+      "name": "Marshall County",
+      "fips": "27089"
+    },
+    {
+      "name": "Martin County",
+      "fips": "27091"
+    },
+    {
+      "name": "Meeker County",
+      "fips": "27093"
+    },
+    {
+      "name": "Mille Lacs County",
+      "fips": "27095"
+    },
+    {
+      "name": "Morrison County",
+      "fips": "27097"
+    },
+    {
+      "name": "Mower County",
+      "fips": "27099"
+    },
+    {
+      "name": "Murray County",
+      "fips": "27101"
+    },
+    {
+      "name": "Nicollet County",
+      "fips": "27103"
+    },
+    {
+      "name": "Nobles County",
+      "fips": "27105"
+    },
+    {
+      "name": "Norman County",
+      "fips": "27107"
+    },
+    {
+      "name": "Olmsted County",
+      "fips": "27109"
+    },
+    {
+      "name": "Otter Tail County",
+      "fips": "27111"
+    },
+    {
+      "name": "Pennington County",
+      "fips": "27113"
+    },
+    {
+      "name": "Pine County",
+      "fips": "27115"
+    },
+    {
+      "name": "Pipestone County",
+      "fips": "27117"
+    },
+    {
+      "name": "Polk County",
+      "fips": "27119"
+    },
+    {
+      "name": "Pope County",
+      "fips": "27121"
+    },
+    {
+      "name": "Ramsey County",
+      "fips": "27123"
+    },
+    {
+      "name": "Red Lake County",
+      "fips": "27125"
+    },
+    {
+      "name": "Redwood County",
+      "fips": "27127"
+    },
+    {
+      "name": "Renville County",
+      "fips": "27129"
+    },
+    {
+      "name": "Rice County",
+      "fips": "27131"
+    },
+    {
+      "name": "Rock County",
+      "fips": "27133"
+    },
+    {
+      "name": "Roseau County",
+      "fips": "27135"
+    },
+    {
+      "name": "St. Louis County",
+      "fips": "27137"
+    },
+    {
+      "name": "Scott County",
+      "fips": "27139"
+    },
+    {
+      "name": "Sherburne County",
+      "fips": "27141"
+    },
+    {
+      "name": "Sibley County",
+      "fips": "27143"
+    },
+    {
+      "name": "Stearns County",
+      "fips": "27145"
+    },
+    {
+      "name": "Steele County",
+      "fips": "27147"
+    },
+    {
+      "name": "Stevens County",
+      "fips": "27149"
+    },
+    {
+      "name": "Swift County",
+      "fips": "27151"
+    },
+    {
+      "name": "Todd County",
+      "fips": "27153"
+    },
+    {
+      "name": "Traverse County",
+      "fips": "27155"
+    },
+    {
+      "name": "Wabasha County",
+      "fips": "27157"
+    },
+    {
+      "name": "Wadena County",
+      "fips": "27159"
+    },
+    {
+      "name": "Waseca County",
+      "fips": "27161"
+    },
+    {
+      "name": "Washington County",
+      "fips": "27163"
+    },
+    {
+      "name": "Watonwan County",
+      "fips": "27165"
+    },
+    {
+      "name": "Wilkin County",
+      "fips": "27167"
+    },
+    {
+      "name": "Winona County",
+      "fips": "27169"
+    },
+    {
+      "name": "Wright County",
+      "fips": "27171"
+    },
+    {
+      "name": "Yellow Medicine County",
+      "fips": "27173"
+    }
+  ]
+}

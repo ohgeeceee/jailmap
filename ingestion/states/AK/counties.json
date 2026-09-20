@@ -1,0 +1,128 @@
+{
+  "state": "AK",
+  "name": "Alaska",
+  "state_fips": "02",
+  "geography_vintage": "Census 2025 Gazetteer",
+  "counties": [
+    {
+      "name": "Aleutians East Borough",
+      "fips": "02013"
+    },
+    {
+      "name": "Aleutians West Census Area",
+      "fips": "02016"
+    },
+    {
+      "name": "Anchorage Municipality",
+      "fips": "02020"
+    },
+    {
+      "name": "Bethel Census Area",
+      "fips": "02050"
+    },
+    {
+      "name": "Bristol Bay Borough",
+      "fips": "02060"
+    },
+    {
+      "name": "Chugach Census Area",
+      "fips": "02063"
+    },
+    {
+      "name": "Copper River Census Area",
+      "fips": "02066"
+    },
+    {
+      "name": "Denali Borough",
+      "fips": "02068"
+    },
+    {
+      "name": "Dillingham Census Area",
+      "fips": "02070"
+    },
+    {
+      "name": "Fairbanks North Star Borough",
+      "fips": "02090"
+    },
+    {
+      "name": "Haines Borough",
+      "fips": "02100"
+    },
+    {
+      "name": "Hoonah-Angoon Census Area",
+      "fips": "02105"
+    },
+    {
+      "name": "Juneau City and Borough",
+      "fips": "02110"
+    },
+    {
+      "name": "Kenai Peninsula Borough",
+      "fips": "02122"
+    },
+    {
+      "name": "Ketchikan Gateway Borough",
+      "fips": "02130"
+    },
+    {
+      "name": "Kodiak Island Borough",
+      "fips": "02150"
+    },
+    {
+      "name": "Kusilvak Census Area",
+      "fips": "02158"
+    },
+    {
+      "name": "Lake and Peninsula Borough",
+      "fips": "02164"
+    },
+    {
+      "name": "Matanuska-Susitna Borough",
+      "fips": "02170"
+    },
+    {
+      "name": "Nome Census Area",
+      "fips": "02180"
+    },
+    {
+      "name": "North Slope Borough",
+      "fips": "02185"
+    },
+    {
+      "name": "Northwest Arctic Borough",
+      "fips": "02188"
+    },
+    {
+      "name": "Petersburg Borough",
+      "fips": "02195"
+    },
+    {
+      "name": "Prince of Wales-Hyder Census Area",
+      "fips": "02198"
+    },
+    {
+      "name": "Sitka City and Borough",
+      "fips": "02220"
+    },
+    {
+      "name": "Skagway Municipality",
+      "fips": "02230"
+    },
+    {
+      "name": "Southeast Fairbanks Census Area",
+      "fips": "02240"
+    },
+    {
+      "name": "Wrangell City and Borough",
+      "fips": "02275"
+    },
+    {
+      "name": "Yakutat City and Borough",
+      "fips": "02282"
+    },
+    {
+      "name": "Yukon-Koyukuk Census Area",
+      "fips": "02290"
+    }
+  ]
+}

@@ -56,11 +56,12 @@ def fetch(source) -> AdapterResult:
             seen_ids.add(identity)
 
             records.append({
-                'booking_number': subject_number or f"TYLER-{identity}",
+                'booking_number': identity,
                 'first_name': first,
                 'last_name': last,
                 'source_id': identity,
                 'booking_date': pulled_at,
+                'source_updated_at': pulled_at,
                 'status': 'in_custody',
                 'visibility': 'public',
                 'dob': None,

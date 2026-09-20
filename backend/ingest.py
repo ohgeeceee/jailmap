@@ -50,16 +50,24 @@ from backend.adapters import mt_zuercher, mt_flathead, mt_missoula, mt_yellowsto
 from backend.adapters import mt_prairie, mt_lake, mt_beaverhead, mt_lewis_and_clark
 from backend.adapters import html_roster
 from backend.adapters import socrata
+from backend.adapters import gov_website
 from backend.adapters import evo_json, citizenrims
 from backend.adapters import tyler_odyssey
+from backend.adapters import mt_carter, mt_fergus, mt_garfield
+from backend.adapters import fl_smartweb
+from backend.adapters import ocv_json
+from backend.adapters import fayette_ky
+from backend.adapters import pdf_roster
 ADAPTERS = {'standard_json': standard_json, 'fulton_socrata_staging': fulton_staging,
             'fulton_public_roster': fulton_public,
+            'custom_html': html_roster.fetch,
             'bonneville_html_staging': lambda source: bonneville_html.parse(source).records,
             'franklin_html_staging': lambda source: franklin_html.parse(source).records,
             'power_html_staging': lambda source: power_html.parse(source).records,
             'minnehaha_html_staging': minnehaha_html.fetch,
             'html_roster_staging': html_roster.fetch,
             'socrata_staging': socrata.fetch,
+            'gov_website_staging': lambda source: gov_website.parse(source).records,
             'mt_zuercher_staging': lambda source: mt_zuercher.fetch(source).records,
             'flathead_html_staging': lambda source: mt_flathead.fetch(source).records,
             'missoula_html_staging': lambda source: mt_missoula.fetch(source).records,
@@ -70,10 +78,31 @@ ADAPTERS = {'standard_json': standard_json, 'fulton_socrata_staging': fulton_sta
             'lewis_and_clark_pdf_staging': lambda source: mt_lewis_and_clark.fetch(source).records,
             'tyler_odyssey_staging': lambda source: tyler_odyssey.fetch(source).records,
             'evo_json_staging': lambda source: evo_json.fetch(source).records,
-            'citizenrims_portal': lambda source: citizenrims.fetch(source).records}
+            'citizenrims_portal': lambda source: citizenrims.fetch(source).records,
+            'mt_carter_json_staging': lambda source: mt_carter.fetch(source).records,
+            'mt_fergus_html_staging': lambda source: mt_fergus.fetch(source).records,
+            'mt_garfield_pdf_staging': lambda source: mt_garfield.fetch(source).records,
+            'fl_smartweb_staging': lambda source: fl_smartweb.fetch(source).records,
+            'ocv_json_staging': lambda source: ocv_json.fetch(source).records,
+            'pdf_roster_staging': lambda source: pdf_roster.parse(source).records,
+            'fayette_html_staging': lambda source: fayette_ky.fetch(source).records,
+            'playwright_html_staging': lambda source: html_roster.PlaywrightHTMLRosterAdapter().parse(source).records}
+
+PRIVATE_REVIEW_ADAPTERS = frozenset({'html_roster_staging', 'playwright_html_staging'})
+
+
+def validate_publication_boundary(source):
+    """Fail closed when an unreviewed generic adapter is configured to publish."""
+    adapter = source['adapter']
+    if adapter in PRIVATE_REVIEW_ADAPTERS and not source['staging_only']:
+        raise ValueError(f'Staging adapter cannot publish: {adapter}')
 
 def upsert(connection, jurisdiction_id, row):
     from datetime import datetime,timezone
+    visibility = row.get('visibility')
+    if visibility is None:
+        status = row.get('status')
+        visibility = 'public' if status == 'in_custody' else 'released'
     booking = connection.execute('''INSERT INTO records.inmates
     (jurisdiction_id,booking_number,first_name,last_name,dob,booking_date,mugshot_url,source_updated_at,visibility,observed_at,booking_date_precision,booking_timezone)
     VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
@@ -85,8 +114,9 @@ def upsert(connection, jurisdiction_id, row):
       visibility=CASE WHEN records.inmates.visibility='suppressed' THEN 'suppressed' ELSE EXCLUDED.visibility END,
       version=records.inmates.version+1
     WHERE records.inmates.source_updated_at <= EXCLUDED.source_updated_at
-    RETURNING id,version''', (jurisdiction_id, *[row[key] for key in (
-        'booking_number','first_name','last_name','dob','booking_date','mugshot_url','source_updated_at','visibility')],
+    RETURNING id,version''', (jurisdiction_id, row['booking_number'], row['first_name'], row['last_name'],
+            row.get('dob'), row.get('booking_date'), row.get('mugshot_url'), row.get('source_updated_at'),
+            visibility,
             row.get('observed_at',datetime.now(timezone.utc)),row.get('booking_date_precision','timestamp'),row.get('booking_timezone','UTC'))).fetchone()
     if not booking:
         return
@@ -95,10 +125,10 @@ def upsert(connection, jurisdiction_id, row):
     connection.execute('DELETE FROM records.bonds WHERE inmate_id=%s', (booking['id'],))
     for charge in row['charges']:
         connection.execute('''INSERT INTO records.charges(inmate_id,source_id,statute,description,severity)
-            VALUES (%s,%s,%s,%s,%s)''', (booking['id'], charge['id'],charge['statute'],charge['description'],charge['severity']))
+            VALUES (%s,%s,%s,%s,%s)''', (booking['id'], charge['source_id'],charge['statute'],charge['description'],charge['severity']))
     for bond in row['bonds']:
         connection.execute('''INSERT INTO records.bonds(inmate_id,source_id,amount,type,status)
-            VALUES (%s,%s,%s,%s,%s)''', (booking['id'],bond['id'],bond['amount'],bond['type'],bond['status']))
+            VALUES (%s,%s,%s,%s,%s)''', (booking['id'],bond['source_id'],bond['amount'],bond['type'],bond['status']))
     connection.execute('''INSERT INTO records.search_outbox(inmate_id,version) VALUES (%s,%s)
         ON CONFLICT(inmate_id) DO UPDATE SET version=EXCLUDED.version,queued_at=now()''',
         (booking['id'],booking['version']))
@@ -120,6 +150,7 @@ def run(state=None, county=None, jurisdiction=None, dry_run=False):
             try:
                 if source['review_status'] != 'verified' or source['authorization_reference'].strip().lower() in ('', 'pending'):
                     raise ValueError('Source authorization missing')
+                validate_publication_boundary(source)
                 # Lock before fetching, so overlapping schedulers cannot apply an older snapshot last.
                 with pool.connection() as guard:
                     locked = guard.execute('SELECT pg_try_advisory_lock(hashtextextended(%s,0)) AS locked',
@@ -133,7 +164,23 @@ def run(state=None, county=None, jurisdiction=None, dry_run=False):
                             with pool.connection() as connection:
                                 run_id = connection.execute('''INSERT INTO records.ingestion_runs(jurisdiction_id,status)
                                     VALUES (%s,'running') RETURNING id''', (source['id'],)).fetchone()['id']
-                        rows = ADAPTERS[source['adapter']](source)
+                        raw_rows = ADAPTERS[source['adapter']](source)
+                        # Unwrap AdapterResult objects to a plain list.
+                        rows = raw_rows.records if hasattr(raw_rows, 'records') else raw_rows
+                        # Defensive: ensure every row has required keys to prevent
+                        # KeyError from downstream code paths.
+                        if rows and isinstance(rows, list):
+                            for _row in rows:
+                                if isinstance(_row, dict):
+                                    if not _row.get('booking_number'):
+                                        _row['booking_number'] = "{}-{}-{}".format(
+                                            source['state'], source['county'],
+                                            hash(_row.get('first_name', '') + _row.get('last_name', '') + str(_row.get('booking_date', ''))) % 10**9
+                                        )
+                                    if 'visibility' not in _row:
+                                        _row['visibility'] = 'public' if _row.get('status') == 'in_custody' else 'released'
+                                    if 'dob' not in _row:
+                                        _row['dob'] = None
                         staging_rows = prepare_staging_rows(rows) if source['staging_only'] else None
                         if source['staging_only']:
                             keys = [row[0] for row in staging_rows]
@@ -173,9 +220,10 @@ def run(state=None, county=None, jurisdiction=None, dry_run=False):
                         guard.execute('SELECT pg_advisory_unlock(hashtextextended(%s,0))', (str(source['id']),))
                         guard.commit()
             except Exception as exc:
+                import traceback as _tb
                 if run_id is not None:
                     with pool.connection() as connection:
-                        connection.execute("UPDATE records.ingestion_runs SET status='failed',finished_at=now(),error_type=%s,error_detail=%s WHERE id=%s", (type(exc).__name__,str(exc)[:800],run_id))
+                        connection.execute("UPDATE records.ingestion_runs SET status='failed',finished_at=now(),error_type=%s,error_detail=%s WHERE id=%s", (type(exc).__name__, str(exc)[:800] + ' :: ' + _tb.format_exc().split('\n')[-3][:200], run_id))
                 # Avoid logging raw payloads, credentials or personal information.
                 print(f"Source {source['id']} failed ({type(exc).__name__}); transaction not applied")
                 failed = True

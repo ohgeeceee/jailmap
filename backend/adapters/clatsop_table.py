@@ -91,7 +91,7 @@ def parse(source) -> AdapterResult:
             "facility": source["facility_name"],
             "source_url": source["source_url"],
             "source_type": "custom_html",
-            "pulled_at": pulled_at,
+            "source_updated_at": pulled_at,
             "booking_number": None,
             "full_name": f"{first_name} {last_name}".strip(),
             "first_name": first_name,
@@ -104,7 +104,7 @@ def parse(source) -> AdapterResult:
             "release_date": scheduled_release if scheduled_release else None,
             "charges": [],
             "bond_amount": None,
-            "status": "in_custody" if "Custody" in location else "other",
+            "status": "in_custody", "visibility": "public" if "Custody" in location else "other",
             "mugshot_url": None,
             "notes": f"Location: {location}",
         })

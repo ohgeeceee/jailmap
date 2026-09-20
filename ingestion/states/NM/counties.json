@@ -1,0 +1,140 @@
+{
+  "state": "NM",
+  "name": "New Mexico",
+  "state_fips": "35",
+  "geography_vintage": "Census 2025 Gazetteer",
+  "counties": [
+    {
+      "name": "Bernalillo County",
+      "fips": "35001"
+    },
+    {
+      "name": "Catron County",
+      "fips": "35003"
+    },
+    {
+      "name": "Chaves County",
+      "fips": "35005"
+    },
+    {
+      "name": "Cibola County",
+      "fips": "35006"
+    },
+    {
+      "name": "Colfax County",
+      "fips": "35007"
+    },
+    {
+      "name": "Curry County",
+      "fips": "35009"
+    },
+    {
+      "name": "De Baca County",
+      "fips": "35011"
+    },
+    {
+      "name": "Do\u00f1a Ana County",
+      "fips": "35013"
+    },
+    {
+      "name": "Eddy County",
+      "fips": "35015"
+    },
+    {
+      "name": "Grant County",
+      "fips": "35017"
+    },
+    {
+      "name": "Guadalupe County",
+      "fips": "35019"
+    },
+    {
+      "name": "Harding County",
+      "fips": "35021"
+    },
+    {
+      "name": "Hidalgo County",
+      "fips": "35023"
+    },
+    {
+      "name": "Lea County",
+      "fips": "35025"
+    },
+    {
+      "name": "Lincoln County",
+      "fips": "35027"
+    },
+    {
+      "name": "Los Alamos County",
+      "fips": "35028"
+    },
+    {
+      "name": "Luna County",
+      "fips": "35029"
+    },
+    {
+      "name": "McKinley County",
+      "fips": "35031"
+    },
+    {
+      "name": "Mora County",
+      "fips": "35033"
+    },
+    {
+      "name": "Otero County",
+      "fips": "35035"
+    },
+    {
+      "name": "Quay County",
+      "fips": "35037"
+    },
+    {
+      "name": "Rio Arriba County",
+      "fips": "35039"
+    },
+    {
+      "name": "Roosevelt County",
+      "fips": "35041"
+    },
+    {
+      "name": "Sandoval County",
+      "fips": "35043"
+    },
+    {
+      "name": "San Juan County",
+      "fips": "35045"
+    },
+    {
+      "name": "San Miguel County",
+      "fips": "35047"
+    },
+    {
+      "name": "Santa Fe County",
+      "fips": "35049"
+    },
+    {
+      "name": "Sierra County",
+      "fips": "35051"
+    },
+    {
+      "name": "Socorro County",
+      "fips": "35053"
+    },
+    {
+      "name": "Taos County",
+      "fips": "35055"
+    },
+    {
+      "name": "Torrance County",
+      "fips": "35057"
+    },
+    {
+      "name": "Union County",
+      "fips": "35059"
+    },
+    {
+      "name": "Valencia County",
+      "fips": "35061"
+    }
+  ]
+}

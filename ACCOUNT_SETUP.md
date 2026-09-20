@@ -103,6 +103,38 @@ and blocks direct access. Do not trust arbitrary `X-Forwarded-For` values. Place
 request/connection limits at the edge as well. Establish operator contact details,
 account/audit retention and privacy processes before a public launch.
 
+## Support inbox
+
+The administrator Inbox combines private tickets submitted through `/contact`
+with the latest messages in a Gmail inbox. Ticket data is stored in the same
+single-host SQLite file as account data. Configure Gmail with an app password;
+never place the normal Google account password in this project:
+
+```text
+SUPPORT_EMAIL_USER=getjailmap@gmail.com
+SUPPORT_EMAIL_APP_PASSWORD=replace-with-google-app-password
+SUPPORT_IMAP_HOST=imap.gmail.com
+SUPPORT_IMAP_PORT=993
+SUPPORT_SMTP_HOST=smtp.gmail.com
+SUPPORT_SMTP_PORT=465
+SUPPORT_MAIL_FROM=getjailmap@gmail.com
+```
+
+The app password and mailbox contents are server-only. Gmail email is read on
+demand and is not copied into the application database. Website tickets retain
+the sender name, email, subject, message, status, and timestamps; include this
+table in the approved support-data retention and deletion policy. Replies require
+an authenticated administrator, a same-origin request, and are rate limited.
+Run `npm run test:support` to verify ticket validation and lifecycle behavior.
+
+Deployment record: on 2026-09-20, the site owner approved production release
+`jailmap-web:support-inbox-20260920-1040`. The web container alone was recreated;
+PostgreSQL, Redis, Meilisearch, and the records API were not restarted. Verification
+covered the container health check, public `/api/health`, public contact/privacy
+content, admin-inbox authorization, and presence of the support environment inside
+the container. The pre-release image `jailmap-web:20260916-0057` is retained as
+the rollback target. The encrypted 2026-09-20 backup was present before release.
+
 ## Prisma compatibility repair
 
 The pre-existing project combines Prisma Platform CLI 8 with Prisma Client 7 and

@@ -1,0 +1,64 @@
+{
+  "state": "MA",
+  "name": "Massachusetts",
+  "state_fips": "25",
+  "geography_vintage": "Census 2025 Gazetteer",
+  "counties": [
+    {
+      "name": "Barnstable County",
+      "fips": "25001"
+    },
+    {
+      "name": "Berkshire County",
+      "fips": "25003"
+    },
+    {
+      "name": "Bristol County",
+      "fips": "25005"
+    },
+    {
+      "name": "Dukes County",
+      "fips": "25007"
+    },
+    {
+      "name": "Essex County",
+      "fips": "25009"
+    },
+    {
+      "name": "Franklin County",
+      "fips": "25011"
+    },
+    {
+      "name": "Hampden County",
+      "fips": "25013"
+    },
+    {
+      "name": "Hampshire County",
+      "fips": "25015"
+    },
+    {
+      "name": "Middlesex County",
+      "fips": "25017"
+    },
+    {
+      "name": "Nantucket County",
+      "fips": "25019"
+    },
+    {
+      "name": "Norfolk County",
+      "fips": "25021"
+    },
+    {
+      "name": "Plymouth County",
+      "fips": "25023"
+    },
+    {
+      "name": "Suffolk County",
+      "fips": "25025"
+    },
+    {
+      "name": "Worcester County",
+      "fips": "25027"
+    }
+  ]
+}

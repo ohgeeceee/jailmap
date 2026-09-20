@@ -1,0 +1,28 @@
+{
+  "state": "HI",
+  "name": "Hawaii",
+  "state_fips": "15",
+  "geography_vintage": "Census 2025 Gazetteer",
+  "counties": [
+    {
+      "name": "Hawaii County",
+      "fips": "15001"
+    },
+    {
+      "name": "Honolulu County",
+      "fips": "15003"
+    },
+    {
+      "name": "Kalawao County",
+      "fips": "15005"
+    },
+    {
+      "name": "Kauai County",
+      "fips": "15007"
+    },
+    {
+      "name": "Maui County",
+      "fips": "15009"
+    }
+  ]
+}

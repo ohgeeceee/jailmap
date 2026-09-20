@@ -154,7 +154,7 @@ def parse(source, pdf_reader=None, pdf_text_provider=None) -> AdapterResult:
                 "facility": source["facility_name"],
                 "source_url": pdf_url,
                 "source_type": "pdf",
-                "pulled_at": pulled_at,
+                "source_updated_at": pulled_at,
                 "booking_number": None,
                 "full_name": full_name,
                 "first_name": first_name,
@@ -167,7 +167,7 @@ def parse(source, pdf_reader=None, pdf_text_provider=None) -> AdapterResult:
                 "release_date": release_date,
                 "charges": charges or [{"source_id": "c1", "description": "Unknown charge", "statute": None, "severity": None}],
                 "bond_amount": bond_amount,
-                "status": "in_custody",
+                "status": "in_custody", "visibility": "public",
                 "mugshot_url": None,
                 "notes": None,
             })

@@ -1,0 +1,44 @@
+{
+  "state": "CT",
+  "name": "Connecticut",
+  "state_fips": "09",
+  "geography_vintage": "Census 2025 Gazetteer",
+  "counties": [
+    {
+      "name": "Capitol Planning Region",
+      "fips": "09110"
+    },
+    {
+      "name": "Greater Bridgeport Planning Region",
+      "fips": "09120"
+    },
+    {
+      "name": "Lower Connecticut River Valley Planning Region",
+      "fips": "09130"
+    },
+    {
+      "name": "Naugatuck Valley Planning Region",
+      "fips": "09140"
+    },
+    {
+      "name": "Northeastern Connecticut Planning Region",
+      "fips": "09150"
+    },
+    {
+      "name": "Northwest Hills Planning Region",
+      "fips": "09160"
+    },
+    {
+      "name": "South Central Connecticut Planning Region",
+      "fips": "09170"
+    },
+    {
+      "name": "Southeastern Connecticut Planning Region",
+      "fips": "09180"
+    },
+    {
+      "name": "Western Connecticut Planning Region",
+      "fips": "09190"
+    }
+  ]
+}

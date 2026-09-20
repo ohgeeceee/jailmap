@@ -33,7 +33,7 @@ def convert(row, observed):
         raise ValueError('Fulton date-only contract changed')
     booking_date = booking_date.replace(tzinfo=EASTERN)
     result = normalize({'first_name':first,'last_name':last,'booking_number':row['bookingnbr'],
-        'booking_date':booking_date.isoformat(),'updated_at':observed.isoformat(),
+        'booking_date':booking_date.isoformat(),'source_updated_at':observed.isoformat(),
         'status':'in_custody','charges':[],'bonds':[]})
     result['observed_at'] = observed
     result['booking_date_precision'] = 'date'

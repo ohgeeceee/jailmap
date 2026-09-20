@@ -20,6 +20,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: `${state.name} Jails & JailMap Bookings`,
     description: `JailMap booking data in ${state.name}. View participating counties, recent bookings and jail roster information from authorized sources.`,
     alternates: { canonical: `/state/${state.abbrev}` },
+    openGraph: {
+      title: `${state.name} Jails & JailMap Bookings | JailMap`,
+      description: `JailMap booking data in ${state.name}. View participating counties, recent bookings and jail roster information from authorized sources.`,
+      url: `https://jailmap.com/state/${state.abbrev}`,
+      siteName: 'JailMap',
+    },
   }
 }
 
@@ -54,7 +60,7 @@ export default async function StatePage({ params }: Props) {
            AND i.booking_date > now() - interval '48 hours') AS bookings
      FROM records.jurisdictions j
      WHERE j.enabled AND j.state = $1
-     GROUP BY j.county ORDER BY j.county`,
+     GROUP BY j.state, j.county ORDER BY j.county`,
     stateInfo.abbrev,
   )
 
@@ -78,92 +84,86 @@ export default async function StatePage({ params }: Props) {
     <div className="jm-theme">
       <PublicHeader />
       <main id="main-content">
-        <nav aria-label="Breadcrumb" className="mx-auto w-full max-w-6xl px-5 pt-8 text-sm text-[var(--muted)]">
-          <Link href="/" className="underline">JailMap</Link>
+        <nav aria-label="Breadcrumb" className="breadcrumb">
+          <Link href="/">JailMap</Link>
           {' / '}
           <span>{stateInfo.name}</span>
         </nav>
 
-        <div className="mx-auto w-full max-w-6xl px-5 pb-16">
-          <h1 className="mt-6 text-4xl font-bold">{stateInfo.name}</h1>
-          <p className="mt-2 text-[var(--muted)]">
+        <div className="site-width state-page">
+          <h1>{stateInfo.name}</h1>
+          <p className="state-meta">
             {state._count.counties} counties · {state._count.jails} facilities in the directory
           </p>
 
           {participating.length > 0 && (
-            <section className="mt-10">
-              <h2 className="text-2xl font-semibold">Counties with live booking data</h2>
-              <p className="mt-2 text-[var(--muted)]">
+            <section className="state-section">
+              <h2>Counties with live booking data</h2>
+              <p className="section-description">
                 These counties have participating facilities feeding current rosters into JailMap.
               </p>
-              <ul className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+              <div className="county-grid">
                 {participating.map((p) => (
-                  <li key={p.county}>
-                    <Link
-                      href={`/county/${state.abbrev}/${slugifyCounty(p.county)}`}
-                      className="block rounded border border-[var(--line)] bg-white p-4 hover:border-[var(--green)] transition-colors"
-                    >
-                      <span className="font-medium text-[var(--ink)]">{p.county} County</span>
-                      <span className="block mt-1 text-sm text-[var(--muted)]">
-                        {p.facilities} facility{p.facilities === 1 ? '' : 's'} · {p.bookings} booking{p.bookings === 1 ? '' : 's'} in last 48h
-                      </span>
-                    </Link>
-                  </li>
+                  <Link
+                    key={p.county}
+                    href={`/county/${state.abbrev}/${slugifyCounty(p.county)}`}
+                    className="county-card"
+                  >
+                    <span className="county-card__name">{p.county} County</span>
+                    <span className="county-card__meta">
+                      {p.facilities} facility{p.facilities === 1 ? '' : 's'} · {p.bookings} booking{p.bookings === 1 ? '' : 's'} in last 48h
+                    </span>
+                  </Link>
                 ))}
-              </ul>
+              </div>
             </section>
           )}
 
-          <section className="mt-12">
-            <h2 className="text-2xl font-semibold">All counties in {stateInfo.name}</h2>
-            <p className="mt-2 text-[var(--muted)]">
+          <section className="state-section">
+            <h2>All counties in {stateInfo.name}</h2>
+            <p className="section-description">
               The jail directory includes facilities that may not yet be part of JailMap's live roster feed.
             </p>
-            <ul className="mt-4 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="county-grid compact">
               {state.counties.map((c) => {
                 const slug = slugifyCounty(c.name)
                 const isParticipating = participatingSlugs.has(slug)
                 return (
-                  <li key={c.id}>
-                    {isParticipating ? (
-                      <Link
-                        href={`/county/${state.abbrev}/${slug}`}
-                        className="flex items-center justify-between rounded border border-[var(--line)] bg-white p-3 hover:border-[var(--green)] transition-colors"
-                      >
-                        <span className="text-[var(--ink)]">{c.name} County</span>
-                        <span className="text-xs text-[var(--muted)]">Live →</span>
-                      </Link>
-                    ) : (
-                      <span className="flex items-center justify-between rounded border border-[var(--line)] bg-[var(--paper)] p-3 text-[var(--muted)]">
-                        <span>{c.name} County</span>
-                        <span className="text-xs">—</span>
-                      </span>
-                    )}
-                  </li>
+                  isParticipating ? (
+                    <Link
+                      key={c.id}
+                      href={`/county/${state.abbrev}/${slug}`}
+                      className="county-card compact live"
+                    >
+                      <span>{c.name} County</span>
+                      <span className="county-card__badge">Live</span>
+                    </Link>
+                  ) : (
+                    <span key={c.id} className="county-card compact">
+                      <span>{c.name} County</span>
+                    </span>
+                  )
                 )
               })}
-            </ul>
+            </div>
           </section>
 
-          <section className="mt-10 max-w-3xl">
-            <h2 className="text-2xl font-semibold">Search {stateInfo.name} bookings</h2>
-            <p className="mt-3 text-[var(--muted)]">
+          <section className="state-section">
+            <h2>Search {stateInfo.name} bookings</h2>
+            <p className="section-description">
               Search across all participating jurisdictions in {stateInfo.name}, or pick a county above to scope your search.
             </p>
-            <div className="mt-4 flex flex-wrap gap-3">
-              <form action="/search" className="flex gap-2 w-full max-w-md">
-                <input type="hidden" name="state" value={state.abbrev} />
-                <input
-                  name="name"
-                  placeholder="First or last name"
-                  minLength={2}
-                  maxLength={100}
-                  required
-                  className="flex-1 rounded border border-[var(--line)] bg-white px-4 py-2 text-[var(--ink)]"
-                />
-                <button type="submit" className="jm-button">Search</button>
-              </form>
-            </div>
+            <form action="/search" className="inline-search">
+              <input type="hidden" name="state" value={state.abbrev} />
+              <input
+                name="name"
+                placeholder="First or last name"
+                minLength={2}
+                maxLength={100}
+                required
+              />
+              <button type="submit" className="jm-button">Search</button>
+            </form>
           </section>
         </div>
       </main>

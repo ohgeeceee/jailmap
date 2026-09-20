@@ -1,0 +1,152 @@
+{
+  "state": "OR",
+  "name": "Oregon",
+  "state_fips": "41",
+  "geography_vintage": "Census 2025 Gazetteer",
+  "counties": [
+    {
+      "name": "Baker County",
+      "fips": "41001"
+    },
+    {
+      "name": "Benton County",
+      "fips": "41003"
+    },
+    {
+      "name": "Clackamas County",
+      "fips": "41005"
+    },
+    {
+      "name": "Clatsop County",
+      "fips": "41007"
+    },
+    {
+      "name": "Columbia County",
+      "fips": "41009"
+    },
+    {
+      "name": "Coos County",
+      "fips": "41011"
+    },
+    {
+      "name": "Crook County",
+      "fips": "41013"
+    },
+    {
+      "name": "Curry County",
+      "fips": "41015"
+    },
+    {
+      "name": "Deschutes County",
+      "fips": "41017"
+    },
+    {
+      "name": "Douglas County",
+      "fips": "41019"
+    },
+    {
+      "name": "Gilliam County",
+      "fips": "41021"
+    },
+    {
+      "name": "Grant County",
+      "fips": "41023"
+    },
+    {
+      "name": "Harney County",
+      "fips": "41025"
+    },
+    {
+      "name": "Hood River County",
+      "fips": "41027"
+    },
+    {
+      "name": "Jackson County",
+      "fips": "41029"
+    },
+    {
+      "name": "Jefferson County",
+      "fips": "41031"
+    },
+    {
+      "name": "Josephine County",
+      "fips": "41033"
+    },
+    {
+      "name": "Klamath County",
+      "fips": "41035"
+    },
+    {
+      "name": "Lake County",
+      "fips": "41037"
+    },
+    {
+      "name": "Lane County",
+      "fips": "41039"
+    },
+    {
+      "name": "Lincoln County",
+      "fips": "41041"
+    },
+    {
+      "name": "Linn County",
+      "fips": "41043"
+    },
+    {
+      "name": "Malheur County",
+      "fips": "41045"
+    },
+    {
+      "name": "Marion County",
+      "fips": "41047"
+    },
+    {
+      "name": "Morrow County",
+      "fips": "41049"
+    },
+    {
+      "name": "Multnomah County",
+      "fips": "41051"
+    },
+    {
+      "name": "Polk County",
+      "fips": "41053"
+    },
+    {
+      "name": "Sherman County",
+      "fips": "41055"
+    },
+    {
+      "name": "Tillamook County",
+      "fips": "41057"
+    },
+    {
+      "name": "Umatilla County",
+      "fips": "41059"
+    },
+    {
+      "name": "Union County",
+      "fips": "41061"
+    },
+    {
+      "name": "Wallowa County",
+      "fips": "41063"
+    },
+    {
+      "name": "Wasco County",
+      "fips": "41065"
+    },
+    {
+      "name": "Washington County",
+      "fips": "41067"
+    },
+    {
+      "name": "Wheeler County",
+      "fips": "41069"
+    },
+    {
+      "name": "Yamhill County",
+      "fips": "41071"
+    }
+  ]
+}

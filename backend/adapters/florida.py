@@ -66,9 +66,9 @@ def smartweb_parse(html: str, source_url: str, county: str = "", facility: str =
         records.append({
             "state": "FL", "county": county, "facility": facility,
             "source_url": source_url, "source_type": "smartweb",
-            "pulled_at": now, "full_name": name,
+            "source_updated_at": now, "full_name": name,
             "first_name": first_name, "last_name": last_name,
-            "booking_date": booking_date, "charges": charges, "status": "in_custody",
+            "booking_date": booking_date, "charges": charges, "status": "in_custody", "visibility": "public",
         })
     
     return records
@@ -101,9 +101,9 @@ def inmate_search_parse(html: str, source_url: str, county: str = "", facility: 
         records.append({
             "state": "FL", "county": county, "facility": facility,
             "source_url": source_url, "source_type": "custom_html",
-            "pulled_at": now, "full_name": f"{last_name}, {first_name}",
+            "source_updated_at": now, "full_name": f"{last_name}, {first_name}",
             "first_name": first_name, "last_name": last_name,
-            "booking_date": booking_date, "charges": charges, "status": "in_custody",
+            "booking_date": booking_date, "charges": charges, "status": "in_custody", "visibility": "public",
         })
     
     return records

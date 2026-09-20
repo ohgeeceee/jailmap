@@ -113,7 +113,7 @@ def parse(source) -> AdapterResult:
                 "facility": source["facility_name"],
                 "source_url": source["source_url"],
                 "source_type": "custom_html",
-                "pulled_at": pulled_at,
+                "source_updated_at": pulled_at,
                 "inmate_id": booking_number,
                 "booking_number": booking_number,
                 "full_name": f"{first_name} {last_name}".strip(),
@@ -127,7 +127,7 @@ def parse(source) -> AdapterResult:
                 "release_date": _parse_maricopa_date(expected_release) if expected_release else None,
                 "charges": [],
                 "bond_amount": None,
-                "status": "in_custody" if status.lower() == "booked" else status.lower(),
+                "status": "in_custody", "visibility": "public" if status.lower() == "booked" else status.lower(),
                 "mugshot_url": None,
                 "notes": f"Arrival: {arrival_date}" if arrival_date else None,
             }

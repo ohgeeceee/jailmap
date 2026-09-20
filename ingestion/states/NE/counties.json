@@ -1,0 +1,380 @@
+{
+  "state": "NE",
+  "name": "Nebraska",
+  "state_fips": "31",
+  "geography_vintage": "Census 2025 Gazetteer",
+  "counties": [
+    {
+      "name": "Adams County",
+      "fips": "31001"
+    },
+    {
+      "name": "Antelope County",
+      "fips": "31003"
+    },
+    {
+      "name": "Arthur County",
+      "fips": "31005"
+    },
+    {
+      "name": "Banner County",
+      "fips": "31007"
+    },
+    {
+      "name": "Blaine County",
+      "fips": "31009"
+    },
+    {
+      "name": "Boone County",
+      "fips": "31011"
+    },
+    {
+      "name": "Box Butte County",
+      "fips": "31013"
+    },
+    {
+      "name": "Boyd County",
+      "fips": "31015"
+    },
+    {
+      "name": "Brown County",
+      "fips": "31017"
+    },
+    {
+      "name": "Buffalo County",
+      "fips": "31019"
+    },
+    {
+      "name": "Burt County",
+      "fips": "31021"
+    },
+    {
+      "name": "Butler County",
+      "fips": "31023"
+    },
+    {
+      "name": "Cass County",
+      "fips": "31025"
+    },
+    {
+      "name": "Cedar County",
+      "fips": "31027"
+    },
+    {
+      "name": "Chase County",
+      "fips": "31029"
+    },
+    {
+      "name": "Cherry County",
+      "fips": "31031"
+    },
+    {
+      "name": "Cheyenne County",
+      "fips": "31033"
+    },
+    {
+      "name": "Clay County",
+      "fips": "31035"
+    },
+    {
+      "name": "Colfax County",
+      "fips": "31037"
+    },
+    {
+      "name": "Cuming County",
+      "fips": "31039"
+    },
+    {
+      "name": "Custer County",
+      "fips": "31041"
+    },
+    {
+      "name": "Dakota County",
+      "fips": "31043"
+    },
+    {
+      "name": "Dawes County",
+      "fips": "31045"
+    },
+    {
+      "name": "Dawson County",
+      "fips": "31047"
+    },
+    {
+      "name": "Deuel County",
+      "fips": "31049"
+    },
+    {
+      "name": "Dixon County",
+      "fips": "31051"
+    },
+    {
+      "name": "Dodge County",
+      "fips": "31053"
+    },
+    {
+      "name": "Douglas County",
+      "fips": "31055"
+    },
+    {
+      "name": "Dundy County",
+      "fips": "31057"
+    },
+    {
+      "name": "Fillmore County",
+      "fips": "31059"
+    },
+    {
+      "name": "Franklin County",
+      "fips": "31061"
+    },
+    {
+      "name": "Frontier County",
+      "fips": "31063"
+    },
+    {
+      "name": "Furnas County",
+      "fips": "31065"
+    },
+    {
+      "name": "Gage County",
+      "fips": "31067"
+    },
+    {
+      "name": "Garden County",
+      "fips": "31069"
+    },
+    {
+      "name": "Garfield County",
+      "fips": "31071"
+    },
+    {
+      "name": "Gosper County",
+      "fips": "31073"
+    },
+    {
+      "name": "Grant County",
+      "fips": "31075"
+    },
+    {
+      "name": "Greeley County",
+      "fips": "31077"
+    },
+    {
+      "name": "Hall County",
+      "fips": "31079"
+    },
+    {
+      "name": "Hamilton County",
+      "fips": "31081"
+    },
+    {
+      "name": "Harlan County",
+      "fips": "31083"
+    },
+    {
+      "name": "Hayes County",
+      "fips": "31085"
+    },
+    {
+      "name": "Hitchcock County",
+      "fips": "31087"
+    },
+    {
+      "name": "Holt County",
+      "fips": "31089"
+    },
+    {
+      "name": "Hooker County",
+      "fips": "31091"
+    },
+    {
+      "name": "Howard County",
+      "fips": "31093"
+    },
+    {
+      "name": "Jefferson County",
+      "fips": "31095"
+    },
+    {
+      "name": "Johnson County",
+      "fips": "31097"
+    },
+    {
+      "name": "Kearney County",
+      "fips": "31099"
+    },
+    {
+      "name": "Keith County",
+      "fips": "31101"
+    },
+    {
+      "name": "Keya Paha County",
+      "fips": "31103"
+    },
+    {
+      "name": "Kimball County",
+      "fips": "31105"
+    },
+    {
+      "name": "Knox County",
+      "fips": "31107"
+    },
+    {
+      "name": "Lancaster County",
+      "fips": "31109"
+    },
+    {
+      "name": "Lincoln County",
+      "fips": "31111"
+    },
+    {
+      "name": "Logan County",
+      "fips": "31113"
+    },
+    {
+      "name": "Loup County",
+      "fips": "31115"
+    },
+    {
+      "name": "McPherson County",
+      "fips": "31117"
+    },
+    {
+      "name": "Madison County",
+      "fips": "31119"
+    },
+    {
+      "name": "Merrick County",
+      "fips": "31121"
+    },
+    {
+      "name": "Morrill County",
+      "fips": "31123"
+    },
+    {
+      "name": "Nance County",
+      "fips": "31125"
+    },
+    {
+      "name": "Nemaha County",
+      "fips": "31127"
+    },
+    {
+      "name": "Nuckolls County",
+      "fips": "31129"
+    },
+    {
+      "name": "Otoe County",
+      "fips": "31131"
+    },
+    {
+      "name": "Pawnee County",
+      "fips": "31133"
+    },
+    {
+      "name": "Perkins County",
+      "fips": "31135"
+    },
+    {
+      "name": "Phelps County",
+      "fips": "31137"
+    },
+    {
+      "name": "Pierce County",
+      "fips": "31139"
+    },
+    {
+      "name": "Platte County",
+      "fips": "31141"
+    },
+    {
+      "name": "Polk County",
+      "fips": "31143"
+    },
+    {
+      "name": "Red Willow County",
+      "fips": "31145"
+    },
+    {
+      "name": "Richardson County",
+      "fips": "31147"
+    },
+    {
+      "name": "Rock County",
+      "fips": "31149"
+    },
+    {
+      "name": "Saline County",
+      "fips": "31151"
+    },
+    {
+      "name": "Sarpy County",
+      "fips": "31153"
+    },
+    {
+      "name": "Saunders County",
+      "fips": "31155"
+    },
+    {
+      "name": "Scotts Bluff County",
+      "fips": "31157"
+    },
+    {
+      "name": "Seward County",
+      "fips": "31159"
+    },
+    {
+      "name": "Sheridan County",
+      "fips": "31161"
+    },
+    {
+      "name": "Sherman County",
+      "fips": "31163"
+    },
+    {
+      "name": "Sioux County",
+      "fips": "31165"
+    },
+    {
+      "name": "Stanton County",
+      "fips": "31167"
+    },
+    {
+      "name": "Thayer County",
+      "fips": "31169"
+    },
+    {
+      "name": "Thomas County",
+      "fips": "31171"
+    },
+    {
+      "name": "Thurston County",
+      "fips": "31173"
+    },
+    {
+      "name": "Valley County",
+      "fips": "31175"
+    },
+    {
+      "name": "Washington County",
+      "fips": "31177"
+    },
+    {
+      "name": "Wayne County",
+      "fips": "31179"
+    },
+    {
+      "name": "Webster County",
+      "fips": "31181"
+    },
+    {
+      "name": "Wheeler County",
+      "fips": "31183"
+    },
+    {
+      "name": "York County",
+      "fips": "31185"
+    }
+  ]
+}

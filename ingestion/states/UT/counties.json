@@ -1,0 +1,124 @@
+{
+  "state": "UT",
+  "name": "Utah",
+  "state_fips": "49",
+  "geography_vintage": "Census 2025 Gazetteer",
+  "counties": [
+    {
+      "name": "Beaver County",
+      "fips": "49001"
+    },
+    {
+      "name": "Box Elder County",
+      "fips": "49003"
+    },
+    {
+      "name": "Cache County",
+      "fips": "49005"
+    },
+    {
+      "name": "Carbon County",
+      "fips": "49007"
+    },
+    {
+      "name": "Daggett County",
+      "fips": "49009"
+    },
+    {
+      "name": "Davis County",
+      "fips": "49011"
+    },
+    {
+      "name": "Duchesne County",
+      "fips": "49013"
+    },
+    {
+      "name": "Emery County",
+      "fips": "49015"
+    },
+    {
+      "name": "Garfield County",
+      "fips": "49017"
+    },
+    {
+      "name": "Grand County",
+      "fips": "49019"
+    },
+    {
+      "name": "Iron County",
+      "fips": "49021"
+    },
+    {
+      "name": "Juab County",
+      "fips": "49023"
+    },
+    {
+      "name": "Kane County",
+      "fips": "49025"
+    },
+    {
+      "name": "Millard County",
+      "fips": "49027"
+    },
+    {
+      "name": "Morgan County",
+      "fips": "49029"
+    },
+    {
+      "name": "Piute County",
+      "fips": "49031"
+    },
+    {
+      "name": "Rich County",
+      "fips": "49033"
+    },
+    {
+      "name": "Salt Lake County",
+      "fips": "49035"
+    },
+    {
+      "name": "San Juan County",
+      "fips": "49037"
+    },
+    {
+      "name": "Sanpete County",
+      "fips": "49039"
+    },
+    {
+      "name": "Sevier County",
+      "fips": "49041"
+    },
+    {
+      "name": "Summit County",
+      "fips": "49043"
+    },
+    {
+      "name": "Tooele County",
+      "fips": "49045"
+    },
+    {
+      "name": "Uintah County",
+      "fips": "49047"
+    },
+    {
+      "name": "Utah County",
+      "fips": "49049"
+    },
+    {
+      "name": "Wasatch County",
+      "fips": "49051"
+    },
+    {
+      "name": "Washington County",
+      "fips": "49053"
+    },
+    {
+      "name": "Wayne County",
+      "fips": "49055"
+    },
+    {
+      "name": "Weber County",
+      "fips": "49057"
+    }
+  ]
+}

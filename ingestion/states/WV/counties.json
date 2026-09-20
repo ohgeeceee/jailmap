@@ -1,0 +1,228 @@
+{
+  "state": "WV",
+  "name": "West Virginia",
+  "state_fips": "54",
+  "geography_vintage": "Census 2025 Gazetteer",
+  "counties": [
+    {
+      "name": "Barbour County",
+      "fips": "54001"
+    },
+    {
+      "name": "Berkeley County",
+      "fips": "54003"
+    },
+    {
+      "name": "Boone County",
+      "fips": "54005"
+    },
+    {
+      "name": "Braxton County",
+      "fips": "54007"
+    },
+    {
+      "name": "Brooke County",
+      "fips": "54009"
+    },
+    {
+      "name": "Cabell County",
+      "fips": "54011"
+    },
+    {
+      "name": "Calhoun County",
+      "fips": "54013"
+    },
+    {
+      "name": "Clay County",
+      "fips": "54015"
+    },
+    {
+      "name": "Doddridge County",
+      "fips": "54017"
+    },
+    {
+      "name": "Fayette County",
+      "fips": "54019"
+    },
+    {
+      "name": "Gilmer County",
+      "fips": "54021"
+    },
+    {
+      "name": "Grant County",
+      "fips": "54023"
+    },
+    {
+      "name": "Greenbrier County",
+      "fips": "54025"
+    },
+    {
+      "name": "Hampshire County",
+      "fips": "54027"
+    },
+    {
+      "name": "Hancock County",
+      "fips": "54029"
+    },
+    {
+      "name": "Hardy County",
+      "fips": "54031"
+    },
+    {
+      "name": "Harrison County",
+      "fips": "54033"
+    },
+    {
+      "name": "Jackson County",
+      "fips": "54035"
+    },
+    {
+      "name": "Jefferson County",
+      "fips": "54037"
+    },
+    {
+      "name": "Kanawha County",
+      "fips": "54039"
+    },
+    {
+      "name": "Lewis County",
+      "fips": "54041"
+    },
+    {
+      "name": "Lincoln County",
+      "fips": "54043"
+    },
+    {
+      "name": "Logan County",
+      "fips": "54045"
+    },
+    {
+      "name": "McDowell County",
+      "fips": "54047"
+    },
+    {
+      "name": "Marion County",
+      "fips": "54049"
+    },
+    {
+      "name": "Marshall County",
+      "fips": "54051"
+    },
+    {
+      "name": "Mason County",
+      "fips": "54053"
+    },
+    {
+      "name": "Mercer County",
+      "fips": "54055"
+    },
+    {
+      "name": "Mineral County",
+      "fips": "54057"
+    },
+    {
+      "name": "Mingo County",
+      "fips": "54059"
+    },
+    {
+      "name": "Monongalia County",
+      "fips": "54061"
+    },
+    {
+      "name": "Monroe County",
+      "fips": "54063"
+    },
+    {
+      "name": "Morgan County",
+      "fips": "54065"
+    },
+    {
+      "name": "Nicholas County",
+      "fips": "54067"
+    },
+    {
+      "name": "Ohio County",
+      "fips": "54069"
+    },
+    {
+      "name": "Pendleton County",
+      "fips": "54071"
+    },
+    {
+      "name": "Pleasants County",
+      "fips": "54073"
+    },
+    {
+      "name": "Pocahontas County",
+      "fips": "54075"
+    },
+    {
+      "name": "Preston County",
+      "fips": "54077"
+    },
+    {
+      "name": "Putnam County",
+      "fips": "54079"
+    },
+    {
+      "name": "Raleigh County",
+      "fips": "54081"
+    },
+    {
+      "name": "Randolph County",
+      "fips": "54083"
+    },
+    {
+      "name": "Ritchie County",
+      "fips": "54085"
+    },
+    {
+      "name": "Roane County",
+      "fips": "54087"
+    },
+    {
+      "name": "Summers County",
+      "fips": "54089"
+    },
+    {
+      "name": "Taylor County",
+      "fips": "54091"
+    },
+    {
+      "name": "Tucker County",
+      "fips": "54093"
+    },
+    {
+      "name": "Tyler County",
+      "fips": "54095"
+    },
+    {
+      "name": "Upshur County",
+      "fips": "54097"
+    },
+    {
+      "name": "Wayne County",
+      "fips": "54099"
+    },
+    {
+      "name": "Webster County",
+      "fips": "54101"
+    },
+    {
+      "name": "Wetzel County",
+      "fips": "54103"
+    },
+    {
+      "name": "Wirt County",
+      "fips": "54105"
+    },
+    {
+      "name": "Wood County",
+      "fips": "54107"
+    },
+    {
+      "name": "Wyoming County",
+      "fips": "54109"
+    }
+  ]
+}

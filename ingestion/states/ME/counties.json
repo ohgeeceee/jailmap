@@ -1,0 +1,72 @@
+{
+  "state": "ME",
+  "name": "Maine",
+  "state_fips": "23",
+  "geography_vintage": "Census 2025 Gazetteer",
+  "counties": [
+    {
+      "name": "Androscoggin County",
+      "fips": "23001"
+    },
+    {
+      "name": "Aroostook County",
+      "fips": "23003"
+    },
+    {
+      "name": "Cumberland County",
+      "fips": "23005"
+    },
+    {
+      "name": "Franklin County",
+      "fips": "23007"
+    },
+    {
+      "name": "Hancock County",
+      "fips": "23009"
+    },
+    {
+      "name": "Kennebec County",
+      "fips": "23011"
+    },
+    {
+      "name": "Knox County",
+      "fips": "23013"
+    },
+    {
+      "name": "Lincoln County",
+      "fips": "23015"
+    },
+    {
+      "name": "Oxford County",
+      "fips": "23017"
+    },
+    {
+      "name": "Penobscot County",
+      "fips": "23019"
+    },
+    {
+      "name": "Piscataquis County",
+      "fips": "23021"
+    },
+    {
+      "name": "Sagadahoc County",
+      "fips": "23023"
+    },
+    {
+      "name": "Somerset County",
+      "fips": "23025"
+    },
+    {
+      "name": "Waldo County",
+      "fips": "23027"
+    },
+    {
+      "name": "Washington County",
+      "fips": "23029"
+    },
+    {
+      "name": "York County",
+      "fips": "23031"
+    }
+  ]
+}

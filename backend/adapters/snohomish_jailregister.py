@@ -93,7 +93,7 @@ def parse(source) -> AdapterResult:
             "facility": source["facility_name"],
             "source_url": source["source_url"],
             "source_type": "custom_html",
-            "pulled_at": pulled_at,
+            "source_updated_at": pulled_at,
             "inmate_id": subject_number,
             "booking_number": subject_number,
             "full_name": f"{first_name} {last_name}".strip(),
@@ -107,7 +107,7 @@ def parse(source) -> AdapterResult:
             "release_date": None,
             "charges": [],
             "bond_amount": None,
-            "status": "in_custody" if in_custody else "released",
+            "status": "in_custody", "visibility": "public" if in_custody else "released",
             "mugshot_url": None,
             "notes": f"Multiple: {multiple_bookings}, Housing: {housing_facility}",
         })

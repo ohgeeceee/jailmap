@@ -34,3 +34,11 @@ source-initial.tar.gz
 .DS_Store
 /states/
 __pycache__/
+
+# --- agent scratch / one-off probes ---
+q_*.py
+tmp_diag.py
+tmp/
+if
+agent-queue/*/cron.log
+.data/

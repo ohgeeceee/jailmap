@@ -1,6 +1,7 @@
 'use client'
+
 import { useCallback, useEffect, useState } from 'react'
-import { AlertTriangle, Building2, CheckCircle2, Coins, Database, Gauge, MapPin, RefreshCw, Users } from 'lucide-react'
+import { AlertTriangle, Building2, CheckCircle2, Coins, Database, Gauge, MapPin, RefreshCw, Users, Clock, ArrowRight, ExternalLink } from 'lucide-react'
 
 /** Shared loader for the read-only administrator operations endpoints. */
 function useOpsData<T>(name: string) {
@@ -237,7 +238,7 @@ export function PipelinePanel() {
                     <td>{row.state}</td>
                     <td><span className="status-badge">{row.status.replaceAll('_', ' ')}</span></td>
                     <td>{row.adapter || '—'}</td>
-                    <td>{row.source_url ? <a className="text-link" href={row.source_url} rel="noreferrer nofollow" target="_blank">Open source</a> : '—'}</td>
+                    <td>{row.source_url ? <a className="text-link" href={row.source_url} rel="noreferrer nofollow" target="_blank">Open source<ExternalLink size={12} /></a> : '—'}</td>
                     <td>{row.notes || '—'}</td>
                     <td>{day(row.updated_at)}</td>
                   </tr>

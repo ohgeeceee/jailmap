@@ -1,0 +1,240 @@
+{
+  "state": "CA",
+  "name": "California",
+  "state_fips": "06",
+  "geography_vintage": "Census 2025 Gazetteer",
+  "counties": [
+    {
+      "name": "Alameda County",
+      "fips": "06001"
+    },
+    {
+      "name": "Alpine County",
+      "fips": "06003"
+    },
+    {
+      "name": "Amador County",
+      "fips": "06005"
+    },
+    {
+      "name": "Butte County",
+      "fips": "06007"
+    },
+    {
+      "name": "Calaveras County",
+      "fips": "06009"
+    },
+    {
+      "name": "Colusa County",
+      "fips": "06011"
+    },
+    {
+      "name": "Contra Costa County",
+      "fips": "06013"
+    },
+    {
+      "name": "Del Norte County",
+      "fips": "06015"
+    },
+    {
+      "name": "El Dorado County",
+      "fips": "06017"
+    },
+    {
+      "name": "Fresno County",
+      "fips": "06019"
+    },
+    {
+      "name": "Glenn County",
+      "fips": "06021"
+    },
+    {
+      "name": "Humboldt County",
+      "fips": "06023"
+    },
+    {
+      "name": "Imperial County",
+      "fips": "06025"
+    },
+    {
+      "name": "Inyo County",
+      "fips": "06027"
+    },
+    {
+      "name": "Kern County",
+      "fips": "06029"
+    },
+    {
+      "name": "Kings County",
+      "fips": "06031"
+    },
+    {
+      "name": "Lake County",
+      "fips": "06033"
+    },
+    {
+      "name": "Lassen County",
+      "fips": "06035"
+    },
+    {
+      "name": "Los Angeles County",
+      "fips": "06037"
+    },
+    {
+      "name": "Madera County",
+      "fips": "06039"
+    },
+    {
+      "name": "Marin County",
+      "fips": "06041"
+    },
+    {
+      "name": "Mariposa County",
+      "fips": "06043"
+    },
+    {
+      "name": "Mendocino County",
+      "fips": "06045"
+    },
+    {
+      "name": "Merced County",
+      "fips": "06047"
+    },
+    {
+      "name": "Modoc County",
+      "fips": "06049"
+    },
+    {
+      "name": "Mono County",
+      "fips": "06051"
+    },
+    {
+      "name": "Monterey County",
+      "fips": "06053"
+    },
+    {
+      "name": "Napa County",
+      "fips": "06055"
+    },
+    {
+      "name": "Nevada County",
+      "fips": "06057"
+    },
+    {
+      "name": "Orange County",
+      "fips": "06059"
+    },
+    {
+      "name": "Placer County",
+      "fips": "06061"
+    },
+    {
+      "name": "Plumas County",
+      "fips": "06063"
+    },
+    {
+      "name": "Riverside County",
+      "fips": "06065"
+    },
+    {
+      "name": "Sacramento County",
+      "fips": "06067"
+    },
+    {
+      "name": "San Benito County",
+      "fips": "06069"
+    },
+    {
+      "name": "San Bernardino County",
+      "fips": "06071"
+    },
+    {
+      "name": "San Diego County",
+      "fips": "06073"
+    },
+    {
+      "name": "San Francisco County",
+      "fips": "06075"
+    },
+    {
+      "name": "San Joaquin County",
+      "fips": "06077"
+    },
+    {
+      "name": "San Luis Obispo County",
+      "fips": "06079"
+    },
+    {
+      "name": "San Mateo County",
+      "fips": "06081"
+    },
+    {
+      "name": "Santa Barbara County",
+      "fips": "06083"
+    },
+    {
+      "name": "Santa Clara County",
+      "fips": "06085"
+    },
+    {
+      "name": "Santa Cruz County",
+      "fips": "06087"
+    },
+    {
+      "name": "Shasta County",
+      "fips": "06089"
+    },
+    {
+      "name": "Sierra County",
+      "fips": "06091"
+    },
+    {
+      "name": "Siskiyou County",
+      "fips": "06093"
+    },
+    {
+      "name": "Solano County",
+      "fips": "06095"
+    },
+    {
+      "name": "Sonoma County",
+      "fips": "06097"
+    },
+    {
+      "name": "Stanislaus County",
+      "fips": "06099"
+    },
+    {
+      "name": "Sutter County",
+      "fips": "06101"
+    },
+    {
+      "name": "Tehama County",
+      "fips": "06103"
+    },
+    {
+      "name": "Trinity County",
+      "fips": "06105"
+    },
+    {
+      "name": "Tulare County",
+      "fips": "06107"
+    },
+    {
+      "name": "Tuolumne County",
+      "fips": "06109"
+    },
+    {
+      "name": "Ventura County",
+      "fips": "06111"
+    },
+    {
+      "name": "Yolo County",
+      "fips": "06113"
+    },
+    {
+      "name": "Yuba County",
+      "fips": "06115"
+    }
+  ]
+}

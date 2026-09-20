@@ -21,13 +21,13 @@ def normalize(row):
     result = {key: required(row.get(key), key) for key in ('booking_number','first_name','last_name')}
     result['booking_date'] = timestamp(row.get('booking_date'))
     result['source_updated_at'] = timestamp(row.get('source_updated_at'))
-    result['dob'] = date.fromisoformat(row['dob']) if row.get('dob') else None
+    result['dob'] = date.fromisoformat(row.get('dob')) if row.get('dob') else None
     if result['dob'] and result['dob'] > result['booking_date'].date():
         raise ValueError('DOB after booking')
     result['mugshot_url'] = row.get('mugshot_url')
     if result['mugshot_url'] and not result['mugshot_url'].startswith('https://'):
         raise ValueError('Image URL must use HTTPS')
-    result['visibility'] = 'public' if row['status'] == 'in_custody' else 'released'
+    result['visibility'] = 'public' if row.get('status') == 'in_custody' else 'released'
     for collection in ('charges', 'bonds'):
         items = row.get(collection)
         if not isinstance(items, list) or len(items) > 200:
@@ -35,7 +35,7 @@ def normalize(row):
         seen = set()
         result[collection] = []
         for item in items:
-            source_id = required(item.get('id'), 'child id')
+            source_id = required(item.get('source_id'), 'child id')
             if source_id in seen:
                 raise ValueError('Duplicate child id')
             seen.add(source_id)

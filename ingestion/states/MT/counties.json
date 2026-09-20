@@ -1,0 +1,232 @@
+{
+  "state": "MT",
+  "name": "Montana",
+  "state_fips": "30",
+  "geography_vintage": "Census 2025 Gazetteer",
+  "counties": [
+    {
+      "name": "Beaverhead County",
+      "fips": "30001"
+    },
+    {
+      "name": "Big Horn County",
+      "fips": "30003"
+    },
+    {
+      "name": "Blaine County",
+      "fips": "30005"
+    },
+    {
+      "name": "Broadwater County",
+      "fips": "30007"
+    },
+    {
+      "name": "Carbon County",
+      "fips": "30009"
+    },
+    {
+      "name": "Carter County",
+      "fips": "30011"
+    },
+    {
+      "name": "Cascade County",
+      "fips": "30013"
+    },
+    {
+      "name": "Chouteau County",
+      "fips": "30015"
+    },
+    {
+      "name": "Custer County",
+      "fips": "30017"
+    },
+    {
+      "name": "Daniels County",
+      "fips": "30019"
+    },
+    {
+      "name": "Dawson County",
+      "fips": "30021"
+    },
+    {
+      "name": "Deer Lodge County",
+      "fips": "30023"
+    },
+    {
+      "name": "Fallon County",
+      "fips": "30025"
+    },
+    {
+      "name": "Fergus County",
+      "fips": "30027"
+    },
+    {
+      "name": "Flathead County",
+      "fips": "30029"
+    },
+    {
+      "name": "Gallatin County",
+      "fips": "30031"
+    },
+    {
+      "name": "Garfield County",
+      "fips": "30033"
+    },
+    {
+      "name": "Glacier County",
+      "fips": "30035"
+    },
+    {
+      "name": "Golden Valley County",
+      "fips": "30037"
+    },
+    {
+      "name": "Granite County",
+      "fips": "30039"
+    },
+    {
+      "name": "Hill County",
+      "fips": "30041"
+    },
+    {
+      "name": "Jefferson County",
+      "fips": "30043"
+    },
+    {
+      "name": "Judith Basin County",
+      "fips": "30045"
+    },
+    {
+      "name": "Lake County",
+      "fips": "30047"
+    },
+    {
+      "name": "Lewis and Clark County",
+      "fips": "30049"
+    },
+    {
+      "name": "Liberty County",
+      "fips": "30051"
+    },
+    {
+      "name": "Lincoln County",
+      "fips": "30053"
+    },
+    {
+      "name": "McCone County",
+      "fips": "30055"
+    },
+    {
+      "name": "Madison County",
+      "fips": "30057"
+    },
+    {
+      "name": "Meagher County",
+      "fips": "30059"
+    },
+    {
+      "name": "Mineral County",
+      "fips": "30061"
+    },
+    {
+      "name": "Missoula County",
+      "fips": "30063"
+    },
+    {
+      "name": "Musselshell County",
+      "fips": "30065"
+    },
+    {
+      "name": "Park County",
+      "fips": "30067"
+    },
+    {
+      "name": "Petroleum County",
+      "fips": "30069"
+    },
+    {
+      "name": "Phillips County",
+      "fips": "30071"
+    },
+    {
+      "name": "Pondera County",
+      "fips": "30073"
+    },
+    {
+      "name": "Powder River County",
+      "fips": "30075"
+    },
+    {
+      "name": "Powell County",
+      "fips": "30077"
+    },
+    {
+      "name": "Prairie County",
+      "fips": "30079"
+    },
+    {
+      "name": "Ravalli County",
+      "fips": "30081"
+    },
+    {
+      "name": "Richland County",
+      "fips": "30083"
+    },
+    {
+      "name": "Roosevelt County",
+      "fips": "30085"
+    },
+    {
+      "name": "Rosebud County",
+      "fips": "30087"
+    },
+    {
+      "name": "Sanders County",
+      "fips": "30089"
+    },
+    {
+      "name": "Sheridan County",
+      "fips": "30091"
+    },
+    {
+      "name": "Silver Bow County",
+      "fips": "30093"
+    },
+    {
+      "name": "Stillwater County",
+      "fips": "30095"
+    },
+    {
+      "name": "Sweet Grass County",
+      "fips": "30097"
+    },
+    {
+      "name": "Teton County",
+      "fips": "30099"
+    },
+    {
+      "name": "Toole County",
+      "fips": "30101"
+    },
+    {
+      "name": "Treasure County",
+      "fips": "30103"
+    },
+    {
+      "name": "Valley County",
+      "fips": "30105"
+    },
+    {
+      "name": "Wheatland County",
+      "fips": "30107"
+    },
+    {
+      "name": "Wibaux County",
+      "fips": "30109"
+    },
+    {
+      "name": "Yellowstone County",
+      "fips": "30111"
+    }
+  ]
+}

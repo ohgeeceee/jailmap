@@ -1,0 +1,192 @@
+{
+  "state": "SC",
+  "name": "South Carolina",
+  "state_fips": "45",
+  "geography_vintage": "Census 2025 Gazetteer",
+  "counties": [
+    {
+      "name": "Abbeville County",
+      "fips": "45001"
+    },
+    {
+      "name": "Aiken County",
+      "fips": "45003"
+    },
+    {
+      "name": "Allendale County",
+      "fips": "45005"
+    },
+    {
+      "name": "Anderson County",
+      "fips": "45007"
+    },
+    {
+      "name": "Bamberg County",
+      "fips": "45009"
+    },
+    {
+      "name": "Barnwell County",
+      "fips": "45011"
+    },
+    {
+      "name": "Beaufort County",
+      "fips": "45013"
+    },
+    {
+      "name": "Berkeley County",
+      "fips": "45015"
+    },
+    {
+      "name": "Calhoun County",
+      "fips": "45017"
+    },
+    {
+      "name": "Charleston County",
+      "fips": "45019"
+    },
+    {
+      "name": "Cherokee County",
+      "fips": "45021"
+    },
+    {
+      "name": "Chester County",
+      "fips": "45023"
+    },
+    {
+      "name": "Chesterfield County",
+      "fips": "45025"
+    },
+    {
+      "name": "Clarendon County",
+      "fips": "45027"
+    },
+    {
+      "name": "Colleton County",
+      "fips": "45029"
+    },
+    {
+      "name": "Darlington County",
+      "fips": "45031"
+    },
+    {
+      "name": "Dillon County",
+      "fips": "45033"
+    },
+    {
+      "name": "Dorchester County",
+      "fips": "45035"
+    },
+    {
+      "name": "Edgefield County",
+      "fips": "45037"
+    },
+    {
+      "name": "Fairfield County",
+      "fips": "45039"
+    },
+    {
+      "name": "Florence County",
+      "fips": "45041"
+    },
+    {
+      "name": "Georgetown County",
+      "fips": "45043"
+    },
+    {
+      "name": "Greenville County",
+      "fips": "45045"
+    },
+    {
+      "name": "Greenwood County",
+      "fips": "45047"
+    },
+    {
+      "name": "Hampton County",
+      "fips": "45049"
+    },
+    {
+      "name": "Horry County",
+      "fips": "45051"
+    },
+    {
+      "name": "Jasper County",
+      "fips": "45053"
+    },
+    {
+      "name": "Kershaw County",
+      "fips": "45055"
+    },
+    {
+      "name": "Lancaster County",
+      "fips": "45057"
+    },
+    {
+      "name": "Laurens County",
+      "fips": "45059"
+    },
+    {
+      "name": "Lee County",
+      "fips": "45061"
+    },
+    {
+      "name": "Lexington County",
+      "fips": "45063"
+    },
+    {
+      "name": "McCormick County",
+      "fips": "45065"
+    },
+    {
+      "name": "Marion County",
+      "fips": "45067"
+    },
+    {
+      "name": "Marlboro County",
+      "fips": "45069"
+    },
+    {
+      "name": "Newberry County",
+      "fips": "45071"
+    },
+    {
+      "name": "Oconee County",
+      "fips": "45073"
+    },
+    {
+      "name": "Orangeburg County",
+      "fips": "45075"
+    },
+    {
+      "name": "Pickens County",
+      "fips": "45077"
+    },
+    {
+      "name": "Richland County",
+      "fips": "45079"
+    },
+    {
+      "name": "Saluda County",
+      "fips": "45081"
+    },
+    {
+      "name": "Spartanburg County",
+      "fips": "45083"
+    },
+    {
+      "name": "Sumter County",
+      "fips": "45085"
+    },
+    {
+      "name": "Union County",
+      "fips": "45087"
+    },
+    {
+      "name": "Williamsburg County",
+      "fips": "45089"
+    },
+    {
+      "name": "York County",
+      "fips": "45091"
+    }
+  ]
+}

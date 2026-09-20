@@ -1,0 +1,64 @@
+{
+  "state": "VT",
+  "name": "Vermont",
+  "state_fips": "50",
+  "geography_vintage": "Census 2025 Gazetteer",
+  "counties": [
+    {
+      "name": "Addison County",
+      "fips": "50001"
+    },
+    {
+      "name": "Bennington County",
+      "fips": "50003"
+    },
+    {
+      "name": "Caledonia County",
+      "fips": "50005"
+    },
+    {
+      "name": "Chittenden County",
+      "fips": "50007"
+    },
+    {
+      "name": "Essex County",
+      "fips": "50009"
+    },
+    {
+      "name": "Franklin County",
+      "fips": "50011"
+    },
+    {
+      "name": "Grand Isle County",
+      "fips": "50013"
+    },
+    {
+      "name": "Lamoille County",
+      "fips": "50015"
+    },
+    {
+      "name": "Orange County",
+      "fips": "50017"
+    },
+    {
+      "name": "Orleans County",
+      "fips": "50019"
+    },
+    {
+      "name": "Rutland County",
+      "fips": "50021"
+    },
+    {
+      "name": "Washington County",
+      "fips": "50023"
+    },
+    {
+      "name": "Windham County",
+      "fips": "50025"
+    },
+    {
+      "name": "Windsor County",
+      "fips": "50027"
+    }
+  ]
+}

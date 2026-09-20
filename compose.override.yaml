@@ -2,4 +2,4 @@ services:
   api:
     image: jailmap-api:national-20260907
   web:
-    image: jailmap-web:20260916-0057
+    image: jailmap-web:support-inbox-20260920-1040

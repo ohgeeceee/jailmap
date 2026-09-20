@@ -1,0 +1,76 @@
+{
+  "state": "NV",
+  "name": "Nevada",
+  "state_fips": "32",
+  "geography_vintage": "Census 2025 Gazetteer",
+  "counties": [
+    {
+      "name": "Churchill County",
+      "fips": "32001"
+    },
+    {
+      "name": "Clark County",
+      "fips": "32003"
+    },
+    {
+      "name": "Douglas County",
+      "fips": "32005"
+    },
+    {
+      "name": "Elko County",
+      "fips": "32007"
+    },
+    {
+      "name": "Esmeralda County",
+      "fips": "32009"
+    },
+    {
+      "name": "Eureka County",
+      "fips": "32011"
+    },
+    {
+      "name": "Humboldt County",
+      "fips": "32013"
+    },
+    {
+      "name": "Lander County",
+      "fips": "32015"
+    },
+    {
+      "name": "Lincoln County",
+      "fips": "32017"
+    },
+    {
+      "name": "Lyon County",
+      "fips": "32019"
+    },
+    {
+      "name": "Mineral County",
+      "fips": "32021"
+    },
+    {
+      "name": "Nye County",
+      "fips": "32023"
+    },
+    {
+      "name": "Pershing County",
+      "fips": "32027"
+    },
+    {
+      "name": "Storey County",
+      "fips": "32029"
+    },
+    {
+      "name": "Washoe County",
+      "fips": "32031"
+    },
+    {
+      "name": "White Pine County",
+      "fips": "32033"
+    },
+    {
+      "name": "Carson City",
+      "fips": "32510"
+    }
+  ]
+}
