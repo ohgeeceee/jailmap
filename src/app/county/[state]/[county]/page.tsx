@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { prisma } from '@/lib/prisma'
 import { getStateByAbbrev } from '@/lib/states'
+import { slugifyCounty, countyKey } from '@/lib/county-slug'
 import { PublicHeader } from '@/components/site/PublicHeader'
 import { Footer } from '@/components/site/Footer'
 import { Disclaimer } from '@/components/records/Disclaimer'
@@ -24,22 +25,21 @@ interface JurisdictionRow {
   recent_bookings: bigint
 }
 
-export function slugifyCounty(name: string): string {
-  return name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')
-}
-
 async function getJurisdictions(state: string, countySlug: string): Promise<JurisdictionRow[]> {
-  return prisma.$queryRawUnsafe<JurisdictionRow[]>(
+  const rows = await prisma.$queryRawUnsafe<(JurisdictionRow & { county: string })[]>(
     `SELECT j.id::text, j.state, j.county, j.facility_name, j.source_url, j.last_success_at,
        (SELECT count(*) FROM records.inmates i WHERE i.jurisdiction_id=j.id AND i.visibility='public') AS total_bookings,
        (SELECT count(*) FROM records.inmates i WHERE i.jurisdiction_id=j.id AND i.visibility='public'
           AND i.booking_date > now() - interval '48 hours') AS recent_bookings
      FROM records.jurisdictions j
-     WHERE j.enabled AND j.state = $1 AND lower(replace(j.county, ' ', '-')) = $2
+     WHERE j.enabled AND j.state = $1
      ORDER BY j.facility_name`,
     state,
-    countySlug,
   )
+  // Match with the SAME slug rule the sitemap uses (src/lib/county-slug.ts):
+  // DB county names may carry a " County" suffix ("Cassia County" -> slug "cassia").
+  // An ad-hoc SQL replace() disagreed with slugifyCounty and 404'd those pages.
+  return rows.filter((r) => slugifyCounty(r.county) === countySlug)
 }
 
 function formatDate(d: Date | null): string {
@@ -50,7 +50,7 @@ function formatDate(d: Date | null): string {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { state, county } = await params
   const stateInfo = getStateByAbbrev(state.toUpperCase())
-  const countyName = county.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase())
+  const countyName = countyKey(county.replace(/-/g, ' ')).replace(/\b\w/g, (c) => c.toUpperCase())
   if (!stateInfo) return { title: 'County Not Found', robots: { index: false } }
 
   return {
@@ -69,7 +69,9 @@ export default async function CountyPage({ params }: Props) {
   const jurisdictions = await getJurisdictions(abbrev, county)
   if (jurisdictions.length === 0) notFound()
 
-  const countyName = jurisdictions[0].county
+  // DB names may already carry the " County" suffix ("Cassia County"); the
+  // templates below append " County" themselves, so normalize with the shared key.
+  const countyName = countyKey(jurisdictions[0].county).replace(/\b\w/g, (c) => c.toUpperCase())
   const totalRecent = jurisdictions.reduce((sum, j) => sum + Number(j.recent_bookings), 0)
   const totalAll = jurisdictions.reduce((sum, j) => sum + Number(j.total_bookings), 0)
 
@@ -95,7 +97,7 @@ export default async function CountyPage({ params }: Props) {
       {
         '@type': 'DataDownload',
         encodingFormat: 'text/html',
-        contentUrl: `https://jailmap.com/search?state=${abbrev}&county=${encodeURIComponent(countyName)}`,
+        contentUrl: `https://jailmap.com/search?state=${abbrev}&county=${encodeURIComponent(jurisdictions[0].county)}`,
         name: 'Browse current bookings online',
       },
     ],

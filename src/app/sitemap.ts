@@ -1,5 +1,4 @@
 import type { MetadataRoute } from 'next'
-import { US_STATES } from '@/lib/states'
 import { prisma } from '@/lib/prisma'
 import { slugifyCounty } from '@/lib/county-slug'
 
@@ -21,8 +20,21 @@ export const dynamic = 'force-dynamic'
 // it not to index. Only indexable URLs belong here.
 const STATIC_ENTRIES: MetadataRoute.Sitemap = [
   { url: `${BASE}/`, changeFrequency: 'daily', priority: 1.0 },
-  { url: `${BASE}/about`, changeFrequency: 'monthly', priority: 0.5 },
-  { url: `${BASE}/name-removal`, changeFrequency: 'monthly', priority: 0.5 },
+  { url: `${BASE}/jail-roster`, changeFrequency: 'daily', priority: 0.9 },
+  { url: `${BASE}/about`, changeFrequency: 'monthly', priority: 0.6 },
+  { url: `${BASE}/privacy`, changeFrequency: 'monthly', priority: 0.6 },
+  { url: `${BASE}/terms`, changeFrequency: 'monthly', priority: 0.6 },
+  { url: `${BASE}/name-removal`, changeFrequency: 'monthly', priority: 0.7 },
+  { url: `${BASE}/coverage`, changeFrequency: 'daily', priority: 0.7 },
+  { url: `${BASE}/help`, changeFrequency: 'monthly', priority: 0.6 },
+  { url: `${BASE}/states`, changeFrequency: 'daily', priority: 0.9 },
+  { url: `${BASE}/pricing`, changeFrequency: 'monthly', priority: 0.7 },
+  { url: `${BASE}/careers`, changeFrequency: 'monthly', priority: 0.5 },
+  { url: `${BASE}/contact`, changeFrequency: 'monthly', priority: 0.5 },
+  { url: `${BASE}/enterprise`, changeFrequency: 'monthly', priority: 0.6 },
+  { url: `${BASE}/legal`, changeFrequency: 'monthly', priority: 0.5 },
+  { url: `${BASE}/trust-safety`, changeFrequency: 'monthly', priority: 0.5 },
+  { url: `${BASE}/api-docs`, changeFrequency: 'monthly', priority: 0.6 },
 ]
 
 interface CountyRow {
@@ -30,11 +42,39 @@ interface CountyRow {
   county: string
 }
 
+interface StateRow {
+  abbrev: string
+}
+
+// /state/[abbrev] 404s when there is no row in public."State" (the StatePage
+// does a findUnique), so the sitemap must be driven by that table — not the
+// static US_STATES list, which includes DC and would advertise a dead URL.
+async function getIndexedStates(): Promise<StateRow[]> {
+  return prisma.$queryRawUnsafe<StateRow[]>(`SELECT abbrev FROM "public"."State" ORDER BY abbrev`)
+}
+
+// Use the max successful-ingestion timestamp as the sitemap lastmod so it
+// reflects real data freshness instead of the current request time.
+// Fall back to "now" if the ingestion_runs table is empty or unreachable.
+async function getSitemapLastModified(): Promise<Date> {
+  try {
+    const rows = await prisma.$queryRawUnsafe<{ max: Date | null }[]>(
+      `SELECT max(started_at) AS max FROM records.ingestion_runs WHERE status = 'success'`
+    )
+    const ts = rows[0]?.max
+    if (ts instanceof Date && !isNaN(ts.getTime())) return ts
+  } catch (error) {
+    console.error('[sitemap] lastmod query failed:', error)
+  }
+  return new Date()
+}
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const lastModified = new Date()
+  const lastModified = await getSitemapLastModified()
+  const states = await getIndexedStates()
   const entries: MetadataRoute.Sitemap = [
     ...STATIC_ENTRIES.map((e) => ({ ...e, lastModified })),
-    ...US_STATES.map((state) => ({
+    ...states.map((state) => ({
       url: `${BASE}/state/${state.abbrev}`,
       changeFrequency: 'daily' as const,
       priority: 0.8,

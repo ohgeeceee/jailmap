@@ -32,5 +32,5 @@ source-initial.tar.gz
 
 # --- misc ---
 .DS_Store
-states/
+/states/
 __pycache__/
